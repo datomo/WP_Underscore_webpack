@@ -1,0 +1,19 @@
+{
+  "name": "wp_underscore_webpack",
+  "version": "0.0.1",
+  "description": "A simple boilerplate for WP development.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datomo/WP_Underscore_webpack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/datomo/WP_Underscore_webpack/issues"
+  },
+  "homepage": "https://github.com/datomo/WP_Underscore_webpack#readme"
+}
