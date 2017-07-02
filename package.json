@@ -4,7 +4,8 @@
   "description": "A simple boilerplate for WP development.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,16 @@
   "bugs": {
     "url": "https://github.com/datomo/WP_Underscore_webpack/issues"
   },
-  "homepage": "https://github.com/datomo/WP_Underscore_webpack#readme"
+  "homepage": "https://github.com/datomo/WP_Underscore_webpack#readme",
+  "devDependencies": {
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
+    "node-sass": "^4.5.3",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^6.0.6",
+    "script-loader": "^0.7.0",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^2.6.1"
+  }
 }
