@@ -110,6 +110,46 @@ function sp_br_fe_17_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Slide1', 'sp_br_fe_17' ),
+		'id'            => 'slide-1',
+		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Slide2', 'sp_br_fe_17' ),
+		'id'            => 'slide-2',
+		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Slide3', 'sp_br_fe_17' ),
+		'id'            => 'slide-3',
+		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Slide4', 'sp_br_fe_17' ),
+		'id'            => 'slide-4',
+		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 add_action( 'widgets_init', 'sp_br_fe_17_widgets_init' );
 
@@ -160,12 +200,12 @@ require get_template_directory() . '/inc/jetpack.php';
 	* enque scripts
 	*/
 
-add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_scripts' );
+
 function my_theme_enqueue_scripts() {
 	wp_enqueue_script( 'bundle', get_stylesheet_directory_uri() . '/dist/bundle.js', array('jquery'), 1, false );
 	wp_enqueue_style( 'bundle', get_stylesheet_directory_uri() . '/dist/bundle.css', get_stylesheet_uri() );
 }
-
+add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_scripts' );
 /**
 	* enque scripts
 	*/

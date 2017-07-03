@@ -22,7 +22,7 @@
 			<span class="sep"> | </span>
 			<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'sp_br_fe_17' ), 'sp_br_fe_17', '<a href="https://automattic.com/">David Lengweiler</a>' );
+				printf( esc_html__( '%1$s von %2$s %3$s', 'sp_br_fe_17' ), 'Sprungbrätt Festival Allschwil', '<a href="https://davidlengweiler.com/">David Lengweiler</a>', date("Y") );
 			?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
