@@ -19,6 +19,7 @@
   "homepage": "https://github.com/datomo/WP_Underscore_webpack#readme",
   "devDependencies": {
     "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
     "node-sass": "^4.5.3",
     "raw-loader": "^0.5.1",

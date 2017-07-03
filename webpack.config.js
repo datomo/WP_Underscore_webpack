@@ -1,4 +1,5 @@
-var webpack = require('webpack')
+const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = function(env) {
     return {
@@ -17,11 +18,15 @@ module.exports = function(env) {
                 {
                   test: /\.css$/,
                   loader: "style-loader!css-loader",
-                  exclude: /node_modules/},
+                  exclude: /node_modules/
+                },
                 {
                   test: /\.sass$/,
-                  loader: "style-loader!css-loader!sass-loader",
-                  exclude: /node_modules/
+                  use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    //resolve-url-loader may be chained before sass-loader if necessary
+                    use: ['css-loader', 'sass-loader']
+                  })
                 },
                 {
                   test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/,
@@ -29,5 +34,12 @@ module.exports = function(env) {
                 }
             ]
         },
+        plugins: [
+          new ExtractTextPlugin('bundle.css')
+          //if you want to pass in options, you can do so:
+          //new ExtractTextPlugin({
+          //  filename: 'style.css'
+          //})
+        ]
     }
 }
