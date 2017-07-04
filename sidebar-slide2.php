@@ -13,5 +13,7 @@ if ( ! is_active_sidebar( 'slide-2' ) ) {
 ?>
 
 <aside id="slide-2" class="widget-area slide">
-	<?php dynamic_sidebar( 'slide-2' ); ?>
+	<div class="container-simple">
+		<?php dynamic_sidebar( 'slide-2' ); ?>
+	</div>
 </aside><!-- #secondary -->
