@@ -17,10 +17,10 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<?php
-			get_sidebar('slide1');
-			get_sidebar('slide2');
+			get_sidebar('slide-hero');
+			get_sidebar('slide-gallery');
 			get_sidebar('slide3');
-			get_sidebar('slide4');?>
+			get_sidebar('slide-contact');?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

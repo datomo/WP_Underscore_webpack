@@ -1,14 +1,44 @@
-@import "slide01"
-@import "slide02"
+@import "slideHero"
+@import "slideGallery"
+@import "slideContact"
 
 .slide
   position: relative
+  padding-top: 100px
   min-height: 50vh
+
+  &:first-of-type
+    padding-top: 0
+
+  &:last-of-type
+    padding-bottom: 100px
+    margin-bottom: 100px
+
+.widget-title
+  text-align: center
+  margin-bottom: 3rem
 
 .container-simple
   display: inline-block
   // transform: rotate(15.5deg)
   width: 100%
 
+
   .widget
     // transform: rotate(-15.5deg)
+
+
+//vendor
+#bwg_container1_0 #bwg_container2_0 .bwg_standart_thumb_0
+  padding: 25px
+  margin: 20px
+  // transform: rotate(15.5deg)
+  background:
+    color: $darkblue
+
+  .bwg_standart_thumb_spun1_0
+    // transform: rotate(-15.5deg)
+
+  &:hover
+    transform: scale(1.1)
+    transition: 0.2s all
