@@ -13,14 +13,19 @@ if ( ! is_active_sidebar( 'slide-1' ) ) {
 ?>
 
 <aside id="slide-1" class="widget-area slide">
-	<?php dynamic_sidebar( 'slide-1' ); ?>
-
 	<!--start svg-->
-	<div class="badge-holder">
-		<div id="badge_start" class="badge">
-			<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/Date_01.svg" alt="Datum" class="date">
-		</div>
+	<div class="banner" id="banner_start">
+		<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/banner.svg" alt="Banner">
 	</div>
+
+	<div id="badge_start" class="badge">
+		<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/badge.svg" alt="Datum" class="date">
+	</div>
+
 	<!--end svg-->
+	<div class="widget-start">
+		<?php dynamic_sidebar( 'slide-1' ); ?>
+	</div>
+
 
 </aside><!-- #secondary -->

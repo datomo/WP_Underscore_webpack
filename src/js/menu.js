@@ -12,19 +12,19 @@ jQuery(document).ready(function( jQuery ) {
   var slide4 = jQuery('#link-slide-4')
 
   slide1.click(function() {
-    TweenLite.to(window, 0.2,{scrollTo:{y:"#slide-1", offsetY:70}, autoKill: true})
+    TweenLite.to(window, 0.4,{scrollTo:{y:"#slide-1"}, autoKill: true})
   })
 
   slide2.click(function() {
-    TweenLite.to(window, 0.2,{scrollTo:{y:"#slide-2", offsetY:70}, autoKill: true})
+    TweenLite.to(window, 0.4,{scrollTo:{y:"#slide-2"}, autoKill: true})
   })
 
   slide3.click(function() {
-    TweenLite.to(window, 0.2,{scrollTo:{y:"#slide-3", offsetY:70}, autoKill: true})
+    TweenLite.to(window, 0.4,{scrollTo:{y:"#slide-3"}, autoKill: true})
   })
 
   slide4.click(function() {
-    TweenLite.to(window, 0.2,{scrollTo:{y:"#slide-4", offsetY:70}, autoKill: true})
+    TweenLite.to(window, 0.4,{scrollTo:{y:"#slide-4"}, autoKill: true})
   })
 
 
