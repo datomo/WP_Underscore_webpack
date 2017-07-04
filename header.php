@@ -16,7 +16,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <!-- add custom font -->
-<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 
 <?php wp_head(); ?>
 </head>
@@ -31,8 +31,12 @@
 
 		</div><!-- .site-branding -->
 
+
 		<nav id="site-navigation" class="main-navigation">
-			
+			<a id="link-slide-1" href="#slide-1"><h3>Slide 1</h3></a>
+			<a id="link-slide-2" href="#slide-2"><h3>Slide 2</h3></a>
+			<a id="link-slide-3" href="#slide-3"><h3>Slide 3</h3></a>
+			<a id="link-slide-4" href="#slide-4"><h3>Slide 4</h3></a>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 

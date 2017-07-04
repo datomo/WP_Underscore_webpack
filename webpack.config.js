@@ -29,6 +29,13 @@ module.exports = function(env) {
                   })
                 },
                 {
+                  test: /\.(jpe?g|png|gif|svg)$/i,
+                  loaders: [
+                      'file-loader?hash=sha512&digest=hex&name=[name].[ext]',
+                      'image-webpack-loader'
+                  ]
+                },
+                {
                   test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/,
                   loader: 'url-loader'
                 }

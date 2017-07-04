@@ -7,3 +7,14 @@ require('../sass/main.sass')
 
 //Require scripts
 require('./script')
+
+//require vendor
+require('./vendor/TweenLite.min.js')
+require('script-loader!./vendor/ScrollToPlugin.min.js')
+
+
+//require menu
+require('./menu')
+
+//require img
+require('./img')
