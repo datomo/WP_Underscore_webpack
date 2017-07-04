@@ -16,8 +16,10 @@ if ( ! is_active_sidebar( 'slide-1' ) ) {
 	<?php dynamic_sidebar( 'slide-1' ); ?>
 
 	<!--start svg-->
-	<div id="badge_start" class="badge">
-		<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/Date_01.svg" alt="Datum" class="date">
+	<div class="badge-holder">
+		<div id="badge_start" class="badge">
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/Date_01.svg" alt="Datum" class="date">
+		</div>
 	</div>
 	<!--end svg-->
 
