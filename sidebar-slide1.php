@@ -12,7 +12,7 @@ if ( ! is_active_sidebar( 'slide-1' ) ) {
 }
 ?>
 
-<aside id="slide-1" class="widget-area slide">
+<aside id="slide-1" class="widget-area slide clearfix">
 	<!--start svg-->
 	<div class="banner" id="banner_start">
 		<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/banner.svg" alt="Banner">
