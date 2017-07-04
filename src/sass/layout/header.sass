@@ -1,6 +1,19 @@
 nav
   position: fixed
-  text-align: left
-  right: 0
-  top: 50vh
-  transform: translateY(-50%)
+  z-index: 99
+  text-align: center
+  top: 0
+  width: 100%
+  background:
+    color: $darkblue
+
+  a
+    display: inline-block
+    padding: 10px 20px 10px
+
+    &:hover
+      h3
+        color: $yellow
+
+    h3
+      color: $white
