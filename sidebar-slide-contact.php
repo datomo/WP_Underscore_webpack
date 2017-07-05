@@ -11,18 +11,21 @@
 // 	return;
 // }
 ?>
-<h2 class="widget-title">Kontakt</h2>
 <div class="contact-holder clearfix" id="slide-contact">
-	<div class="contact-left contact-widget">
-		<aside id="slide-contact-left" class="widget-area">
-			<?php dynamic_sidebar( 'slide-contact-left' ); ?>
-		</aside><!-- #secondary -->
+	<h2 class="widget-title">Kontakt</h2>
+	<div class="contact-back">
+		<div class="contact-left contact-widget">
+			<aside id="slide-contact-left" class="widget-area">
+				<?php dynamic_sidebar( 'slide-contact-left' ); ?>
+			</aside><!-- #secondary -->
+		</div>
+
+		<div class="contact-right contact-widget">
+			<aside id="slide-contact-right" class="widget-area">
+				<?php dynamic_sidebar( 'slide-contact-right' ); ?>
+			</aside><!-- #secondary -->
+		</div>
+
 	</div>
 
-
-	<div class="contact-right contact-widget">
-		<aside id="slide-contact-right" class="widget-area">
-			<?php dynamic_sidebar( 'slide-contact-right' ); ?>
-		</aside><!-- #secondary -->
-	</div>
 </div>

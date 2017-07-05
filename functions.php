@@ -229,3 +229,11 @@ add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_scripts' );
 /**
 	* enque scripts
 	*/
+
+	// The proper way to enqueue GSAP script
+	// wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer );
+	function theme_gsap_script() {
+	    wp_enqueue_script( 'gsap-js', 'http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js', array(), false, true );
+	    wp_enqueue_script( 'gsap-js', get_template_directory_uri() . '/dist/bundle.js', array('jquery'), 1, true );
+	}
+	add_action( 'wp_enqueue_scripts', 'theme_gsap_script' );

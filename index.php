@@ -18,8 +18,8 @@ get_header(); ?>
 		<main id="main" class="site-main">
 			<?php
 			get_sidebar('slide-hero');
-			get_sidebar('slide-gallery');
 			get_sidebar('slide-acts');
+			get_sidebar('slide-gallery');
 			get_sidebar('slide-contact');?>
 
 		</main><!-- #main -->

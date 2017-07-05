@@ -11,22 +11,23 @@ if ( ! is_active_sidebar( 'slide-hero' ) ) {
 	return;
 }
 ?>
+<div id="slide-hero">
+	<aside class="widget-area slide clearfix">
+		<!-- <p class="mini-titel">Das Freizeithaus und die refomierte Kirchgemeinede Allschwil präsentieren</p> -->
+		<!--start svg-->
+		<div class="banner" id="banner_start">
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/banner.svg" alt="Banner">
+		</div>
 
-<aside id="slide-hero" class="widget-area slide clearfix">
-	<!-- <p class="mini-titel">Das Freizeithaus und die refomierte Kirchgemeinede Allschwil präsentieren</p> -->
-	<!--start svg-->
-	<div class="banner" id="banner_start">
-		<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/banner.svg" alt="Banner">
-	</div>
+		<div id="badge-start" class="badge">
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/badge.svg" alt="Datum" class="date">
+		</div>
 
-	<div id="badge-start" class="badge">
-		<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/badge.svg" alt="Datum" class="date">
-	</div>
-
-	<!--end svg-->
-	<div class="widget-start">
-		<?php dynamic_sidebar( 'slide-hero' ); ?>
-	</div>
+		<!--end svg-->
+		<div class="widget-start">
+			<?php dynamic_sidebar( 'slide-hero' ); ?>
+		</div>
 
 
-</aside><!-- #secondary -->
+	</aside><!-- #secondary -->
+</div>

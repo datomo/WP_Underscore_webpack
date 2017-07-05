@@ -2,31 +2,24 @@
 require('./vendor/TweenLite.min.js')
 require('script-loader!./vendor/ScrollToPlugin.min.js')
 
-jQuery(document).ready(function( jQuery ) {
+jQuery(document).ready(function(){
 
-  console.log("test")
+  // console.log("test0")
+  // TweenLite.to(jQuery(".img-frame"), 10, {rotation: 360})
+  // console.log(jQuery(".img-frame"))
 
-  var slide1 = jQuery('#link-slide-1')
-  var slide2 = jQuery('#link-slide-2')
-  var slide3 = jQuery('#link-slide-3')
-  var slide4 = jQuery('#link-slide-4')
+  var $menu = jQuery('#site-navigation')
+  var $window = jQuery(window)
 
-  slide1.click(function() {
-    TweenLite.to(window, 0.4,{scrollTo:{y:"#slide-1"}, autoKill: true})
+  $menu.on("click", "div", function() {
+    var $this = jQuery(this),
+        href = $this.attr("rel"),
+        topY = jQuery(href).offset().top;
+
+    // TweenLite.to(jQuery("p"),1, {scale: 2, color: "blue"})
+    TweenLite.to(window, 1,{scrollTo:{y:topY, offsetY: 100}, ease:Power2.easeOut})
+    console.log(href)
+    console.log(topY)
   })
 
-  slide2.click(function() {
-    TweenLite.to(window, 0.4,{scrollTo:{y:"#slide-2"}, autoKill: true})
-  })
-
-  slide3.click(function() {
-    TweenLite.to(window, 0.4,{scrollTo:{y:"#slide-3"}, autoKill: true})
-  })
-
-  slide4.click(function() {
-    TweenLite.to(window, 0.4,{scrollTo:{y:"#slide-4"}, autoKill: true})
-  })
-
-
-  jQuery("#test").html("jQuery says Hello World");
 });

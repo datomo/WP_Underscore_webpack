@@ -11,8 +11,9 @@ if ( ! is_active_sidebar( 'slide-acts' ) ) {
 	return;
 }
 ?>
-
-<aside id="slide-acts" class="widget-area slide clearfix">
-	<h2 class="widget-title">Acts</h2>
-	<?php dynamic_sidebar( 'slide-acts' ); ?>
-</aside><!-- #secondary -->
+<div id="slide-acts">
+	<aside class="widget-area slide clearfix">
+		<h2 class="widget-title">Acts</h2>
+		<?php dynamic_sidebar( 'slide-acts' ); ?>
+	</aside><!-- #secondary -->
+</div>

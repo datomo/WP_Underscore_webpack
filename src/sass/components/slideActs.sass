@@ -17,11 +17,42 @@
       margin-bottom: 20px
 
     p
-      float: right
+      float: left
       width: 50%
       padding: 20px
+      padding-top: 0
+      text-align: justify
 
-      img
-        float: left
-        height: 100%
+
+
+    .img-holder
+      margin-top: 1.5rem
+      padding: 40px
+      width: 50%
+      display: inline-block
+
+      .img-frame
+        background:
+          color: $yellow
+        transform: rotate(10deg)
+        padding: 20px
+        display: inline-block
+
+        img
+          float: left
+          height: 100%
+          width: 100%
+
+    @media screen and (max-width: 900px)
+      p
+        width: 100%
+
+      .img-holder
+        width: 80%
+        left: 10%
+        position: relative
+
+    @media screen and (max-width: 600px)
+      .img-holder
+        left: 0
         width: 100%
