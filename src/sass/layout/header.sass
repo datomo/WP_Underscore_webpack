@@ -18,3 +18,53 @@ nav
 
     h3
       color: $white
+
+#masthead
+
+
+#masthead-mobile
+  display: none
+
+@media screen and (max-width: 610px)
+  #masthead
+    display: none
+
+  #masthead-mobile
+    display: block
+
+    &.closed
+      div
+        display: none
+
+      .hamburger
+        display: inline-block
+
+        .cross
+          // display: none
+
+
+    div
+      width: 100%
+
+      h3
+        margin: 0
+        margin: 10px
+
+    .hamburger
+      padding: 20px
+      float: right
+      display: inline-block
+      width: auto
+
+      svg
+        cursor: pointer
+
+        .cross
+          transform-origin: 50% 50%
+          display: none
+
+        .cross-bottom
+          transform: rotate(45deg)
+
+        .cross-top
+          transform: rotate(-45deg)

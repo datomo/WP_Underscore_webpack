@@ -22,4 +22,29 @@ jQuery(document).ready(function(){
     console.log(topY)
   })
 
+
+  var $burger = jQuery('#burger')
+  var $menu = jQuery('#masthead-mobile')
+
+  var tl = new TimelineMax({paused: true})
+  .set('#menu', {className:"-=closed"})
+  .set('#menu', {className:"+=open"})
+  // tl.set(".cross-top",{rotation:45})
+  // tl.set(".cross-bottom",{rotation:-45})
+  tl.staggerTo($burger.children(".text"), 0.1, {scaleX: 0}, 0.1)
+  tl.to(".cross", 0.2,{ display:"block"})
+
+
+  $burger.click(function(){
+    if($menu.hasClass("closed")){
+      TweenMax.set($menu, {className:"-=closed"})
+      tl.play()
+      console.log("closed")
+    }else {
+      TweenMax.set($menu, {className:"+=closed"})
+      tl.reverse()
+      console.log("open")
+    }
+  })
+
 });
