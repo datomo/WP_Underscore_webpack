@@ -33,6 +33,11 @@
 			<div id="link-slide-acts" rel="#slide-acts"><h3>Acts</h3></div>
 			<div id="link-slide-gallery" rel="#slide-gallery"><h3>Impressionen</h3></div>
 			<div id="link-slide-contact" rel="#slide-contact"><h3>Kontakt</h3></div>
+			<div class="faceboot-logo">
+				<a href="https://www.facebook.com/sprungbraett/" target="_blank" rel="noopener" >
+					<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/fb.png" alt="">
+				</a>
+			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
@@ -53,6 +58,11 @@
 			<div id="link-slide-acts" rel="#slide-acts"><h3>Acts</h3></div>
 			<div id="link-slide-gallery" rel="#slide-gallery"><h3>Impressionen</h3></div>
 			<div id="link-slide-contact" rel="#slide-contact"><h3>Kontakt</h3></div>
+			<div class="faceboot-logo">
+				<a href="https://www.facebook.com/sprungbraett/" target="_blank" rel="noopener" >
+					<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/fb.png" alt="">
+				</a>
+			</div>
 		</nav><!-- #site-navigation -->
 	</div><!-- #masthead -->
 

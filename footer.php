@@ -15,11 +15,11 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'sp_br_fe_17' ) ); ?>"><?php
+			<!-- <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'sp_br_fe_17' ) ); ?>"><?php
 				/* translators: %s: CMS name, i.e. WordPress. */
 				printf( esc_html__( 'Proudly powered by %s', 'sp_br_fe_17' ), 'WordPress' );
 			?></a>
-			<span class="sep"> | </span>
+			<span class="sep"> | </span> -->
 			<?php
 				/* translators: 1: Theme name, 2: Theme author. */
 				printf( esc_html__( '%1$s von %2$s %3$s', 'sp_br_fe_17' ), 'Sprungbrätt Festival Allschwil', '<a href="https://davidlengweiler.com/">David Lengweiler</a>', date("Y") );
