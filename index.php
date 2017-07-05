@@ -19,7 +19,7 @@ get_header(); ?>
 			<?php
 			get_sidebar('slide-hero');
 			get_sidebar('slide-gallery');
-			get_sidebar('slide3');
+			get_sidebar('slide-acts');
 			get_sidebar('slide-contact');?>
 
 		</main><!-- #main -->

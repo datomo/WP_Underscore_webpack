@@ -34,9 +34,9 @@
 
 		<nav id="site-navigation" class="main-navigation">
 			<a id="link-slide-1" href="#slide-1"><h3>Start</h3></a>
-			<a id="link-slide-2" href="#slide-2"><h3>Slide 2</h3></a>
+			<a id="link-slide-2" href="#slide-2"><h3>Imporessionen</h3></a>
 			<a id="link-slide-3" href="#slide-3"><h3>Slide 3</h3></a>
-			<a id="link-slide-4" href="#slide-4"><h3>Slide 4</h3></a>
+			<a id="link-slide-4" href="#slide-4"><h3>Kontakt</h3></a>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 

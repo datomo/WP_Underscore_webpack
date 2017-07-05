@@ -112,8 +112,8 @@ function sp_br_fe_17_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Slide1', 'sp_br_fe_17' ),
-		'id'            => 'slide-1',
+		'name'          => esc_html__( 'SlideHero', 'sp_br_fe_17' ),
+		'id'            => 'slide-hero',
 		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
@@ -122,8 +122,8 @@ function sp_br_fe_17_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Slide2', 'sp_br_fe_17' ),
-		'id'            => 'slide-2',
+		'name'          => esc_html__( 'SlideGallery', 'sp_br_fe_17' ),
+		'id'            => 'slide-gallery',
 		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
@@ -132,8 +132,18 @@ function sp_br_fe_17_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Slide3', 'sp_br_fe_17' ),
-		'id'            => 'slide-3',
+		'name'          => esc_html__( 'SlideActs', 'sp_br_fe_17' ),
+		'id'            => 'slide-acts',
+		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'SlideContact', 'sp_br_fe_17' ),
+		'id'            => 'slide-contact',
 		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',

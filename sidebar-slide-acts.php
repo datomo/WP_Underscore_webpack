@@ -7,11 +7,12 @@
  * @package Sprungbrätt_Festival_17
  */
 
-if ( ! is_active_sidebar( 'slide-3' ) ) {
+if ( ! is_active_sidebar( 'slide-acts' ) ) {
 	return;
 }
 ?>
 
-<aside id="slide-3" class="widget-area slide">
-	<?php dynamic_sidebar( 'slide-3' ); ?>
+<aside id="slide-acts" class="widget-area slide clearfix">
+	<h2 class="widget-title">Acts</h2>
+	<?php dynamic_sidebar( 'slide-acts' ); ?>
 </aside><!-- #secondary -->

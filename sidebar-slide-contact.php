@@ -7,12 +7,12 @@
  * @package Sprungbrätt_Festival_17
  */
 
-if ( ! is_active_sidebar( 'slide-4' ) ) {
-	return;
-}
+// if ( ! is_active_sidebar( 'slide-contact' ) ) {
+// 	return;
+// }
 ?>
 <h2 class="widget-title">Kontakt</h2>
-<div class="contact-holder clearfix" id="slide-4">
+<div class="contact-holder clearfix" id="slide-contact">
 	<div class="contact-left contact-widget">
 		<aside id="slide-contact-left" class="widget-area">
 			<?php dynamic_sidebar( 'slide-contact-left' ); ?>
