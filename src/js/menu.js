@@ -8,18 +8,26 @@ jQuery(document).ready(function(){
   // TweenLite.to(jQuery(".img-frame"), 10, {rotation: 360})
   // console.log(jQuery(".img-frame"))
 
-  var $menu = jQuery('#site-navigation')
+  var $menu1 = jQuery('#site-navigation')
+  var $menu2 = jQuery('#site-navigation-mobile')
   var $window = jQuery(window)
 
-  $menu.on("click", "div", function() {
+  $menu1.on("click", "div", function() {
     var $this = jQuery(this),
         href = $this.attr("rel"),
         topY = jQuery(href).offset().top;
 
     // TweenLite.to(jQuery("p"),1, {scale: 2, color: "blue"})
     TweenLite.to(window, 1,{scrollTo:{y:topY, offsetY: 100}, ease:Power2.easeOut})
-    console.log(href)
-    console.log(topY)
+  })
+
+  $menu2.on("click", "div", function() {
+    var $this = jQuery(this),
+        href = $this.attr("rel"),
+        topY = jQuery(href).offset().top;
+
+    // TweenLite.to(jQuery("p"),1, {scale: 2, color: "blue"})
+    TweenLite.to(window, 1,{scrollTo:{y:topY, offsetY: 100}, ease:Power2.easeOut})
   })
 
 
