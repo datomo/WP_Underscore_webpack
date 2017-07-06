@@ -1,9 +1,10 @@
 nav
   position: fixed
   z-index: 99
+  width: 100%
+  left: 0
   text-align: center
   top: 0
-  width: 100%
   background:
     color: $darkblue
 
@@ -11,6 +12,10 @@ nav
     display: inline-block
     padding: 10px 20px 10px
     cursor: pointer
+
+    h3
+      margin: 0
+      padding: 0
 
     &:hover
       h3
@@ -28,7 +33,7 @@ nav
 .faceboot-logo
   height: 1.3rem
   padding: 0
-  padding-left: 20px
+  padding-left: 15px
   display: inline-block
   position: relative
   top: -8px
@@ -45,6 +50,7 @@ nav
 
   #masthead-mobile
     display: block
+    width: 100%
 
     &.closed
       div
