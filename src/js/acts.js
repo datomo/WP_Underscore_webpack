@@ -1,5 +1,7 @@
 function openTab(evt, tabName) {
   var i, tabcontent, tablinks
+  //
+  // console.log(tabName)
 
   tabcontent = document.getElementsByClassName("tabcontent")
   for (i = 0; i < tabcontent.length; i ++){
@@ -11,6 +13,18 @@ function openTab(evt, tabName) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
 
-  jQuery(tabName).style.display = block
+  document.getElementById(tabName).style.display = "block"
   evt.currentTarget.className += " active";
 }
+
+jQuery(document).ready(function() {
+  jQuery("#link-acts").on("click", function() {
+    openTab(event, "acts")
+  })
+  jQuery("#link-tanz").on("click", function() {
+    openTab(event, "tanz")
+  })
+  jQuery("#link-slam").on("click", function() {
+    openTab(event, "slam")
+  })
+})

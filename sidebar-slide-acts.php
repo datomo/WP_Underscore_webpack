@@ -12,10 +12,20 @@ if ( ! is_active_sidebar( 'slide-acts-bands' ) ) {
 }
 ?>
 <div id="slide-acts">
+	<h2 class="widget-title">Programm</h2>
 	<div class="tab">
-	  <button  class="tablinks" onclick="openTab(event, 'acts')"><h3>Auftritte</h3></button>
-	  <button  class="tablinks" onclick="openTab(event, 'tanz')"><h3>Tanz</h3></button>
-	  <button  class="tablinks" onclick="openTab(event, 'slam')"><h3>Slam</h3></button>
+	  <button  class="tablinks" id="link-acts">
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/Speaker.svg" alt="">
+			<h3>Auftritte</h3>
+		</button>
+	  <button  class="tablinks" id="link-tanz">
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/Tanz.svg" alt="">
+			<h3>Tanz</h3>
+		</button>
+	  <button  class="tablinks" id="link-slam">
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/Mic.svg" alt="">
+			<h3>Slam</h3>
+		</button>
 	</div>
 
 	<div class="tabcontent" id="acts">
