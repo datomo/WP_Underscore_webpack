@@ -16,5 +16,8 @@ require('script-loader!./vendor/ScrollToPlugin.min.js')
 //require menu
 require('./menu')
 
+//require menu
+require('./acts')
+
 //require img
 require('./img')
