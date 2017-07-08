@@ -7,7 +7,7 @@
  * @package Sprungbrätt_Festival_17
  */
 
-if ( ! is_active_sidebar( 'slide-acts' ) ) {
+if ( ! is_active_sidebar( 'slide-acts-bands' ) ) {
 	return;
 }
 ?>
