@@ -44,13 +44,13 @@
 	<div id="masthead-mobile" class="site-header-mobile closed">
 		<nav id="site-navigation-mobile" class="main-navigation">
 			<div class="hamburger">
-				<svg width="50" height="40" id="burger">
-				  <rect class="text" y="0" width="50" height="4" rx="2" fill="white"/>
-				  <rect class="text" y="12" width="40" height="4" rx="2" fill="white"/>
-				  <rect class="text" y="24" width="50" height="4" rx="2" fill="white"/>
-				  <rect class="text" y="36" width="30" height="4" rx="2" fill="white"/>
-				  <rect class="cross cross-top" y="16" rx="2" width="50" height="4" rx="2" fill="white"/>
-				  <rect class="cross cross-bottom" y="16" rx="2" width="50" height="4" rx="2" fill="white"/>
+				<svg width="40" height="30" id="burger">
+				  <rect class="text" y="0" width="40" height="4" rx="2" fill="white"/>
+				  <rect class="text" y="8" width="30" height="4" rx="2" fill="white"/>
+				  <rect class="text" y="18" width="40" height="4" rx="2" fill="white"/>
+				  <rect class="text" y="26" width="20" height="4" rx="2" fill="white"/>
+				  <rect class="cross cross-top" y="14" rx="2" width="40" height="4" rx="2" fill="white"/>
+				  <rect class="cross cross-bottom" y="14" rx="2" width="40" height="4" rx="2" fill="white"/>
 				</svg>
 			</div>
 
