@@ -1,11 +1,16 @@
+$max-width-img: 500px
 #slide-acts
+  .band-frame
+    display: inline-block
+    position: relative
 
   .widget-title
 
   .widget_custom_post_widget
-    background:
-      color: $darkblue
+    // background:
+    //   color: $darkblue
     padding: 10px
+    border-radius: $border-radius
     margin-bottom: 40px
 
     &:after
@@ -17,32 +22,45 @@
       margin-bottom: 20px
 
     p
-      float: left
-      width: 50%
+      float: right
+      position: relative
+      z-index: 1
+      width: 30%
+      margin-top: 0
+      // margin-top: ($max-width-img/2 + 100px)
       padding: 20px
-      padding-top: 0
       text-align: justify
+      background:
+        color: $darkblue
+      border-radius: $border-radius
 
 
 
     .img-holder
-      margin-top: 1.5rem
-      padding: 40px
-      width: 50%
+      // margin-top: 1.5rem
+      // padding: 40px
+      height: 100%
+      width: 70%
+      position: relative
+      z-index: 0
+      left: 0
       display: inline-block
       text-align: center
 
       .img-frame
-        background:
-          color: $yellow
-        transform: rotate(10deg)
-        padding: 20px
+        // background:
+        //   color: $yellow
+        border-radius: $border-radius
+        // transform: rotate(10deg)
+        // padding: 20px
         display: inline-block
 
         img
-          float: left
           height: 100%
           width: 100%
+          position: relative
+          object-fit: cover
+
 
     @media screen and (max-width: 900px)
       p
