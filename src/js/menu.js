@@ -26,21 +26,20 @@ jQuery(document).ready(function(){
   var tl = new TimelineMax({paused: true})
   .set($menu1, {className:"-=closed"})
   .set($menu1, {className:"+=open"})
-  .set(".link",{yPercent: -200, autoAlpha: 0})
-  tl.staggerTo(".link", 0.2, {yPercent: 0, autoAlpha: 1}, 0.2)
+  tl.staggerFromTo(".link", 0.1, {yPercent: -200, autoAlpha: 0},{yPercent: 0, autoAlpha: 1}, 0.1, "start")
   // tl.set(".cross-top",{rotation:45})
   // tl.set(".cross-bottom",{rotation:-45})
-  tl.staggerTo($burger.children(".text"), 0.1, {scaleX: 0}, 0.1)
+  tl.staggerTo($burger.children(".text"), 0.1, {scaleX: 0}, 0.1, "start")
   tl.to(".cross", 0.2,{ display:"block"})
 
 
   $burger.click(function(){
     if($menu1.hasClass("closed")){
-      tl.play()
-      console.log("closed")
+      tl.restart()
+
     }else {
       tl.reverse()
-      console.log("open")
+
     }
   })
 
