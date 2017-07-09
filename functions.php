@@ -132,16 +132,6 @@ function sp_br_fe_17_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'SlideActs', 'sp_br_fe_17' ),
-		'id'            => 'slide-acts',
-		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
-
-	register_sidebar( array(
 		'name'          => esc_html__( 'SlideActsBands', 'sp_br_fe_17' ),
 		'id'            => 'slide-acts-bands',
 		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),

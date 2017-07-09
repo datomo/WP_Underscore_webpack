@@ -8,11 +8,10 @@ jQuery(document).ready(function(){
   // TweenLite.to(jQuery(".img-frame"), 10, {rotation: 360})
   // console.log(jQuery(".img-frame"))
 
-  var $menu1 = jQuery('#site-navigation')
-  var $menu2 = jQuery('#site-navigation-mobile')
+  var $menu = jQuery('#site-navigation')
   var $window = jQuery(window)
 
-  $menu1.on("click", "div", function() {
+  $menu.on("click", "div", function() {
     var $this = jQuery(this),
         href = $this.attr("rel"),
         topY = jQuery(href).offset().top;
@@ -20,23 +19,15 @@ jQuery(document).ready(function(){
     // TweenLite.to(jQuery("p"),1, {scale: 2, color: "blue"})
     TweenLite.to(window, 1,{scrollTo:{y:topY, offsetY: 100}, ease:Power2.easeOut})
   })
-
-  $menu2.on("click", "div", function() {
-    var $this = jQuery(this),
-        href = $this.attr("rel"),
-        topY = jQuery(href).offset().top;
-
-    // TweenLite.to(jQuery("p"),1, {scale: 2, color: "blue"})
-    TweenLite.to(window, 1,{scrollTo:{y:topY, offsetY: 100}, ease:Power2.easeOut})
-  })
-
 
   var $burger = jQuery('#burger')
-  var $menu = jQuery('#masthead-mobile')
+  var $menu1 = jQuery('.main-navigation')
 
   var tl = new TimelineMax({paused: true})
-  .set('#menu', {className:"-=closed"})
-  .set('#menu', {className:"+=open"})
+  .set($menu1, {className:"-=closed"})
+  .set($menu1, {className:"+=open"})
+  .set(".link",{yPercent: -200, autoAlpha: 0})
+  tl.staggerTo(".link", 0.2, {yPercent: 0, autoAlpha: 1}, 0.2)
   // tl.set(".cross-top",{rotation:45})
   // tl.set(".cross-bottom",{rotation:-45})
   tl.staggerTo($burger.children(".text"), 0.1, {scaleX: 0}, 0.1)
@@ -44,12 +35,10 @@ jQuery(document).ready(function(){
 
 
   $burger.click(function(){
-    if($menu.hasClass("closed")){
-      TweenMax.set($menu, {className:"-=closed"})
+    if($menu1.hasClass("closed")){
       tl.play()
       console.log("closed")
     }else {
-      TweenMax.set($menu, {className:"+=closed"})
       tl.reverse()
       console.log("open")
     }

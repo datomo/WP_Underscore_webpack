@@ -14,7 +14,7 @@ if ( ! is_active_sidebar( 'slide-acts-bands' ) ) {
 <div id="slide-acts">
 	<h2 class="widget-title">Programm</h2>
 	<div class="tab">
-	  <button  class="tablinks" id="link-acts">
+	  <button  class="tablinks active" id="link-acts">
 			<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/Speaker.svg" alt="">
 			<h3>Auftritte</h3>
 		</button>

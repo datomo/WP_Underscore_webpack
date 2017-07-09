@@ -1,5 +1,6 @@
-nav
+.site-header
   position: fixed
+  display: inline-block
   z-index: 99
   width: 100%
   left: 0
@@ -8,84 +9,98 @@ nav
   background:
     color: $darkblue
 
-  div
+  @media screen and (max-width: 715px)
+    background:
+      color: transparent
+
+    .hamburger
+      display: inline-block
+      float: right
+      background:
+        color: $darkblue
+    .main-navigation
+      &.closed
+        display: none
+
+      &.open
+        display: inline-block
+        position: absolute
+        top: 50px
+        left: 0px
+        width: 100%
+
+        .link
+          width: 100%
+          padding: 20px
+          background:
+            color: $darkblue
+
+        .faceboot-logo
+          padding: 0
+
+  // nav
+  //   background:
+  //     color: $darkblue
+  //   position: fixed
+  //   top: 0
+  .link
     display: inline-block
-    padding: 10px 20px 10px
-    cursor: pointer
+    padding: 10px 20px
+
+
+    &.faceboot-logo
+      height: 1.3rem
+      padding: 0
+      padding-left: 15px
+      display: inline-block
+      position: relative
+      top: -8px
 
     h3
       margin: 0
       padding: 0
+      cursor: pointer
 
     &:hover
       h3
         color: $yellow
 
-    h3
-      color: $white
-
-#masthead
+  h3
+    color: $white
 
 
-#masthead-mobile
-  display: none
 
-.faceboot-logo
-  height: 1.3rem
-  padding: 0
-  padding-left: 15px
+a
+  margin: 0
+
+  img
+    height: 100%
+
+.ham-background
+  width: 100%
   display: inline-block
-  position: relative
-  top: -8px
+  background:
+    color: $darkblue
 
-  a
-    margin: 0
+.hamburger
+  padding: 10px
+  float: right
+  display: none
+  width: auto
+  margin-right: 10px
 
-    img
-      height: 100%
+  svg
+    cursor: pointer
 
-@media screen and (max-width: 610px)
-  #masthead
-    display: none
+    .cross
+      transform-origin: 50% 50%
+      display: none
 
-  #masthead-mobile
-    display: block
-    width: 100%
+    .cross-bottom
+      transform: rotate(45deg)
 
-    &.closed
-      div
-        display: none
+    .cross-top
+      transform: rotate(-45deg)
 
-      .hamburger
-        display: inline-block
-
-        .cross
-          // display: none
-
-
-    div
-      width: 100%
-
-      h3
-        margin: 0
-        margin: 10px
-
-    .hamburger
-      padding: 10px
-      float: right
-      display: inline-block
-      width: auto
-      margin-right: 30px
-
-      svg
-        cursor: pointer
-
-        .cross
-          transform-origin: 50% 50%
-          display: none
-
-        .cross-bottom
-          transform: rotate(45deg)
-
-        .cross-top
-          transform: rotate(-45deg)
+  .main-navigation
+    display: inline-block
