@@ -33,7 +33,6 @@ $height-pic: 400px
       text-align: justify
       background:
         color: $darkblue
-      border-radius: $border-radius
 
 
 
@@ -53,6 +52,9 @@ $height-pic: 400px
         width: 100%
         position: relative
         object-fit: cover
+
+        &.middle-top
+          object-position: 50% 20%
 
 
     @media screen and (max-width: 900px)
@@ -80,7 +82,7 @@ $height-pic: 400px
       width: 30%
 
       img
-        height: 200px
+        height: 100px
         margin: 10px 50px 10px 50px
 
       @media screen and (max-width: 950px)
