@@ -1,31 +1,31 @@
-$max-width-img: 500px
+$height-pic: 400px
 #slide-acts
-  .band-frame
-    display: inline-block
-    position: relative
-
-  .widget-title
 
   .widget_custom_post_widget
     // background:
     //   color: $darkblue
-    padding: 10px
+    position: relative
+    // padding: 10px
     border-radius: $border-radius
     margin-bottom: 40px
 
-    &:after
-      content: ""
-      display: table
-      clear: both
-
     .widget-title
-      margin-bottom: 20px
+      position: absolute
+      top: $height-pic
+      left: 0
+      z-index: 1
+      background:
+        color: $darkblue
+      padding: 20px
+      margin: 0
+      display: inline-block
+      transform: translateY(-100%)
 
     p
       float: right
       position: relative
       z-index: 1
-      width: 30%
+      width: 100%
       margin-top: 0
       // margin-top: ($max-width-img/2 + 100px)
       padding: 20px
@@ -40,26 +40,18 @@ $max-width-img: 500px
       // margin-top: 1.5rem
       // padding: 40px
       height: 100%
-      width: 70%
+      width: 100%
       position: relative
       z-index: 0
       left: 0
       display: inline-block
       text-align: center
 
-      .img-frame
-        // background:
-        //   color: $yellow
-        border-radius: $border-radius
-        // transform: rotate(10deg)
-        // padding: 20px
-        display: inline-block
-
-        img
-          height: 100%
-          width: 100%
-          position: relative
-          object-fit: cover
+      img
+        height: $height-pic
+        width: 100%
+        position: relative
+        object-fit: cover
 
 
     @media screen and (max-width: 900px)
@@ -67,14 +59,15 @@ $max-width-img: 500px
         width: 100%
 
       .img-holder
-        width: 80%
-        left: 10%
         position: relative
 
     @media screen and (max-width: 600px)
       .img-holder
         left: 0
         width: 100%
+
+        img
+          height: ($height-pic * 0.75)
   .tab
     text-align: center
 
