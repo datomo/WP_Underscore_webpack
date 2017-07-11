@@ -17,7 +17,12 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<?php
-			get_sidebar('slide-hero');
+			//check if first slide is selected
+			if (get_theme_mod( 'slide_1' ) ) {
+				get_sidebar('slide-hero');
+			}
+
+
 			get_sidebar('slide-acts');
 			get_sidebar('slide-gallery');
 			get_sidebar('slide-contact');?>
