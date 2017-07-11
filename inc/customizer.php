@@ -11,9 +11,11 @@
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function sp_br_fe_17_customize_register( $wp_customize ) {
+
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	// $wp_customize->get_setting( 'test_setting' )->transport  = 'postMessage';
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(

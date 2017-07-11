@@ -214,40 +214,6 @@ add_action( 'wp_enqueue_scripts', 'sp_br_fe_17_scripts' );
 	*Custom menu link for theme settings
 	*/
 
-add_action('admin_menu', 'theme_options_settings_menu');
-
-function theme_options_settings_menu() {
-add_menu_page('Tweet Link Settings', 'Tweet Link', 'manage_options', 'theme_options-settings', 'theme_options_settings_page', 'dashicons-slide');
-}
-
-
-add_action( 'admin_init', 'theme_options_settings' );
-
-function theme_options_settings() {
-	register_setting( 'theme_options_settings', 'slide_account' );
-}
-function theme_options_settings_page() {
-?>
-<div class="wrap">
-<h2>Tweet Link Settings</h2>
-
-<form method="post" action="options.php">
-    <?php settings_fields( 'theme_options_settings' ); ?>
-    <?php do_settings_sections( 'theme_options_settings' ); ?>
-    <table class="form-table">
-        <tr valign="top">
-        <th scope="row">slide Account</th>
-        <td><input type="text" name="slide_account" value="<?php echo esc_attr( get_option('slide_account') ); ?>" /></td>
-        </tr>
-    </table>
-
-    <?php submit_button(); ?>
-
-</form>
-</div>
-
-<?php
-}
 
 /**
  * Implement the Custom Header feature.

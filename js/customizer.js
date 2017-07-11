@@ -7,6 +7,12 @@
  */
 
 ( function( $ ) {
+	// Site title and description.
+	wp.customize( 'test_setting', function( value ) {
+		value.bind( function( to ) {
+			$( '.test-setting' ).text( to );
+		} );
+	} );
 
 	// Site title and description.
 	wp.customize( 'blogname', function( value ) {
