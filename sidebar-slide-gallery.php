@@ -14,7 +14,6 @@ if ( ! is_active_sidebar( 'slide-gallery' ) ) {
 
 <aside id="slide-gallery" class="widget-area slide">
 
-
 	<div class="container-simple">
 		<?php dynamic_sidebar( 'slide-gallery' ); ?>
 	</div>

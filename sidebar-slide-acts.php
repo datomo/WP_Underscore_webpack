@@ -13,10 +13,11 @@ if ( ! is_active_sidebar( 'slide-acts-bands' ) ) {
 ?>
 <div id="slide-acts">
 	<h2 class="widget-title">Programm</h2>
+	<?php echo get_option('slide_account'); ?>
 	<div class="tab">
 	  <button  class="tablinks active" id="link-acts">
 			<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/Speaker.svg" alt="">
-			<h3>Musik</h3> 
+			<h3>Musik</h3>
 		</button>
 	  <button  class="tablinks" id="link-tanz">
 			<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/Tanz.svg" alt="">
