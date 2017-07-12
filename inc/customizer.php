@@ -20,7 +20,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'default' => 4
 	) );
 
-	// add control for page comment toggle checkbox
+	// add control for amount of slides
 	$wp_customize->add_control( 'slide_amount', array(
 		'label'     => __( 'How many slides are needed?', 'sp_br_fe_17' ),
 		'section'   => 'sp_br_fe_17_content_options_section',

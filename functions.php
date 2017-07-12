@@ -113,7 +113,7 @@ function sp_br_fe_17_widgets_init() {
 
 	if(get_theme_mod('slide_1')){
 		register_sidebar( array(
-			'name'          => esc_html__( 'SlideHero', 'sp_br_fe_17' ),
+			'name'          => esc_html__( 'Slide Hero', 'sp_br_fe_17' ),
 			'id'            => 'slide-hero',
 			'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -124,7 +124,7 @@ function sp_br_fe_17_widgets_init() {
 	}
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'SlideGallery', 'sp_br_fe_17' ),
+		'name'          => esc_html__( 'Slide Gallery', 'sp_br_fe_17' ),
 		'id'            => 'slide-gallery',
 		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -134,7 +134,7 @@ function sp_br_fe_17_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'SlideActsBands', 'sp_br_fe_17' ),
+		'name'          => esc_html__( 'Slide Acts Bands', 'sp_br_fe_17' ),
 		'id'            => 'slide-acts-bands',
 		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -144,7 +144,7 @@ function sp_br_fe_17_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'SlideActsTanz', 'sp_br_fe_17' ),
+		'name'          => esc_html__( 'Slide Acts Tanz', 'sp_br_fe_17' ),
 		'id'            => 'slide-acts-tanz',
 		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -154,7 +154,7 @@ function sp_br_fe_17_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'SlideActsSlam', 'sp_br_fe_17' ),
+		'name'          => esc_html__( 'Slide Acts Slam', 'sp_br_fe_17' ),
 		'id'            => 'slide-acts-slam',
 		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -164,7 +164,7 @@ function sp_br_fe_17_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'SlideContact', 'sp_br_fe_17' ),
+		'name'          => esc_html__( 'Slide Contact', 'sp_br_fe_17' ),
 		'id'            => 'slide-contact',
 		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -174,7 +174,7 @@ function sp_br_fe_17_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'SlideContactLeft', 'sp_br_fe_17' ),
+		'name'          => esc_html__( 'Slide Contact Left', 'sp_br_fe_17' ),
 		'id'            => 'slide-contact-left',
 		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -184,7 +184,7 @@ function sp_br_fe_17_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'SlideContactRight', 'sp_br_fe_17' ),
+		'name'          => esc_html__( 'Slide Contact Right', 'sp_br_fe_17' ),
 		'id'            => 'slide-contact-right',
 		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -266,33 +266,33 @@ add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_scripts' );
 	add_action( 'wp_enqueue_scripts', 'theme_gsap_script' );
 
 
-//extend standart type of customizer
-	if (class_exists('WP_Customize_Control')) {
-    class WP_Customize_Category_Control extends WP_Customize_Control {
-        /**
-         * Render the control's content.
-         *
-         * @since 3.4.0
-         */
-        public function render_content() {
-            $dropdown = wp_dropdown_categories(
-                array(
-                    'name'              => '_customize-dropdown-categories-' . $this->id,
-                    'echo'              => 0,
-                    'show_option_none'  => __( '&mdash; Select &mdash;' ),
-                    'option_none_value' => '0',
-                    'selected'          => $this->value(),
-                )
-            );
-
-            // Hackily add in the data link parameter.
-            $dropdown = str_replace( '<select', '<select ' . $this->get_link(), $dropdown );
-
-            printf(
-                '<label class="customize-control-select"><span class="customize-control-title">%s</span> %s</label>',
-                $this->label,
-                $dropdown
-            );
-        }
-    }
-}
+// //extend standart type of customizer
+// 	if (class_exists('WP_Customize_Control')) {
+//     class WP_Customize_Category_Control extends WP_Customize_Control {
+//         /**
+//          * Render the control's content.
+//          *
+//          * @since 3.4.0
+//          */
+//         public function render_content() {
+//             $dropdown = wp_dropdown_categories(
+//                 array(
+//                     'name'              => '_customize-dropdown-categories-' . $this->id,
+//                     'echo'              => 0,
+//                     'show_option_none'  => __( '&mdash; Select &mdash;' ),
+//                     'option_none_value' => '0',
+//                     'selected'          => $this->value(),
+//                 )
+//             );
+//
+//             // Hackily add in the data link parameter.
+//             $dropdown = str_replace( '<select', '<select ' . $this->get_link(), $dropdown );
+//
+//             printf(
+//                 '<label class="customize-control-select"><span class="customize-control-title">%s</span> %s</label>',
+//                 $this->label,
+//                 $dropdown
+//             );
+//         }
+//     }
+// }
