@@ -19,9 +19,11 @@ get_header(); ?>
 			<?php
 			//repeat first slide for 'slide_amount'
 			for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
-			   get_sidebar('slide-hero');
-				 echo "test";
+			   get_sidebar('slide');
+				//  echo "test";
 			};
+			get_sidebar('slide-hero');
+
 			get_sidebar('slide-acts');
 
 			get_sidebar('slide-gallery');
