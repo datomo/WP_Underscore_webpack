@@ -17,15 +17,17 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<?php
-			//check if first slide is selected
-			if (get_theme_mod( 'slide_1' ) ) {
-				get_sidebar('slide-hero');
-			}
-
-
+			//repeat first slide for 'slide_amount'
+			for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
+			   get_sidebar('slide-hero');
+				 echo "test";
+			};
 			get_sidebar('slide-acts');
+
 			get_sidebar('slide-gallery');
-			get_sidebar('slide-contact');?>
+
+			get_sidebar('slide-contact');
+			?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

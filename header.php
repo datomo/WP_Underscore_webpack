@@ -43,10 +43,10 @@
 
 
 		<nav id="site-navigation" class="main-navigation closed">
-			<div class="link" id="link-slide-hero" rel="#slide-hero"><h3>Start</h3></div>
-			<div class="link" id="link-slide-acts" rel="#slide-acts"><h3>Programm</h3></div>
-			<div class="link" id="link-slide-gallery" rel="#slide-gallery"><h3>Impressionen</h3></div>
-			<div class="link" id="link-slide-contact" rel="#slide-contact"><h3>Kontakt</h3></div>
+			<div class="link" id="link-slide-hero" rel="#slide-1"><h3>Start</h3></div>
+			<div class="link" id="link-slide-acts" rel="#slide-2"><h3>Programm</h3></div>
+			<div class="link" id="link-slide-gallery" rel="#slide-3"><h3>Impressionen</h3></div>
+			<div class="link" id="link-slide-contact" rel="#slide-4"><h3>Kontakt</h3></div>
 			<div class="link faceboot-logo">
 				<a href="https://www.facebook.com/sprungbraett/" target="_blank" rel="noopener" >
 					<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/fb.png" alt="">

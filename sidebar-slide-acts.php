@@ -11,7 +11,7 @@ if ( ! is_active_sidebar( 'slide-acts-bands' ) ) {
 	return;
 }
 ?>
-<div id="slide-acts">
+<div class="slide-acts" id="slide-2">
 	<h2 class="widget-title">Programm</h2>
 	<div class="tab">
 	  <button  class="tablinks active" id="link-acts">

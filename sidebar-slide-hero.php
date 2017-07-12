@@ -11,7 +11,7 @@ if ( ! is_active_sidebar( 'slide-hero' ) ) {
 	return;
 }
 ?>
-<div id="slide-hero">
+<div id="slide-1" class="slide-hero">
 	<aside class="widget-area slide clearfix">
 		<!-- <p class="mini-titel">Das Freizeithaus und die refomierte Kirchgemeinede Allschwil präsentieren</p> -->
 		<!--start svg-->
