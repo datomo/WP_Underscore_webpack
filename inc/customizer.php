@@ -28,23 +28,6 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'type'      => 'number'
 	) );
 
-		/* Category */
-	$wp_customize->add_setting(
-	    'tcx_category'
-	);
-
-	$wp_customize->add_control(
-    new WP_Customize_Category_Control(
-        $wp_customize,
-        'tcx_category',
-        array(
-            'label'    => 'Category',
-            'settings' => 'tcx_category',
-            'section'  => 'tcx_category'
-        )
-    )
-	);
-
 	for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
 		//loop throught the amount of desired slide-acts
 		// echo "<h2>test</h2>";
@@ -58,7 +41,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 			'label'     => __( 'Type of Slide '.$i, 'sp_br_fe_17' ),
 			'section'   => 'sp_br_fe_17_content_options_section',
 			'priority'  => 11,
-			'type'      => 'radio',
+			'type'      => 'select',
 			'default' => $i,
 			'choices' => array(
 				'1' => __( 'Hero Picture' ),
