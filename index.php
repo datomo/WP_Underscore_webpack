@@ -19,16 +19,39 @@ get_header(); ?>
 			<?php
 			//repeat first slide for 'slide_amount'
 			for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
-			  include ('sidebar-slide-hero.php');
+				$test = get_theme_mod('slide_test_'.$i);
+				switch ($test) {
+					case '1':
+						include ('sidebar-slide-hero.php');
+						break;
+
+					case '2':
+						include ('sidebar-slide-acts.php');
+						break;
+
+					case '3':
+						include ('sidebar-slide-gallery.php');
+						break;
+
+					case '4':
+						include ('sidebar-slide-contact.php');
+						break;
+
+					default:
+						# code...
+						echo "say what";
+						break;
+				}
 				//  echo "test";
 			};
-			get_sidebar('slide-hero');
 
-			get_sidebar('slide-acts');
-
-			get_sidebar('slide-gallery');
-
-			get_sidebar('slide-contact');
+			// get_sidebar('slide-hero');
+			//
+			// get_sidebar('slide-acts');
+			//
+			// get_sidebar('slide-gallery');
+			//
+			// get_sidebar('slide-contact');
 			?>
 
 		</main><!-- #main -->

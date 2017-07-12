@@ -264,3 +264,35 @@ add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_scripts' );
 	    wp_enqueue_script( 'gsap-js', get_template_directory_uri() . '/dist/bundle.js', array('jquery'), 1, true );
 	}
 	add_action( 'wp_enqueue_scripts', 'theme_gsap_script' );
+
+
+//extend standart type of customizer
+	if (class_exists('WP_Customize_Control')) {
+    class WP_Customize_Category_Control extends WP_Customize_Control {
+        /**
+         * Render the control's content.
+         *
+         * @since 3.4.0
+         */
+        public function render_content() {
+            $dropdown = wp_dropdown_categories(
+                array(
+                    'name'              => '_customize-dropdown-categories-' . $this->id,
+                    'echo'              => 0,
+                    'show_option_none'  => __( '&mdash; Select &mdash;' ),
+                    'option_none_value' => '0',
+                    'selected'          => $this->value(),
+                )
+            );
+
+            // Hackily add in the data link parameter.
+            $dropdown = str_replace( '<select', '<select ' . $this->get_link(), $dropdown );
+
+            printf(
+                '<label class="customize-control-select"><span class="customize-control-title">%s</span> %s</label>',
+                $this->label,
+                $dropdown
+            );
+        }
+    }
+}
