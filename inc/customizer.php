@@ -20,16 +20,28 @@ function sp_br_fe_17_customizer( $wp_customize ) {
     'default'   => '#000000'
 	) );
 
-
 	// added the colorpicker
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
-		'label'      => __( 'Header Color', 'sp_br_fe_17' ),
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'background_color', array(
+		'label'      => __( 'Background Color', 'sp_br_fe_17' ),
 		'section'    => 'sp_br_fe_17_content_options_section',
 		'settings'   => 'background-color',
 	) ) );
 
+	// add setting for the menu_color
+	$wp_customize->add_setting( 'menu-color' , array(
+    'default'   => '#000000'
+	) );
+
+	// added the colorpicker
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'menu_color', array(
+		'label'      => __( 'Menu Color', 'sp_br_fe_17' ),
+		'section'    => 'sp_br_fe_17_content_options_section',
+		'settings'   => 'menu-color',
+	) ) );
+
 	//enable live reload
 	$wp_customize->get_setting( 'background-color' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'menu-color' )->transport = 'postMessage';
 
 	// add setting for page comment toggle checkbox
 	$wp_customize->add_setting( 'slide_amount', array(

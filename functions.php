@@ -258,7 +258,10 @@ function mytheme_customize_css()
 {
 		?>
 				 <style type="text/css">
-						 html { background-color: <?php echo get_theme_mod('background-color', '#3cb3fc'); ?>; }
+						html {
+							background-color: <?php echo get_theme_mod('background-color', '#3cb3fc'); ?>; }
+						.site-header {
+							background-color: <?php echo get_theme_mod('menu-color', '#00000'); ?>; }
 				 </style>
 		<?php
 }
