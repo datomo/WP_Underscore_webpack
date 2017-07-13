@@ -18,16 +18,7 @@ get_header(); ?>
 		<main id="main" class="site-main">
 			<div class="menu-placeholder"></div>
 			<?php
-			//repeat first slide for 'slide_amount'
 			get_sidebar('slide');
-
-			// get_sidebar('slide-hero');
-			//
-			// get_sidebar('slide-acts');
-			//
-			// get_sidebar('slide-gallery');
-			//
-			// get_sidebar('slide-contact');
 			?>
 
 		</main><!-- #main -->

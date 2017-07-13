@@ -49,21 +49,19 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		// echo "<h2>test</h2>";
 		// echo get_theme_mod('slide_amount');
 
-		$wp_customize->add_setting( 'slide_test_'.$i, array(
+		$wp_customize->add_setting( 'slide_'.$i, array(
 			'default' => 1
 		) );
 
-		$wp_customize->add_control( 'slide_test_'.$i, array(
+		$wp_customize->add_control( 'slide_'.$i, array(
 			'label'     => __( 'Type of Slide '.$i, 'sp_br_fe_17' ),
 			'section'   => 'sp_br_fe_17_content_options_section',
 			'priority'  => 11,
 			'type'      => 'select',
 			'default' => 1,
 			'choices' => array(
-				'1' => __( 'Hero Picture' ),
-				'2' => __( 'Acts' ),
-				'3' => __( 'Gallery' ),
-				'4' => __( 'Contact' )
+				'1' => __( 'Widget 100%' ),
+				'2' => __( 'Widget 50%' )
 			)
 		) );
 

@@ -7,15 +7,22 @@
  * @package Sprungbrätt_Festival_17
  */
 
-if ( ! is_active_sidebar( 'slide-1' ) ) {
-	return;
-}
 
 for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
-	$test = get_theme_mod('slide_test_'.$i);
+	$test = get_theme_mod('slide_'.$i);
 	switch ($test) {
 		case '1':
-			// include ('sidebar-slide-hero.php');
+			if ( ! is_active_sidebar( 'slide-'.$i ) ) {
+				return;
+			}
+			?>
+			<aside id="<?php echo 'slide'.$i?>" class="widget-area slide slide-100">
+
+				<div class="container-simple">
+					<?php dynamic_sidebar( 'slide-'.$i ); ?>
+				</div>
+			</aside><!-- #secondary -->
+			<?php
 			break;
 
 		case '2':
@@ -38,10 +45,3 @@ for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
 	//  echo "test";
 };
 ?>
-
-<aside id="slide-3" class="widget-area slide slide-gallery">
-
-	<div class="container-simple">
-		<?php dynamic_sidebar( 'slide-1' ); ?>
-	</div>
-</aside><!-- #secondary -->
