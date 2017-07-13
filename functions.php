@@ -251,6 +251,7 @@ require get_template_directory() . '/inc/jetpack.php';
 function my_theme_enqueue_scripts() {
 	wp_enqueue_script( 'bundle', get_stylesheet_directory_uri() . '/dist/bundle.js', array('jquery'), 1, false );
 	wp_enqueue_style( 'bundle', get_stylesheet_directory_uri() . '/dist/bundle.css', get_stylesheet_uri() );
+	wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/style.css', get_stylesheet_uri() );
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_scripts' );
 /**

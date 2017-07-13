@@ -69,7 +69,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 			'section'   => 'sp_br_fe_17_content_options_section',
 			'priority'  => 11,
 			'type'      => 'select',
-			'default' => $i,
+			'default' => 1,
 			'choices' => array(
 				'1' => __( 'Hero Picture' ),
 				'2' => __( 'Acts' ),
