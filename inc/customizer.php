@@ -31,17 +31,6 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	//enable live reload
 	$wp_customize->get_setting( 'background-color' )->transport = 'postMessage';
 
-	//add the style for background
-	function mytheme_customize_css()
-	{
-	    ?>
-	         <style type="text/css">
-	             html { background-color: <?php echo get_theme_mod('background-color', '#3cb3fc'); ?>; }
-	         </style>
-	    <?php
-	}
-	add_action( 'wp_head', 'mytheme_customize_css');
-
 	// add setting for page comment toggle checkbox
 	$wp_customize->add_setting( 'slide_amount', array(
 		'default' => 4

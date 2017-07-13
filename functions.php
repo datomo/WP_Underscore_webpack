@@ -113,8 +113,8 @@ function sp_br_fe_17_widgets_init() {
 
 	for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
 		register_sidebar( array(
-			'name'          => esc_html__( 'Slide Hero '.$i, 'sp_br_fe_17' ),
-			'id'            => 'slide-hero-'.$i,
+			'name'          => esc_html__( 'Slide '.$i, 'sp_br_fe_17' ),
+			'id'            => 'slide-'.$i,
 			'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
@@ -122,76 +122,6 @@ function sp_br_fe_17_widgets_init() {
 			'after_title'   => '</h2>',
 		) );
 	};
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Slide Gallery', 'sp_br_fe_17' ),
-		'id'            => 'slide-gallery',
-		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Slide Acts Bands', 'sp_br_fe_17' ),
-		'id'            => 'slide-acts-bands',
-		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Slide Acts Tanz', 'sp_br_fe_17' ),
-		'id'            => 'slide-acts-tanz',
-		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Slide Acts Slam', 'sp_br_fe_17' ),
-		'id'            => 'slide-acts-slam',
-		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Slide Contact', 'sp_br_fe_17' ),
-		'id'            => 'slide-contact',
-		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Slide Contact Left', 'sp_br_fe_17' ),
-		'id'            => 'slide-contact-left',
-		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Slide Contact Right', 'sp_br_fe_17' ),
-		'id'            => 'slide-contact-right',
-		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
 }
 add_action( 'widgets_init', 'sp_br_fe_17_widgets_init' );
 
@@ -297,3 +227,14 @@ add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_scripts' );
 //         }
 //     }
 // }
+
+//add the style for background
+function mytheme_customize_css()
+{
+		?>
+				 <style type="text/css">
+						 html { background-color: <?php echo get_theme_mod('background-color', '#3cb3fc'); ?>; }
+				 </style>
+		<?php
+}
+add_action( 'wp_head', 'mytheme_customize_css');
