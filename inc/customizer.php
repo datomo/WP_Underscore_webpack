@@ -36,7 +36,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	{
 	    ?>
 	         <style type="text/css">
-	             html { background-color: <?php echo get_theme_mod('background-color', '#000000'); ?>; }
+	             html { background-color: <?php echo get_theme_mod('background-color'); ?>; }
 	         </style>
 	    <?php
 	}
