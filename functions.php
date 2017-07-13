@@ -112,7 +112,9 @@ function sp_br_fe_17_widgets_init() {
 	) );
 
 	for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
-		if (get_theme_mod('slide_'.$i) == "1") {
+		$temp = get_theme_mod('slide_'.$i);
+		if ($temp == "1") {
+			// echo 'slide100';
 			register_sidebar( array(
 				'name'          => esc_html__( 'Slide '.$i, 'sp_br_fe_17' ),
 				'id'            => 'slide-'.$i,
@@ -122,27 +124,28 @@ function sp_br_fe_17_widgets_init() {
 				'before_title'  => '<h2 class="widget-title">',
 				'after_title'   => '</h2>',
 			) );
+		} else {
+			// echo 'slide5050';
+			register_sidebar( array(
+				'name'          => esc_html__( 'Slide '.$i.' Left', 'sp_br_fe_17' ),
+				'id'            => 'slide-'.$i.'-left',
+				'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			) );
+
+			register_sidebar( array(
+				'name'          => esc_html__( 'Slide '.$i.' Right', 'sp_br_fe_17' ),
+				'id'            => 'slide-'.$i.'-right',
+				'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			) );
 		}
-
-		register_sidebar( array(
-			'name'          => esc_html__( 'Slide '.$i.' Left', 'sp_br_fe_17' ),
-			'id'            => 'slide-'.$i.'-left',
-			'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		) );
-
-		register_sidebar( array(
-			'name'          => esc_html__( 'Slide '.$i.' Right', 'sp_br_fe_17' ),
-			'id'            => 'slide-'.$i.'-right',
-			'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		) );
 	};
 }
 add_action( 'widgets_init', 'sp_br_fe_17_widgets_init' );
