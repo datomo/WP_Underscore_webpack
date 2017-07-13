@@ -16,4 +16,11 @@
 		} );
 	} );
 
+	//bind background-color to html
+	wp.customize( 'background-color', function( value ) {
+		value.bind( function( newval ) {
+        $('html').css("background-color", newval);
+		} );
+	} );
+
 } )( jQuery );

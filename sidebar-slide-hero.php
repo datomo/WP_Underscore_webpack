@@ -12,6 +12,7 @@ if ( ! is_active_sidebar( 'slide-hero' ) ) {
 }
 ?>
 <div id="slide-1" class="slide-hero">
+	<?php echo get_theme_mod('background-color'); ?>
 	<aside class="widget-area slide clearfix">
 		<!-- <p class="mini-titel">Das Freizeithaus und die refomierte Kirchgemeinede Allschwil präsentieren</p> -->
 		<!--start svg-->

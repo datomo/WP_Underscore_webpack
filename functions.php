@@ -111,17 +111,17 @@ function sp_br_fe_17_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 
-	if(get_theme_mod('slide_1')){
+	for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
 		register_sidebar( array(
-			'name'          => esc_html__( 'Slide Hero', 'sp_br_fe_17' ),
-			'id'            => 'slide-hero',
+			'name'          => esc_html__( 'Slide Hero '.$i, 'sp_br_fe_17' ),
+			'id'            => 'slide-hero-'.$i,
 			'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
 		) );
-	}
+	};
 
 	register_sidebar( array(
 		'name'          => esc_html__( 'Slide Gallery', 'sp_br_fe_17' ),
