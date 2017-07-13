@@ -7,7 +7,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	$wp_customize->remove_section( 'colors' );
 	$wp_customize->remove_section( 'background_image' );
 	$wp_customize->remove_section( 'header_image' );
-	$wp_customize->remove_section( 'nav' );
+	$wp_customize->remove_panel( 'nav_menus' );
 
 	// add "Content Options" section
 	$wp_customize->add_section( 'sp_br_fe_17_content_options_section' , array(
@@ -36,7 +36,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	{
 	    ?>
 	         <style type="text/css">
-	             html { background-color: <?php echo get_theme_mod('background-color'); ?>; }
+	             html { background-color: <?php echo get_theme_mod('background-color', '#3cb3fc'); ?>; }
 	         </style>
 	    <?php
 	}
