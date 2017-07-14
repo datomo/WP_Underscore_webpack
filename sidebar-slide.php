@@ -18,7 +18,7 @@ for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
 			?>
 			<aside id="<?php echo 'slide'.$i?>" class="widget-area slide slide-100">
 
-				<div class="container-simple">
+				<div class="container-simple container">
 					<?php dynamic_sidebar( 'slide-'.$i ); ?>
 				</div>
 			</aside><!-- #secondary -->
@@ -26,17 +26,17 @@ for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
 			break;
 
 		case '2':
-			if ( ! is_active_sidebar( 'slide-'.$i.'-left') and ! is_active_sidebar( 'slide-'.$i.'-left') ) {
+			if ( ! is_active_sidebar( 'slide-'.$i) and ! is_active_sidebar( 'slide-'.$i.'-right') ) {
 				return;
 			}
 			?>
 			<aside id="<?php echo 'slide'.$i?>" class="widget-area slide slide-5050">
 
 				<div class="container-simple">
-					<div class="container-50">
-						<?php dynamic_sidebar( 'slide-'.$i.'-left' ); ?>
+					<div class="container-50 container">
+						<?php dynamic_sidebar( 'slide-'.$i ); ?>
 					</div>
-					<div class="container-50">
+					<div class="container-50 container">
 						<?php dynamic_sidebar( 'slide-'.$i.'-right' ); ?>
 					</div>
 				</div>

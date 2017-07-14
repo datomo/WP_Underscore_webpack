@@ -128,7 +128,7 @@ function sp_br_fe_17_widgets_init() {
 			// echo 'slide5050';
 			register_sidebar( array(
 				'name'          => esc_html__( 'Slide '.$i.' Left', 'sp_br_fe_17' ),
-				'id'            => 'slide-'.$i.'-left',
+				'id'            => 'slide-'.$i,
 				'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',
@@ -262,6 +262,9 @@ function mytheme_customize_css()
 							background-color: <?php echo get_theme_mod('background-color', '#3cb3fc'); ?>; }
 						.site-header {
 							background-color: <?php echo get_theme_mod('menu-color', '#00000'); ?>; }
+						section {
+							background-color: <?php echo get_theme_mod('widget-color', '#00000'); ?>; }
+						}
 				 </style>
 		<?php
 }

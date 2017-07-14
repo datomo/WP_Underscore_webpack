@@ -19,4 +19,19 @@
 		} );
 	} );
 
+	wp.customize( 'highlight-widgets', function( value ) {
+		value.bind( function( newval ) {
+			if (newval) {
+				$('section').css("border", "solid 1px red");
+			}else {
+        $('section').css("border", "solid 0px red");
+			}
+		} );
+	} );
+
+	wp.customize( 'widget-color', function( value ) {
+		value.bind( function( newval ) {
+			$('section').css("background-color", newval);
+		} );
+	} );
 } )( jQuery );
