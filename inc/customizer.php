@@ -137,17 +137,69 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 			)
 		) );
 
-		// add setting control amount of slides
+		// add setting if background is shown
 		$wp_customize->add_setting( 'slide-'.$i.'-background', array(
 			'default' => 4
 		) );
 
-		// add control for amount of slides
+		// add control if background is shown
 		$wp_customize->add_control( 'slide-'.$i.'-background', array(
 			'label'     => __( 'Slide '.$i.' Background', 'sp_br_fe_17' ),
 			'section'   => 'sp_br_fe_17_slides_section',
 			'priority'  => 11,
 			'type'      => 'checkbox'
+		) );
+
+		// add Typograph section
+		$wp_customize->add_section( 'sp_br_fe_17_typo_section' , array(
+			'title'      => __( 'Typography', 'sp_br_fe_17' ),
+			'priority'   => 102,
+		) );
+
+		// add setting for typo link
+		$wp_customize->add_setting( 'typo-link', array(
+			'default' => '<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">'
+		) );
+
+		// add control for typo link
+		$wp_customize->add_control( 'typo-link', array(
+			'label'     => __( 'Place Link from Google Fonts here:', 'sp_br_fe_17' ),
+			'section'   => 'sp_br_fe_17_typo_section',
+			'priority'  => 11,
+			'type'      => 'textarea'
+		) );
+
+		// add setting for typo style
+		$wp_customize->add_setting( 'typo-style', array(
+			'default' => '"Montserrat", sans-serif;'
+		) );
+
+		// add control for typo style
+		$wp_customize->add_control( 'typo-style', array(
+			'label'     => __( 'Place Styletag from Google Fonts here:', 'sp_br_fe_17' ),
+			'section'   => 'sp_br_fe_17_typo_section',
+			'priority'  => 12,
+			'type'      => 'textarea'
+		) );
+
+		// add setting for typo align
+		$wp_customize->add_setting( 'typo-align', array(
+			'default' => 1
+		) );
+
+		//add controll for type align
+		$wp_customize->add_control( 'typo-align', array(
+			'label'     => __( 'How should the text be aligned?', 'sp_br_fe_17' ),
+			'section'   => 'sp_br_fe_17_typo_section',
+			'priority'  => 13,
+			'type'      => 'select',
+			'default' => 1,
+			'choices' => array(
+				'left' => __( 'left' ),
+				'center' => __( 'center' ),
+				'right' => __( 'right' ),
+				'justify' => __( 'justify' )
+			)
 		) );
 	}
 

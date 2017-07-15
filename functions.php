@@ -259,7 +259,9 @@ function mytheme_customize_css()
 		?>
 				 <style type="text/css">
 						html {
-							background-color: <?php echo get_theme_mod('background-color', '#3cb3fc'); ?>; }
+							background-color: <?php echo get_theme_mod('background-color', '#3cb3fc'); ?>;
+							<?php echo get_theme_mod('typo-style'); ?>;
+							text-align: <?php echo get_theme_mod('typo-align', 'left'); ?>; }
 						.site-header {
 							background-color: <?php echo get_theme_mod('menu-color', '#000000'); ?>; }
 						.background {
@@ -267,7 +269,8 @@ function mytheme_customize_css()
 						p {
 							color: <?php echo get_theme_mod('text-color', '#888888'); ?>; }
 						h1, h2, h3, h4, h5, h6 {
-							color: <?php echo get_theme_mod('heading-color', '#888888'); ?>; }
+							color: <?php echo get_theme_mod('heading-color', '#888888'); ?>;
+							<?php echo get_theme_mod('typo-style'); ?>; }
 						}
 				 </style>
 		<?php
