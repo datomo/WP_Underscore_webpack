@@ -76,19 +76,6 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'settings'   => 'heading-color',
 	) ) );
 
-	// add setting to highlight widgets
-	$wp_customize->add_setting( 'highlight-widgets' , array(
-		'default'   => false
-	) );
-
-	//add controll to hightlight widgets
-	$wp_customize->add_control( 'highlight-widgets', array(
-		'label'     => __( 'Highlight all widget areas? ', 'sp_br_fe_17' ),
-		'section'   => 'sp_br_fe_17_slides_section',
-		'priority'  => 11,
-		'type'      => 'checkbox'
-	) );
-
 	//enable live reload
 	$wp_customize->get_setting( 'background-color' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'menu-color' )->transport = 'postMessage';
@@ -103,6 +90,32 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'title'      => __( 'Slides', 'sp_br_fe_17' ),
 		'priority'   => 101,
 	) );
+
+
+	// add setting to highlight widgets
+	$wp_customize->add_setting( 'highlight-widgets' , array(
+		'default'   => false
+	) );
+
+	//add controll to hightlight widgets
+	$wp_customize->add_control( 'highlight-widgets', array(
+		'label'     => __( 'Highlight all widget areas? ', 'sp_br_fe_17' ),
+		'section'   => 'sp_br_fe_17_slides_section',
+		'priority'  => 11,
+		'type'      => 'checkbox'
+	) );
+	/**
+	*Separator
+	**/
+	$wp_customize->add_setting('separator', array(
+		'default'           => '',
+		'sanitize_callback' => 'esc_html',
+	));
+	$wp_customize->add_control(new Separator_Custom_control($wp_customize, 'separator', array(
+		'settings'		=> 'separator',
+		'priority'  => 11,
+		'section'  		=> 'sp_br_fe_17_slides_section',
+	)));
 
 	// add setting control amount of slides
 	$wp_customize->add_setting( 'slide_amount', array(
@@ -122,20 +135,30 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		// echo "<h2>test</h2>";
 		// echo get_theme_mod('slide_amount');
 
-		add_action( 'customize_render_control_hi_shawn', function(){
-		   printf( '<a href="%s">%s</a>', 'http://hiroy.club', __( 'Hi Shawn', 'text-domain' ) );
-		});
+		/**
+		*Info
+		**/
+		$wp_customize->add_setting('custom-info'.$i, array(
+			'default'           => '',
+		));
+		$wp_customize->add_control(new Title_Custom_control($wp_customize, 'custom_info'.$i, array(
+			'label'    		=> esc_html__('Slide '.$i, 'sp_br_fe_17'),
+			// 'description' 	=> esc_html__('There are times that you just need to say something.', 'mytheme'),
+			'priority'  => 11,
+			'settings'		=> 'custom-info'.$i,
+			'section'  		=> 'sp_br_fe_17_slides_section',
+		)));
 
-		$wp_customize->add_setting( 'slide_'.$i, array(
-			'default' => 1
+		$wp_customize->add_setting( 'slide-type-'.$i, array(
+			'default' => '1'
 		) );
 
-		$wp_customize->add_control( 'slide_'.$i, array(
+		$wp_customize->add_control( 'slide-type-'.$i, array(
 			'label'     => __( 'Type of Slide '.$i, 'sp_br_fe_17' ),
 			'section'   => 'sp_br_fe_17_slides_section',
 			'priority'  => 11,
 			'type'      => 'select',
-			'default' => 1,
+			'default' => '1',
 			'choices' => array(
 				'1' => __( 'Widget 100%' ),
 				'2' => __( 'Widget 50%' )
@@ -156,17 +179,31 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		) );
 
 		// add setting for slide id
-		$wp_customize->add_setting( 'slide-'.$i.'-id', array(
+		$wp_customize->add_setting( 'slide-'.$i.'-class', array(
 			'default' => 'slide-'.$i
 		) );
 
 		// add control for slide id
-		$wp_customize->add_control( 'slide-'.$i.'-id', array(
-			'label'     => __( 'Give this slide a different id:', 'sp_br_fe_17' ),
+		$wp_customize->add_control( 'slide-'.$i.'-class', array(
+			'label'     => __( 'Add Styling Classes:', 'sp_br_fe_17' ),
 			'section'   => 'sp_br_fe_17_slides_section',
 			'priority'  => 11,
 			'type'      => 'text'
 		) );
+
+
+		/**
+		*Separator
+		**/
+		$wp_customize->add_setting('separator'.$i, array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_html',
+		));
+		$wp_customize->add_control(new Separator_Custom_control($wp_customize, 'separator'.$i, array(
+			'settings'		=> 'separator'.$i,
+			'priority'  => 11,
+			'section'  		=> 'sp_br_fe_17_slides_section',
+		)));
 	}
 
 	// add Typograph section
@@ -190,7 +227,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 	// add setting for typo style
 	$wp_customize->add_setting( 'typo-style', array(
-		'default' => '"Montserrat", sans-serif;'
+		'default' => 'font-familiy: "Montserrat", sans-serif;'
 	) );
 
 	// add control for typo style
@@ -220,7 +257,6 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 			'justify' => __( 'justify' )
 		)
 	) );
-
 
 
 }
