@@ -1,6 +1,7 @@
 <?php
 function sp_br_fe_17_customizer( $wp_customize ) {
 	//remove standart options
+	require_once 'custom_controls.php';
 
 	$wp_customize->remove_section( 'title_tagline' );
 	$wp_customize->remove_section( 'static_front_page' );
@@ -121,6 +122,10 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		// echo "<h2>test</h2>";
 		// echo get_theme_mod('slide_amount');
 
+		add_action( 'customize_render_control_hi_shawn', function(){
+		   printf( '<a href="%s">%s</a>', 'http://hiroy.club', __( 'Hi Shawn', 'text-domain' ) );
+		});
+
 		$wp_customize->add_setting( 'slide_'.$i, array(
 			'default' => 1
 		) );
@@ -150,58 +155,72 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 			'type'      => 'checkbox'
 		) );
 
-		// add Typograph section
-		$wp_customize->add_section( 'sp_br_fe_17_typo_section' , array(
-			'title'      => __( 'Typography', 'sp_br_fe_17' ),
-			'priority'   => 102,
+		// add setting for slide id
+		$wp_customize->add_setting( 'slide-'.$i.'-id', array(
+			'default' => 'slide-'.$i
 		) );
 
-		// add setting for typo link
-		$wp_customize->add_setting( 'typo-link', array(
-			'default' => '<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">'
-		) );
-
-		// add control for typo link
-		$wp_customize->add_control( 'typo-link', array(
-			'label'     => __( 'Place Link from Google Fonts here:', 'sp_br_fe_17' ),
-			'section'   => 'sp_br_fe_17_typo_section',
+		// add control for slide id
+		$wp_customize->add_control( 'slide-'.$i.'-id', array(
+			'label'     => __( 'Give this slide a different id:', 'sp_br_fe_17' ),
+			'section'   => 'sp_br_fe_17_slides_section',
 			'priority'  => 11,
-			'type'      => 'textarea'
-		) );
-
-		// add setting for typo style
-		$wp_customize->add_setting( 'typo-style', array(
-			'default' => '"Montserrat", sans-serif;'
-		) );
-
-		// add control for typo style
-		$wp_customize->add_control( 'typo-style', array(
-			'label'     => __( 'Place Styletag from Google Fonts here:', 'sp_br_fe_17' ),
-			'section'   => 'sp_br_fe_17_typo_section',
-			'priority'  => 12,
-			'type'      => 'textarea'
-		) );
-
-		// add setting for typo align
-		$wp_customize->add_setting( 'typo-align', array(
-			'default' => 1
-		) );
-
-		//add controll for type align
-		$wp_customize->add_control( 'typo-align', array(
-			'label'     => __( 'How should the text be aligned?', 'sp_br_fe_17' ),
-			'section'   => 'sp_br_fe_17_typo_section',
-			'priority'  => 13,
-			'type'      => 'select',
-			'default' => 1,
-			'choices' => array(
-				'left' => __( 'left' ),
-				'center' => __( 'center' ),
-				'right' => __( 'right' ),
-				'justify' => __( 'justify' )
-			)
+			'type'      => 'text'
 		) );
 	}
+
+	// add Typograph section
+	$wp_customize->add_section( 'sp_br_fe_17_typo_section' , array(
+		'title'      => __( 'Typography', 'sp_br_fe_17' ),
+		'priority'   => 102,
+	) );
+
+	// add setting for typo link
+	$wp_customize->add_setting( 'typo-link', array(
+		'default' => '<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">'
+	) );
+
+	// add control for typo link
+	$wp_customize->add_control( 'typo-link', array(
+		'label'     => __( 'Place Link from Google Fonts here:', 'sp_br_fe_17' ),
+		'section'   => 'sp_br_fe_17_typo_section',
+		'priority'  => 11,
+		'type'      => 'textarea'
+	) );
+
+	// add setting for typo style
+	$wp_customize->add_setting( 'typo-style', array(
+		'default' => '"Montserrat", sans-serif;'
+	) );
+
+	// add control for typo style
+	$wp_customize->add_control( 'typo-style', array(
+		'label'     => __( 'Place Styletag from Google Fonts here:', 'sp_br_fe_17' ),
+		'section'   => 'sp_br_fe_17_typo_section',
+		'priority'  => 12,
+		'type'      => 'textarea'
+	) );
+
+	// add setting for typo align
+	$wp_customize->add_setting( 'typo-align', array(
+		'default' => 1
+	) );
+
+	//add controll for type align
+	$wp_customize->add_control( 'typo-align', array(
+		'label'     => __( 'How should the text be aligned?', 'sp_br_fe_17' ),
+		'section'   => 'sp_br_fe_17_typo_section',
+		'priority'  => 13,
+		'type'      => 'select',
+		'default' => 1,
+		'choices' => array(
+			'left' => __( 'left' ),
+			'center' => __( 'center' ),
+			'right' => __( 'right' ),
+			'justify' => __( 'justify' )
+		)
+	) );
+
 
 
 }

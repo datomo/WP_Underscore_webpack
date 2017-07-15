@@ -9,20 +9,20 @@
 
 
 for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
+	if ( ! is_active_sidebar( 'slide-'.$i) and ! is_active_sidebar( 'slide-'.$i.'-right') ) {
+		return;
+	}
+	?>
+	<aside id="<?php echo 'slide'.$i?>" class="widget-area slide">
+	<?php
 	$test = get_theme_mod('slide_'.$i);
 	switch ($test) {
 		case '1':
-			if ( ! is_active_sidebar( 'slide-'.$i ) ) {
-				return;
-			}
-			?>
-			<aside id="<?php echo 'slide'.$i?>" class="widget-area slide">
-
-				<?php if (get_theme_mod('slide-'.$i.'-background')) {
-					$background100 = "container-simple slide-100 background";
-				} else {
-					$background100 = "container-simple slide-100";
-				} ?>
+			if (get_theme_mod('slide-'.$i.'-background')) {
+				$background100 = "container-simple slide-100 background";
+			} else {
+				$background100 = "container-simple slide-100";
+			} ?>
 
 				<div class="<?php echo $background100;?>">
 					<?php dynamic_sidebar( 'slide-'.$i ); ?>
@@ -32,14 +32,7 @@ for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
 			break;
 
 		case '2':
-			if ( ! is_active_sidebar( 'slide-'.$i) and ! is_active_sidebar( 'slide-'.$i.'-right') ) {
-				return;
-			}
-			?>
-			<aside id="<?php echo 'slide'.$i?>" class="widget-area slide">
-
-				<!-- check if background is enable -->
-				<?php if (get_theme_mod('slide-'.$i.'-background')) {
+				if (get_theme_mod('slide-'.$i.'-background')) {
 					$background50 = "container-simple  slide-5050 background";
 				} else {
 					$background50 = "container-simple  slide-5050";

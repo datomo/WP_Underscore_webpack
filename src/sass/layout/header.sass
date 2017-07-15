@@ -9,105 +9,13 @@
   background:
     color: $darkblue
 
-  @media screen and (max-width: 715px)
-    background:
-      color: transparent
-
-    .ham-background
-      display: inline-block
-
-    .hamburger
-      display: inline-block
-      float: right
-      background:
-        color: $darkblue
-    .main-navigation
-      &.closed
-        display: none
-
-      &.open
-        display: inline-block
-        position: absolute
-        top: 50px
-        left: 0px
-        width: 100%
-
-        .link
-          width: 100%
-          padding: 20px
-          background:
-            color: $darkblue
-
-        .faceboot-logo
-          padding: 0
-          background:
-            color: $darkblue
-
-
-  // nav
-  //   background:
-  //     color: $darkblue
-  //   position: fixed
-  //   top: 0
-  .link
-    display: inline-block
+  .menu-item
     float: left
-    margin: 10px 20px
+    display: inline-block
+    padding: 10px
 
-
-    &.faceboot-logo
-      height: 1.3rem
-      padding: 0
-      // padding-left: 15px
-      display: inline-block
-      // position: relative
-      // top: -8px
-
-    h3
-      margin: 0
-      padding: 0
-      cursor: pointer
-
-    &:hover
-      h3
-        color: $yellow
-
-  h3
-    color: $white
-
-
-
-a
-  margin: 0
-
-  img
-    height: 100%
-
-.ham-background
-  width: 100%
-  display: none
-  background:
-    color: $darkblue
-
-.hamburger
-  padding: 10px
-  float: right
-  display: none
-  width: auto
-  margin-right: 10px
-
-  svg
-    cursor: pointer
-
-    .cross
-      transform-origin: 50% 50%
-      display: none
-
-    .cross-bottom
-      transform: rotate(45deg)
-
-    .cross-top
-      transform: rotate(-45deg)
-
-.main-navigation
-  display: inline-block
+  ul
+    margin: 0
+    padding: 0
+    max-width: 1080px
+    margin: 0 auto
