@@ -16,9 +16,15 @@ for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
 				return;
 			}
 			?>
-			<aside id="<?php echo 'slide'.$i?>" class="widget-area slide slide-100">
+			<aside id="<?php echo 'slide'.$i?>" class="widget-area slide">
 
-				<div class="container-simple container">
+				<?php if (get_theme_mod('slide-'.$i.'-background')) {
+					$background100 = "container-simple slide-100 background";
+				} else {
+					$background100 = "container-simple slide-100";
+				} ?>
+
+				<div class="<?php echo $background100;?>">
 					<?php dynamic_sidebar( 'slide-'.$i ); ?>
 				</div>
 			</aside><!-- #secondary -->
@@ -32,10 +38,18 @@ for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
 			?>
 			<aside id="<?php echo 'slide'.$i?>" class="widget-area slide slide-5050">
 
-				<div class="container-simple">
+				<!-- check if background is enable -->
+				<?php if (get_theme_mod('slide-'.$i.'-background')) {
+					$background50 = "container-simple background";
+				} else {
+					$background50 = "container-simple";
+				} ?>
+
+				<div class="<?php echo $background50;?>">
 					<div class="container-50 container">
 						<?php dynamic_sidebar( 'slide-'.$i ); ?>
 					</div>
+
 					<div class="container-50 container">
 						<?php dynamic_sidebar( 'slide-'.$i.'-right' ); ?>
 					</div>

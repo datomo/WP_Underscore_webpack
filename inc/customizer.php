@@ -51,6 +51,30 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'settings'   => 'widget-color',
 	) ) );
 
+	// add setting for the menu_color
+	$wp_customize->add_setting( 'text-color' , array(
+		'default'   => '#ffffff'
+	) );
+
+	// added the colorpicker
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'text_color', array(
+		'label'      => __( 'Text Color', 'sp_br_fe_17' ),
+		'section'    => 'sp_br_fe_17_colors_section',
+		'settings'   => 'text-color',
+	) ) );
+
+	// add setting for the menu_color
+	$wp_customize->add_setting( 'heading-color' , array(
+		'default'   => '#ffffff'
+	) );
+
+	// added the colorpicker
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'heading_color', array(
+		'label'      => __( 'Heading Color', 'sp_br_fe_17' ),
+		'section'    => 'sp_br_fe_17_colors_section',
+		'settings'   => 'heading-color',
+	) ) );
+
 	// add setting to highlight widgets
 	$wp_customize->add_setting( 'highlight-widgets' , array(
 		'default'   => false
@@ -69,6 +93,8 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	$wp_customize->get_setting( 'menu-color' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'highlight-widgets' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'widget-color' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'text-color' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'heading-color' )->transport = 'postMessage';
 
 
 	// add Slides section
@@ -110,10 +136,21 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 				'2' => __( 'Widget 50%' )
 			)
 		) );
+
+		// add setting control amount of slides
+		$wp_customize->add_setting( 'slide-'.$i.'-background', array(
+			'default' => 4
+		) );
+
+		// add control for amount of slides
+		$wp_customize->add_control( 'slide-'.$i.'-background', array(
+			'label'     => __( 'Slide '.$i.' Background', 'sp_br_fe_17' ),
+			'section'   => 'sp_br_fe_17_slides_section',
+			'priority'  => 11,
+			'type'      => 'checkbox'
+		) );
 	}
 
-	//update the refresh MongoCode
-	//$wp_customize->get_setting( 'slide_1' )->transport = 'postMessage';
 
 }
 add_action( 'customize_register', 'sp_br_fe_17_customizer' );

@@ -31,7 +31,19 @@
 
 	wp.customize( 'widget-color', function( value ) {
 		value.bind( function( newval ) {
-			$('section').css("background-color", newval);
+			$('.background').css("background-color", newval);
+		} );
+	} );
+
+	wp.customize( 'text-color', function( value ) {
+		value.bind( function( newval ) {
+			$('p').css("color", newval);
+		} );
+	} );
+
+	wp.customize( 'heading-color', function( value ) {
+		value.bind( function( newval ) {
+			$('h1, h2, h3, h4, h5, h6').css("color", newval);
 		} );
 	} );
 } )( jQuery );

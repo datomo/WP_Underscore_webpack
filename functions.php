@@ -261,9 +261,13 @@ function mytheme_customize_css()
 						html {
 							background-color: <?php echo get_theme_mod('background-color', '#3cb3fc'); ?>; }
 						.site-header {
-							background-color: <?php echo get_theme_mod('menu-color', '#00000'); ?>; }
-						section {
-							background-color: <?php echo get_theme_mod('widget-color', '#00000'); ?>; }
+							background-color: <?php echo get_theme_mod('menu-color', '#000000'); ?>; }
+						.background {
+							background-color: <?php echo get_theme_mod('widget-color', '#000000'); ?>; }
+						p {
+							color: <?php echo get_theme_mod('text-color', '#888888'); ?>; }
+						h1, h2, h3, h4, h5, h6 {
+							color: <?php echo get_theme_mod('heading-color', '#888888'); ?>; }
 						}
 				 </style>
 		<?php
