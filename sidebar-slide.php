@@ -36,13 +36,13 @@ for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
 				return;
 			}
 			?>
-			<aside id="<?php echo 'slide'.$i?>" class="widget-area slide slide-5050">
+			<aside id="<?php echo 'slide'.$i?>" class="widget-area slide">
 
 				<!-- check if background is enable -->
 				<?php if (get_theme_mod('slide-'.$i.'-background')) {
-					$background50 = "container-simple background";
+					$background50 = "container-simple  slide-5050 background";
 				} else {
-					$background50 = "container-simple";
+					$background50 = "container-simple  slide-5050";
 				} ?>
 
 				<div class="<?php echo $background50;?>">
