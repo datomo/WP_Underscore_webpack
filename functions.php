@@ -112,9 +112,10 @@ function sp_br_fe_17_widgets_init() {
 	) );
 
 	for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
-		$temp = get_theme_mod('slide_'.$i);
-		if ($temp == "1") {
-			// echo 'slide100';
+		$temp = get_theme_mod('slide-type-'.$i);
+		if ($temp == 1) {
+			echo $temp;
+			echo "slide_amount".get_theme_mod('slide_amount');
 			register_sidebar( array(
 				'name'          => esc_html__( 'Slide '.$i, 'sp_br_fe_17' ),
 				'id'            => 'slide-'.$i,
@@ -124,7 +125,7 @@ function sp_br_fe_17_widgets_init() {
 				'before_title'  => '<h3 class="widget-title">',
 				'after_title'   => '</h3>',
 			) );
-		} else {
+		} elseif ($temp == 2) {
 			// echo 'slide5050';
 			register_sidebar( array(
 				'name'          => esc_html__( 'Slide '.$i.' Left', 'sp_br_fe_17' ),
@@ -145,6 +146,8 @@ function sp_br_fe_17_widgets_init() {
 				'before_title'  => '<h3 class="widget-title">',
 				'after_title'   => '</h3>',
 			) );
+		}else {
+			echo "but why...";
 		}
 	};
 }

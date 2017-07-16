@@ -79,7 +79,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	//enable live reload
 	$wp_customize->get_setting( 'background-color' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'menu-color' )->transport = 'postMessage';
-	$wp_customize->get_setting( 'highlight-widgets' )->transport = 'postMessage';
+
 	$wp_customize->get_setting( 'widget-color' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'text-color' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'heading-color' )->transport = 'postMessage';
@@ -150,7 +150,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		)));
 
 		$wp_customize->add_setting( 'slide-type-'.$i, array(
-			'default' => '1'
+			'default' => 1
 		) );
 
 		$wp_customize->add_control( 'slide-type-'.$i, array(
@@ -158,10 +158,10 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 			'section'   => 'sp_br_fe_17_slides_section',
 			'priority'  => 11,
 			'type'      => 'select',
-			'default' => '1',
+			'default' => 1,
 			'choices' => array(
-				'1' => __( 'Widget 100%' ),
-				'2' => __( 'Widget 50%' )
+				1 => __( 'Widget 100%' ),
+				2 => __( 'Widget 50%' )
 			)
 		) );
 
@@ -205,6 +205,9 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 			'section'  		=> 'sp_br_fe_17_slides_section',
 		)));
 	}
+
+	//enable live reload
+	$wp_customize->get_setting( 'highlight-widgets' )->transport = 'postMessage';
 
 	// add Typograph section
 	$wp_customize->add_section( 'sp_br_fe_17_typo_section' , array(
