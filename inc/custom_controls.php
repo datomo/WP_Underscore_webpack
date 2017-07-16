@@ -11,13 +11,13 @@ if (class_exists('WP_Customize_Control')){
   }
 
   class Separator_Custom_control extends WP_Customize_Control{
-	public $type = 'separator';
-	public function render_content(){
-		?>
-		<p><hr></p>
-		<?php
-	}
-}
+  	public $type = 'separator';
+  	public function render_content(){
+  		?>
+  		<p><hr></p>
+  		<?php
+  	}
+  }
 
 }
 ?>

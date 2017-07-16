@@ -10,10 +10,18 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	$wp_customize->remove_section( 'header_image' );
 	$wp_customize->remove_panel( 'nav_menus');
 
+	// add Theme panel
+	$wp_customize->add_panel( 'sp_br_fe_17_panel' , array(
+		'title'      => __( 'Theme Options', 'sp_br_fe_17' ),
+		'capability' => 'edit_theme_options',
+		'priority'   => 101,
+	) );
+
 	// add "Content Options" section
 	$wp_customize->add_section( 'sp_br_fe_17_colors_section' , array(
 		'title'      => __( 'Colors', 'sp_br_fe_17' ),
 		'priority'   => 100,
+		'panel'			 => 'sp_br_fe_17_panel',
 	) );
 
 	// add setting for the background_color
@@ -85,25 +93,65 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	$wp_customize->get_setting( 'heading-color' )->transport = 'postMessage';
 
 
+
 	// add Slides section
 	$wp_customize->add_section( 'sp_br_fe_17_slides_section' , array(
 		'title'      => __( 'Slides', 'sp_br_fe_17' ),
+		'panel'			 => 'sp_br_fe_17_panel',
 		'priority'   => 101,
 	) );
 
+	// // add setting to highlight widgets
+	// $wp_customize->add_setting( 'highlight-widgets' , array(
+	// 	'default'   => false
+	// ) );
+	//
+	// //add controll to hightlight widgets
+	// $wp_customize->add_control( 'highlight-widgets', array(
+	// 	'label'     => __( 'Highlight all widget areas? ', 'sp_br_fe_17' ),
+	// 	'section'   => 'sp_br_fe_17_slides_section',
+	// 	'priority'  => 11,
+	// 	'type'      => 'checkbox'
+	// ) );
 
-	// add setting to highlight widgets
-	$wp_customize->add_setting( 'highlight-widgets' , array(
-		'default'   => false
+
+	// add setting control amount of slides
+	$wp_customize->add_setting( 'slide_amount', array(
+		'default' => 4,
 	) );
 
-	//add controll to hightlight widgets
-	$wp_customize->add_control( 'highlight-widgets', array(
-		'label'     => __( 'Highlight all widget areas? ', 'sp_br_fe_17' ),
+	$amount = get_theme_mod('slide_amount');
+	// add control for amount of slides
+	$wp_customize->add_control( 'slide_amount', array(
+		'label'     => __( 'How many slides are needed? At the moment there are: '.$amount, 'sp_br_fe_17' ),
+		'description' => __( 'If you add new slides you need to reload the window.'),
 		'section'   => 'sp_br_fe_17_slides_section',
-		'priority'  => 11,
-		'type'      => 'checkbox'
+		'type'      => 'number'
 	) );
+
+	//select if more options are needed
+	$wp_customize->add_setting( 'slides-options', array(
+			'default'        => false,
+	) );
+
+	$wp_customize->add_control( 'slides-options', array(
+			'label'      => 'Show more options?',
+			'section'    => 'sp_br_fe_17_slides_section',
+			'settings'   => 'slides-options',
+			'type'       => 'checkbox',
+			// 'choices'    => array(
+			// 'a' => 'Show more options.',
+			// 'b' => 'Hide more options',
+			// ),
+	) );
+
+	function choice_options_callback( $control ) {
+	    if ( $control->manager->get_setting('slides-options')->value() == true ) {
+	        return true;
+	    } else {
+	        return false;
+	    }
+	}
 	/**
 	*Separator
 	**/
@@ -113,22 +161,8 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	));
 	$wp_customize->add_control(new Separator_Custom_control($wp_customize, 'separator', array(
 		'settings'		=> 'separator',
-		'priority'  => 11,
 		'section'  		=> 'sp_br_fe_17_slides_section',
 	)));
-
-	// add setting control amount of slides
-	$wp_customize->add_setting( 'slide_amount', array(
-		'default' => 4
-	) );
-
-	// add control for amount of slides
-	$wp_customize->add_control( 'slide_amount', array(
-		'label'     => __( 'How many slides are needed?', 'sp_br_fe_17' ),
-		'section'   => 'sp_br_fe_17_slides_section',
-		'priority'  => 11,
-		'type'      => 'number'
-	) );
 
 	for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
 		//loop throught the amount of desired slide-acts
@@ -144,66 +178,85 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		$wp_customize->add_control(new Title_Custom_control($wp_customize, 'custom_info'.$i, array(
 			'label'    		=> esc_html__('Slide '.$i, 'sp_br_fe_17'),
 			// 'description' 	=> esc_html__('There are times that you just need to say something.', 'mytheme'),
-			'priority'  => 11,
 			'settings'		=> 'custom-info'.$i,
 			'section'  		=> 'sp_br_fe_17_slides_section',
 		)));
 
 		$wp_customize->add_setting( 'slide-type-'.$i, array(
-			'default' => 1
+			'default' => '1',
 		) );
 
 		$wp_customize->add_control( 'slide-type-'.$i, array(
 			'label'     => __( 'Type of Slide '.$i, 'sp_br_fe_17' ),
 			'section'   => 'sp_br_fe_17_slides_section',
-			'priority'  => 11,
 			'type'      => 'select',
-			'default' => 1,
 			'choices' => array(
-				1 => __( 'Widget 100%' ),
-				2 => __( 'Widget 50%' )
+				'1' => __( 'Widget 100%' ),
+				'2' => __( 'Widget 50%' )
 			)
 		) );
 
-		// add setting if background is shown
-		$wp_customize->add_setting( 'slide-'.$i.'-background', array(
-			'default' => 4
-		) );
 
-		// add control if background is shown
-		$wp_customize->add_control( 'slide-'.$i.'-background', array(
-			'label'     => __( 'Slide '.$i.' Background', 'sp_br_fe_17' ),
-			'section'   => 'sp_br_fe_17_slides_section',
-			'priority'  => 11,
-			'type'      => 'checkbox'
-		) );
+		if (get_theme_mod('slide-type-'.$i) == 1) {
+			$repeat = 1;
+			// echo "<h2>test</h2>";
+			// echo "<h1>".get_theme_mod('slide-type-'.$i)."</h1>";
+		}else {
+			$repeat = 2;
+		}
 
-		// add setting for slide id
-		$wp_customize->add_setting( 'slide-'.$i.'-class', array(
-			'default' => 'slide-'.$i
-		) );
+		for ($jj = 1; $jj <= $repeat; $jj++) {
+			if (get_theme_mod('slide-type-'.$i) == 1) {
+				//one 100 panel same
+				$string = '';
+			} elseif ($jj == 1) {
+				//first run, still same
+				$string = '';
+			} else {
+				//add the string for secend panel
+				$string = '-'.$jj;
+			}
 
-		// add control for slide id
-		$wp_customize->add_control( 'slide-'.$i.'-class', array(
-			'label'     => __( 'Add Styling Classes:', 'sp_br_fe_17' ),
-			'section'   => 'sp_br_fe_17_slides_section',
-			'priority'  => 11,
-			'type'      => 'text'
-		) );
+			// add setting if background is shown
+			$wp_customize->add_setting( 'slide-'.$i.'-background'.$string, array(
+				'default' => 4
+			) );
+
+			// add control if background is shown
+			$wp_customize->add_control( 'slide-'.$i.'-background'.$string, array(
+				'label'     => __( 'Slide '.$i.$string.' Background', 'sp_br_fe_17' ),
+				'section'   => 'sp_br_fe_17_slides_section',
+				'type'      => 'checkbox',
+				'active_callback' => 'choice_options_callback',
+			) );
+
+			// add setting for slide id
+			$wp_customize->add_setting( 'slide-'.$i.'-class'.$string, array(
+				'default' => 'slide-'.$i
+			) );
+
+			// add control for slide id
+			$wp_customize->add_control( 'slide-'.$i.'-class'.$string, array(
+				'label'     => __( 'Add Styling Classes to Slide:', 'sp_br_fe_17' ),
+				'section'   => 'sp_br_fe_17_slides_section',
+				'type'      => 'text',
+				'active_callback' => 'choice_options_callback',
+			) );
 
 
-		/**
-		*Separator
-		**/
-		$wp_customize->add_setting('separator'.$i, array(
-			'default'           => '',
-			'sanitize_callback' => 'esc_html',
-		));
-		$wp_customize->add_control(new Separator_Custom_control($wp_customize, 'separator'.$i, array(
-			'settings'		=> 'separator'.$i,
-			'priority'  => 11,
-			'section'  		=> 'sp_br_fe_17_slides_section',
-		)));
+			/**
+			*Separator
+			**/
+			$wp_customize->add_setting('separator-'.$i.$string, array(
+				'default'           => '',
+				'sanitize_callback' => 'esc_html',
+			));
+			$wp_customize->add_control(new Separator_Custom_control($wp_customize, 'separator'.$string, array(
+				'settings'		=> 'separator'.$i.$string,
+				'section'  		=> 'sp_br_fe_17_slides_section',
+				'active_callback' => 'choice_options_callback',
+			)));
+		}
 	}
 
 	//enable live reload
@@ -213,6 +266,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	$wp_customize->add_section( 'sp_br_fe_17_typo_section' , array(
 		'title'      => __( 'Typography', 'sp_br_fe_17' ),
 		'priority'   => 102,
+		'panel'			 => 'sp_br_fe_17_panel',
 	) );
 
 	// add setting for typo link

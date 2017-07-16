@@ -113,19 +113,8 @@ function sp_br_fe_17_widgets_init() {
 
 	for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
 		$temp = get_theme_mod('slide-type-'.$i);
-		if ($temp == 1) {
-			echo $temp;
-			echo "slide_amount".get_theme_mod('slide_amount');
-			register_sidebar( array(
-				'name'          => esc_html__( 'Slide '.$i, 'sp_br_fe_17' ),
-				'id'            => 'slide-'.$i,
-				'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
-				'before_widget' => '<section id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</section>',
-				'before_title'  => '<h3 class="widget-title">',
-				'after_title'   => '</h3>',
-			) );
-		} elseif ($temp == 2) {
+		// echo "<h1>slide_amount ".get_theme_mod('slide_amount').$temp."</h1>".$i;
+		if ($temp == 2) {
 			// echo 'slide5050';
 			register_sidebar( array(
 				'name'          => esc_html__( 'Slide '.$i.' Left', 'sp_br_fe_17' ),
@@ -147,7 +136,17 @@ function sp_br_fe_17_widgets_init() {
 				'after_title'   => '</h3>',
 			) );
 		}else {
-			echo "but why...";
+			// echo "<h1>slide_amount ".get_theme_mod('slide_amount')."</h1>";
+			//standart sidebar is 100% so it needs to be else => new slide solution
+			register_sidebar( array(
+				'name'          => esc_html__( 'Slide '.$i, 'sp_br_fe_17' ),
+				'id'            => 'slide-'.$i,
+				'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h3 class="widget-title">',
+				'after_title'   => '</h3>',
+			) );
 		}
 	};
 }
