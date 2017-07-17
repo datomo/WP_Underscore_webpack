@@ -209,22 +209,25 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 			if (get_theme_mod('slide-type-'.$i) == 1) {
 				//one 100 panel same
 				$string = '';
+				$position = '';
 			} elseif ($jj == 1) {
 				//first run, still same
 				$string = '';
+				$position = ' Left Panel';
 			} else {
 				//add the string for secend panel
 				$string = '-'.$jj;
+				$position = ' Right Panel';
 			}
 
 			// add setting if background is shown
 			$wp_customize->add_setting( 'slide-'.$i.'-background'.$string, array(
-				'default' => 4
+				'default' => true
 			) );
 
 			// add control if background is shown
 			$wp_customize->add_control( 'slide-'.$i.'-background'.$string, array(
-				'label'     => __( 'Slide '.$i.$string.' Background', 'sp_br_fe_17' ),
+				'label'     => __( 'Slide '.$i.$position.' Background', 'sp_br_fe_17' ),
 				'section'   => 'sp_br_fe_17_slides_section',
 				'type'      => 'checkbox',
 				'active_callback' => 'choice_options_callback',
@@ -237,7 +240,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 			// add control for slide id
 			$wp_customize->add_control( 'slide-'.$i.'-class'.$string, array(
-				'label'     => __( 'Add Styling Classes to Slide:', 'sp_br_fe_17' ),
+				'label'     => __( 'Add Styling Classes to Slide'.$position.' :', 'sp_br_fe_17' ),
 				'section'   => 'sp_br_fe_17_slides_section',
 				'type'      => 'text',
 				'active_callback' => 'choice_options_callback',
@@ -260,7 +263,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	}
 
 	//enable live reload
-	$wp_customize->get_setting( 'highlight-widgets' )->transport = 'postMessage';
+	// $wp_customize->get_setting( 'highlight-widgets' )->transport = 'postMessage';
 
 	// add Typograph section
 	$wp_customize->add_section( 'sp_br_fe_17_typo_section' , array(

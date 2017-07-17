@@ -8,16 +8,17 @@ jQuery(document).ready(function(){
   // TweenLite.to(jQuery(".img-frame"), 10, {rotation: 360})
   // console.log(jQuery(".img-frame"))
 
-  var $menu = jQuery('#site-navigation')
+  var $menu = jQuery('.menu')
   var $window = jQuery(window)
 
-  $menu.on("click", "div", function() {
+  $menu.on("click", "a", function(e) {
+    e.preventDefault();
     var $this = jQuery(this),
-        href = $this.attr("rel"),
+        href = $this.attr("href"),
         topY = jQuery(href).offset().top;
 
     // TweenLite.to(jQuery("p"),1, {scale: 2, color: "blue"})
-    TweenLite.to(window, 1,{scrollTo:{y:topY, offsetY: 100}, ease:Power2.easeOut})
+    TweenLite.to(window, 1,{scrollTo:{y:topY, offsetY: 50}, ease:Power2.easeOut})
   })
 
   var $burger = jQuery('#burger')
