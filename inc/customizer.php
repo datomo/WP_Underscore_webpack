@@ -233,6 +233,12 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 				'active_callback' => 'choice_options_callback',
 			) );
 
+			//section for slides??
+			$wp_customize->add_section( 'sp_br_fe_17_slide_section'.$i , array(
+				'title'      => __( 'Colors', 'sp_br_fe_17' ),
+				'panel'			 => 'sp_br_fe_17_panel',
+			) );
+
 			// add setting for slide id
 			$wp_customize->add_setting( 'slide-'.$i.'-class'.$string, array(
 				'default' => 'slide-'.$i
