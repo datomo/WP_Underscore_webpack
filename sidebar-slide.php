@@ -33,12 +33,16 @@ for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
 				//check if both slides have a background add one to the slide
 				if(get_theme_mod('slide-'.$i.'-background') and get_theme_mod('slide-'.$i.'-background-2')) {
 					$class5050 = 'background';
+					//just a slide background not two panels
+					$class50left = '';
+					$class50right = '';
 				}else {
 					$class5050 = '';
+					//only one will be true
+					$class50left = get_theme_mod('slide-'.$i.'-background') ? 'background': '' ;
+					$class50right = get_theme_mod('slide-'.$i.'-background-2') ? 'background': '' ;
 				}
-				//if true add background class
-				$class50left = get_theme_mod('slide-'.$i.'-background') ? 'background': '' ;
-				$class50right = get_theme_mod('slide-'.$i.'-background-2') ? 'background': '' ;
+
 				?>
 				<div class="container-simple  slide-5050 <?php echo $class5050;?>">
 					<div class="container-50 container <?php echo $class50left;?>">

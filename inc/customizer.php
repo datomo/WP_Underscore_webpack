@@ -160,6 +160,20 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	$wp_customize->get_setting( 'slide-padding' )->transport = 'postMessage';
 
 
+	// add setting for box shadow
+	$wp_customize->add_setting( 'slide-shadow', array(
+		'default' => 'box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);',
+	) );
+
+	$wp_customize->add_control( 'slide-shadow', array(
+		'label'     => __( 'Add your box-shadow here:', 'sp_br_fe_17' ),
+		'section'   => 'sp_br_fe_17_slides_section',
+		// 'panel'			 => 'sp_br_fe_17_panel',
+		'type'      => 'text'
+	) );
+
+	$wp_customize->get_setting( 'slide-shadow' )->transport = 'postMessage';
+
 
 	//select if more options are needed
 	// $wp_customize->add_setting( 'slides-options', array(

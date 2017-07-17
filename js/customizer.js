@@ -49,6 +49,12 @@
 		} );
 	} );
 
+	wp.customize( 'slide-shadow', function( value ) {
+		value.bind( function( newval ) {
+			$('.background').css('box-shadow', newval.replace('box-shadow: ', '').replace(';', ''));
+		} );
+	} );
+
 	wp.customize( 'text-color', function( value ) {
 		value.bind( function( newval ) {
 			$('p').css("color", newval);
