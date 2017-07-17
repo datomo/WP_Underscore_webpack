@@ -31,7 +31,21 @@
 
 	wp.customize( 'widget-color', function( value ) {
 		value.bind( function( newval ) {
+			console.log(newval);
 			$('.background').css("background-color", newval);
+		} );
+	} );
+
+//not working but why...
+	wp.customize( 'slide-radius', function( value ) {
+		value.bind( function( newval ) {
+			$('.background').css("border-radius", newval.toString() + "px");
+		} );
+	} );
+
+	wp.customize( 'slide-padding', function( value ) {
+		value.bind( function( newval ) {
+			$('.background').css("padding", newval.toString() + "px");
 		} );
 	} );
 

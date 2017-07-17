@@ -21,7 +21,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	$wp_customize->add_section( 'sp_br_fe_17_colors_section' , array(
 		'title'      => __( 'Colors', 'sp_br_fe_17' ),
 		'priority'   => 100,
-		'panel'			 => 'sp_br_fe_17_panel',
+		// 'panel'			 => 'sp_br_fe_17_panel',
 	) );
 
 	// add setting for the background_color
@@ -126,32 +126,64 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'label'     => __( 'How many slides are needed? At the moment there are: '.$amount, 'sp_br_fe_17' ),
 		'description' => __( 'If you add new slides you need to reload the window.'),
 		'section'   => 'sp_br_fe_17_slides_section',
+		// 'panel'			 => 'sp_br_fe_17_panel',
 		'type'      => 'number'
 	) );
 
-	//select if more options are needed
-	$wp_customize->add_setting( 'slides-options', array(
-			'default'        => false,
+
+	// add setting radius
+	$wp_customize->add_setting( 'slide-radius', array(
+		'default' => 0,
 	) );
 
-	$wp_customize->add_control( 'slides-options', array(
-			'label'      => 'Show more options?',
-			'section'    => 'sp_br_fe_17_slides_section',
-			'settings'   => 'slides-options',
-			'type'       => 'checkbox',
+	$wp_customize->add_control( 'slide-radius', array(
+		'label'     => __( 'Change the border radius here:', 'sp_br_fe_17' ),
+		'section'   => 'sp_br_fe_17_slides_section',
+		// 'panel'			 => 'sp_br_fe_17_panel',
+		'type'      => 'number'
+	) );
+
+	$wp_customize->get_setting( 'slide-radius' )->transport = 'postMessage';
+
+	// add setting padding
+	$wp_customize->add_setting( 'slide-padding', array(
+		'default' => 0,
+	) );
+
+	$wp_customize->add_control( 'slide-padding', array(
+		'label'     => __( 'Change the space between background and widget here:', 'sp_br_fe_17' ),
+		'section'   => 'sp_br_fe_17_slides_section',
+		// 'panel'			 => 'sp_br_fe_17_panel',
+		'type'      => 'number'
+	) );
+
+	$wp_customize->get_setting( 'slide-padding' )->transport = 'postMessage';
+
+
+
+	//select if more options are needed
+	// $wp_customize->add_setting( 'slides-options', array(
+	// 		'default'        => false,
+	// ) );
+	//
+	// $wp_customize->add_control( 'slides-options', array(
+	// 		'label'      => 'Show more options?',
+	// 		'section'    => 'sp_br_fe_17_slides_section',
+	// 		'settings'   => 'slides-options',
+	// 		'type'       => 'checkbox',
 			// 'choices'    => array(
 			// 'a' => 'Show more options.',
 			// 'b' => 'Hide more options',
 			// ),
-	) );
+	// ) );
 
-	function choice_options_callback( $control ) {
-	    if ( $control->manager->get_setting('slides-options')->value() == true ) {
-	        return true;
-	    } else {
-	        return false;
-	    }
-	}
+	// function choice_options_callback( $control ) {
+	//     if ( $control->manager->get_setting('slides-options')->value() == true ) {
+	//         return true;
+	//     } else {
+	//         return false;
+	//     }
+	// }
 	/**
 	*Separator
 	**/
@@ -230,7 +262,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 				'label'     => __( 'Slide '.$i.$position.' Background', 'sp_br_fe_17' ),
 				'section'   => 'sp_br_fe_17_slides_section'.$i,
 				'type'      => 'checkbox',
-				'active_callback' => 'choice_options_callback',
+				// 'active_callback' => 'choice_options_callback',
 			) );
 
 			//section for slides??
@@ -249,7 +281,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 				'label'     => __( 'Add Styling Classes to Slide'.$position.' :', 'sp_br_fe_17' ),
 				'section'   => 'sp_br_fe_17_slides_section'.$i,
 				'type'      => 'text',
-				'active_callback' => 'choice_options_callback',
+				// 'active_callback' => 'choice_options_callback',
 			) );
 
 
@@ -263,7 +295,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 			$wp_customize->add_control(new Separator_Custom_control($wp_customize, 'separator'.$string, array(
 				'settings'		=> 'separator'.$i.$string,
 				'section'  		=> 'sp_br_fe_17_slides_section'.$i,
-				'active_callback' => 'choice_options_callback',
+				// 'active_callback' => 'choice_options_callback',
 			)));
 		}
 	}
@@ -275,7 +307,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	$wp_customize->add_section( 'sp_br_fe_17_typo_section' , array(
 		'title'      => __( 'Typography', 'sp_br_fe_17' ),
 		'priority'   => 102,
-		'panel'			 => 'sp_br_fe_17_panel',
+		// 'panel'			 => 'sp_br_fe_17_panel',
 	) );
 
 	// add setting for typo link

@@ -267,7 +267,9 @@ function mytheme_customize_css()
 						.site-header {
 							background-color: <?php echo get_theme_mod('menu-color', '#000000'); ?>; }
 						.background {
-							background-color: <?php echo get_theme_mod('widget-color', '#000000'); ?>; }
+							background-color: <?php echo get_theme_mod('widget-color', '#000000'); ?>;
+							border-radius: <?php echo get_theme_mod('slide-radius').'px'; ?>;
+							padding: <?php echo get_theme_mod('slide-padding').'px'; ?>;}
 						p {
 							color: <?php echo get_theme_mod('text-color', '#888888'); ?>; }
 						h1, h2, h3, h4, h5, h6 {
