@@ -96,7 +96,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 	// add Slides section
 	$wp_customize->add_section( 'sp_br_fe_17_slides_section' , array(
-		'title'      => __( 'Slides', 'sp_br_fe_17' ),
+		'title'      => __( 'General Slides', 'sp_br_fe_17' ),
 		'panel'			 => 'sp_br_fe_17_panel',
 		'priority'   => 101,
 	) );
@@ -179,7 +179,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 			'label'    		=> esc_html__('Slide '.$i, 'sp_br_fe_17'),
 			// 'description' 	=> esc_html__('There are times that you just need to say something.', 'mytheme'),
 			'settings'		=> 'custom-info'.$i,
-			'section'  		=> 'sp_br_fe_17_slides_section',
+			'section'  		=> 'sp_br_fe_17_slides_section'.$i,
 		)));
 
 		$wp_customize->add_setting( 'slide-type-'.$i, array(
@@ -188,7 +188,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 		$wp_customize->add_control( 'slide-type-'.$i, array(
 			'label'     => __( 'Type of Slide '.$i, 'sp_br_fe_17' ),
-			'section'   => 'sp_br_fe_17_slides_section',
+			'section'   => 'sp_br_fe_17_slides_section'.$i,
 			'type'      => 'select',
 			'choices' => array(
 				'1' => __( 'Widget 100%' ),
@@ -228,14 +228,14 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 			// add control if background is shown
 			$wp_customize->add_control( 'slide-'.$i.'-background'.$string, array(
 				'label'     => __( 'Slide '.$i.$position.' Background', 'sp_br_fe_17' ),
-				'section'   => 'sp_br_fe_17_slides_section',
+				'section'   => 'sp_br_fe_17_slides_section'.$i,
 				'type'      => 'checkbox',
 				'active_callback' => 'choice_options_callback',
 			) );
 
 			//section for slides??
-			$wp_customize->add_section( 'sp_br_fe_17_slide_section'.$i , array(
-				'title'      => __( 'Colors', 'sp_br_fe_17' ),
+			$wp_customize->add_section( 'sp_br_fe_17_slides_section'.$i , array(
+				'title'      => __( 'Slide '.$i, 'sp_br_fe_17' ),
 				'panel'			 => 'sp_br_fe_17_panel',
 			) );
 
@@ -247,7 +247,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 			// add control for slide id
 			$wp_customize->add_control( 'slide-'.$i.'-class'.$string, array(
 				'label'     => __( 'Add Styling Classes to Slide'.$position.' :', 'sp_br_fe_17' ),
-				'section'   => 'sp_br_fe_17_slides_section',
+				'section'   => 'sp_br_fe_17_slides_section'.$i,
 				'type'      => 'text',
 				'active_callback' => 'choice_options_callback',
 			) );
@@ -262,7 +262,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 			));
 			$wp_customize->add_control(new Separator_Custom_control($wp_customize, 'separator'.$string, array(
 				'settings'		=> 'separator'.$i.$string,
-				'section'  		=> 'sp_br_fe_17_slides_section',
+				'section'  		=> 'sp_br_fe_17_slides_section'.$i,
 				'active_callback' => 'choice_options_callback',
 			)));
 		}
