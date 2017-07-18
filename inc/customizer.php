@@ -189,21 +189,19 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	*Range
 	*/
 
-	$wp_customize->add_setting( 'range-test', array(
-		'default' => 2,
+	$wp_customize->add_setting( 'shadow-hvalue', array(
+		'default' => "",
 	) );
 
-	$wp_customize->add_control( 'range-test', array(
-		'type' => 'range',
+	$wp_customize->add_control(new WP_test_Color_Control ( $wp_customize, 'shadow-hvalue', array(
+		'type' => 'test',
+		'label' => 'Header Height',
 		'section' => 'sp_br_fe_17_slides_section',
-		'label' => __( 'Range' ),
-		'description' => __( 'This is the range control description.' ),
-		'input_attrs' => array(
-			'min' => 0,
-			'max' => 10,
-			'step' => 1,
-		),
-	) );
+		'test' => 'test'
+	)));
+
+	// $wp_customize->get_setting( 'shadow-hvalue' )->transport = 'postMessage';
+
 	//select if more options are needed
 	// $wp_customize->add_setting( 'slides-options', array(
 	// 		'default'        => false,
@@ -407,3 +405,32 @@ function sp_br_fe_17_customize_preview_js() {
 	wp_enqueue_script( 'sp_br_fe_17_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
 add_action( 'customize_preview_init', 'sp_br_fe_17_customize_preview_js' );
+
+
+/**
+ * This function adds some styles to the WordPress Customizer
+ */
+function my_customizer_styles() { ?>
+	<style>
+		#customize-theme-controls .accordion-section-title {
+			background: #333;
+			color: white;
+		}
+		input {
+			display: inline-block;
+		}
+		.slider{
+			position: relative;
+			width: 100%;
+		}
+		.customize-control h3 {
+			display: inline-block;
+			margin: 0;
+			top: 50%;
+    	transform: translateY(-50%);
+		}
+	</style>
+	<?php
+
+}
+add_action( 'customize_controls_print_styles', 'my_customizer_styles', 999 );

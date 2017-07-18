@@ -51,9 +51,11 @@
 
 	wp.customize( 'shadow-color', function( value ) {
 		value.bind( function( newval ) {
+			$('.slider-text').html(newval);
 			$('.background').css("box-shadow", "10px 10px 10px" + " " + newval);
 		} );
 	} );
+
 
 	wp.customize( 'text-color', function( value ) {
 		value.bind( function( newval ) {

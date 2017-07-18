@@ -270,7 +270,7 @@ function mytheme_customize_css()
 							background-color: <?php echo get_theme_mod('widget-color', '#000000'); ?>;
 							border-radius: <?php echo get_theme_mod('slide-radius').'px'; ?>;
 							padding: <?php echo get_theme_mod('slide-padding').'px'; ?>;
-							box-shadow: 10px 10px 99px 12px <?php echo get_theme_mod('shadow-color'); ?>; }
+							box-shadow: <?php echo get_theme_mod('shadow-hvalue').'px'?> 10px 99px 12px <?php echo get_theme_mod('shadow-color'); ?>; }
 						p {
 							color: <?php echo get_theme_mod('text-color', '#888888'); ?>; }
 						h1, h2, h3, h4, h5, h6 {
