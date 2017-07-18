@@ -159,22 +159,51 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 	$wp_customize->get_setting( 'slide-padding' )->transport = 'postMessage';
 
+	/**
+	*Info
+	**///add titel for shadow options
+	$wp_customize->add_setting('titel-shadow'.$i, array(
+		'default'           => '',
+	));
+	$wp_customize->add_control(new Title_Custom_control($wp_customize, 'custom-shadow', array(
+		'label'    		=> esc_html__('Shadow Options', 'sp_br_fe_17'),
+		// 'description' 	=> esc_html__('There are times that you just need to say something.', 'mytheme'),
+		'settings'		=> 'titel-shadow',
+		'section'  		=> 'sp_br_fe_17_slides_section'.$i,
+	)));
 
 	// add setting for box shadow
-	$wp_customize->add_setting( 'slide-shadow', array(
-		'default' => 'box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);',
+	$wp_customize->add_setting( 'shadow-color', array(
+		'default' => 'rgba(0,0,0,0.75)',
 	) );
 
-	$wp_customize->add_control( 'slide-shadow', array(
-		'label'     => __( 'Add your box-shadow here:', 'sp_br_fe_17' ),
-		'section'   => 'sp_br_fe_17_slides_section',
-		// 'panel'			 => 'sp_br_fe_17_panel',
-		'type'      => 'text'
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'shadow-color', array(
+		'label'      => __( 'Add shadow color here:', 'sp_br_fe_17' ),
+		'section'    => 'sp_br_fe_17_slides_section',
+		'settings'   => 'shadow-color',
+	) ) );
+
+	$wp_customize->get_setting( 'shadow-color' )->transport = 'postMessage';
+
+/**
+	*Range
+	*/
+
+	$wp_customize->add_setting( 'range-test', array(
+		'default' => 2,
 	) );
 
-	$wp_customize->get_setting( 'slide-shadow' )->transport = 'postMessage';
-
-
+	$wp_customize->add_control( 'range-test', array(
+		'type' => 'range',
+		'section' => 'sp_br_fe_17_slides_section',
+		'label' => __( 'Range' ),
+		'description' => __( 'This is the range control description.' ),
+		'input_attrs' => array(
+			'min' => 0,
+			'max' => 10,
+			'step' => 1,
+		),
+	) );
 	//select if more options are needed
 	// $wp_customize->add_setting( 'slides-options', array(
 	// 		'default'        => false,

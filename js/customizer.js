@@ -49,9 +49,9 @@
 		} );
 	} );
 
-	wp.customize( 'slide-shadow', function( value ) {
+	wp.customize( 'shadow-color', function( value ) {
 		value.bind( function( newval ) {
-			$('.background').css('box-shadow', newval.replace('box-shadow: ', '').replace(';', ''));
+			$('.background').css("box-shadow", "10px 10px 10px" + " " + newval);
 		} );
 	} );
 
