@@ -193,11 +193,10 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'default' => "",
 	) );
 
-	$wp_customize->add_control(new WP_test_Color_Control ( $wp_customize, 'shadow-hvalue', array(
-		'type' => 'test',
+	$wp_customize->add_control(new SNT_List_Control($wp_customize, 'shadow-hvalue', array(
+		'type' => 'range',
 		'label' => 'Header Height',
 		'section' => 'sp_br_fe_17_slides_section',
-		'test' => 'test'
 	)));
 
 	// $wp_customize->get_setting( 'shadow-hvalue' )->transport = 'postMessage';
@@ -401,10 +400,6 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 }
 add_action( 'customize_register', 'sp_br_fe_17_customizer' );
 
-function sp_br_fe_17_customize_preview_js() {
-	wp_enqueue_script( 'sp_br_fe_17_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
-}
-add_action( 'customize_preview_init', 'sp_br_fe_17_customize_preview_js' );
 
 
 /**
@@ -434,3 +429,17 @@ function my_customizer_styles() { ?>
 
 }
 add_action( 'customize_controls_print_styles', 'my_customizer_styles', 999 );
+
+
+// 1. customizer-preview.js
+function customize_preview_js() {
+    wp_enqueue_script( 'customizer_preview', get_template_directory_uri() . '/js/customizer-preview.js', array( 'customize-preview' ), null, true );
+		wp_enqueue_style( 'custom_snt_control_style', get_stylesheet_directory_uri() . 'inc/css/customizer-controls.css' );
+}
+add_action( 'customize_preview_init', 'customize_preview_js' );
+
+// 2. customizer-control.js
+function customize_control_js() {
+    wp_enqueue_script( 'customizer_control', get_template_directory_uri() . '/js/customizer-control.js', array( 'customize-controls', 'jquery' ), null, true );
+}
+add_action( 'customize_controls_enqueue_scripts', 'customize_control_js' );
