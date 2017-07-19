@@ -49,12 +49,21 @@
 		} );
 	} );
 
-	wp.customize( 'shadow-color', function( value ) {
-		value.bind( function( newval ) {
-			$('.slider-text').html(newval);
-			$('.background').css("box-shadow", "10px 10px 10px" + " " + newval);
+	wp.customize( 'shadow-color', 'shadow-hvalue', function( color, hvalue ) {
+		color.bind( function( newcolor ) {
+			$('.background').css("box-shadow", hvalue + "px " + "20px 20px" + " " + newcolor  );
+		} );
+		hvalue.bind( function( newhvalue ) {
+			$('.background').css("box-shadow", newhvalue + "px " + "20px 20px" + " " + color  );
 		} );
 	} );
+
+	// wp.customize( 'shadow-hvalue', function( value ) {
+	// 	value.bind( function( newval ) {
+	// 		var temp = $('.background').css('box-shadow').split(" ");
+	// 		$('.background').css("box-shadow", temp[4] + " " + temp[3] + " " + temp[2] + " " + temp [1] + " " + newval);
+	// 	} );
+	// } );
 
 
 	wp.customize( 'text-color', function( value ) {

@@ -190,16 +190,27 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	*/
 
 	$wp_customize->add_setting( 'shadow-hvalue', array(
-		'default' => "",
+		'default' => 20,
 	) );
 
-	$wp_customize->add_control(new SNT_List_Control($wp_customize, 'shadow-hvalue', array(
-		'type' => 'range',
-		'label' => 'Header Height',
-		'section' => 'sp_br_fe_17_slides_section',
-	)));
+	$wp_customize->add_control(
+	    new WP_Customize_Range_Control(
+	        $wp_customize,
+	        'content_font_size',
+	        array(
+	            'label'       => __('Font Size'),
+	            'section'     => 'sp_br_fe_17_slides_section',
+	            'settings'    => 'shadow-hvalue',
+	            'description' => __('Measurement is in pixel.'),
+	            'input_attrs' => array(
+	                'min' => -50,
+	                'max' => 50,
+	            ),
+	        )
+	    )
+	);
 
-	// $wp_customize->get_setting( 'shadow-hvalue' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'shadow-hvalue' )->transport = 'postMessage';
 
 	//select if more options are needed
 	// $wp_customize->add_setting( 'slides-options', array(
@@ -434,7 +445,7 @@ add_action( 'customize_controls_print_styles', 'my_customizer_styles', 999 );
 // 1. customizer-preview.js
 function customize_preview_js() {
     wp_enqueue_script( 'customizer_preview', get_template_directory_uri() . '/js/customizer-preview.js', array( 'customize-preview' ), null, true );
-		wp_enqueue_style( 'custom_snt_control_style', get_stylesheet_directory_uri() . 'inc/css/customizer-controls.css' );
+		wp_enqueue_style( 'custom_snt_control_style', get_stylesheet_directory_uri() . '/inc/controls/css/customizer-controls.css' );
 }
 add_action( 'customize_preview_init', 'customize_preview_js' );
 
