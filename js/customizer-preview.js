@@ -49,13 +49,35 @@
 		} );
 	} );
 
-	wp.customize( 'shadow-color', 'shadow-hvalue', function( color, hvalue ) {
+	//watch all values for change, bind the changed one
+	wp.customize('shadow-hvalue', 'shadow-vvalue', 'shadow-blur', 'shadow-spread', 'shadow-color', function( hvalue, vvalue, blur, spread, color ) {
 		color.bind( function( newcolor ) {
-			$('.background').css("box-shadow", hvalue + "px " + "20px 20px" + " " + newcolor  );
+			// alert(newcolor);
+			var temp = $('.background').css('box-shadow').match(/(-?\d+px)|(rgb\(.+\))/g);
+			// alert(temp[0])//color
+			// alert(temp[1])//hvalue
+			// alert(temp[2])//vvalue
+			// alert(temp[3])//blur
+			// alert(temp[4])//spread
+			$('.background').css("box-shadow", newcolor + " " + temp[1] + " " + temp[2] + " " + temp[3] + " " + temp[4]);
+
 		} );
-		hvalue.bind( function( newhvalue ) {
-			$('.background').css("box-shadow", newhvalue + "px " + "20px 20px" + " " + color  );
-		} );
+		hvalue.bind( function ( newhvalue) {
+			var temp = $('.background').css('box-shadow').match(/(-?\d+px)|(rgb\(.+\))/g);
+			$('.background').css("box-shadow", temp[0] + " " + newhvalue + "px " + temp[2] + " " + temp[3] + " " + temp[4]);
+		})
+		vvalue.bind( function ( newvvalue) {
+			var temp = $('.background').css('box-shadow').match(/(-?\d+px)|(rgb\(.+\))/g);
+			$('.background').css("box-shadow", temp[0] + " " + temp[1]+ " " + newvvalue + "px " + temp[3] + " " + temp[4]);
+		})
+		blur.bind( function ( newblur) {
+			var temp = $('.background').css('box-shadow').match(/(-?\d+px)|(rgb\(.+\))/g);
+			$('.background').css("box-shadow", temp[0] + " " + temp[1] + " " + temp[2] + " " + newblur + "px " + temp[4]);
+		})
+		spread.bind( function ( newspread) {
+			var temp = $('.background').css('box-shadow').match(/(-?\d+px)|(rgb\(.+\))/g);
+			$('.background').css("box-shadow", temp[0] + " " + temp[1] + " " + temp[2] + " " + temp[3] + " " + newspread + "px");
+		})
 	} );
 
 	// wp.customize( 'shadow-hvalue', function( value ) {

@@ -188,7 +188,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 /**
 	*Range
 	*/
-
+	//shadow h value
 	$wp_customize->add_setting( 'shadow-hvalue', array(
 		'default' => 20,
 	) );
@@ -196,12 +196,12 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	$wp_customize->add_control(
 	    new WP_Customize_Range_Control(
 	        $wp_customize,
-	        'content_font_size',
+	        'shadow-hvalue',
 	        array(
-	            'label'       => __('Font Size'),
+	            'label'       => __('Horizontal Shadow'),
 	            'section'     => 'sp_br_fe_17_slides_section',
 	            'settings'    => 'shadow-hvalue',
-	            'description' => __('Measurement is in pixel.'),
+	            // 'description' => __('Measurement is in pixel.'),
 	            'input_attrs' => array(
 	                'min' => -50,
 	                'max' => 50,
@@ -212,29 +212,78 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 	$wp_customize->get_setting( 'shadow-hvalue' )->transport = 'postMessage';
 
-	//select if more options are needed
-	// $wp_customize->add_setting( 'slides-options', array(
-	// 		'default'        => false,
-	// ) );
-	//
-	// $wp_customize->add_control( 'slides-options', array(
-	// 		'label'      => 'Show more options?',
-	// 		'section'    => 'sp_br_fe_17_slides_section',
-	// 		'settings'   => 'slides-options',
-	// 		'type'       => 'checkbox',
-			// 'choices'    => array(
-			// 'a' => 'Show more options.',
-			// 'b' => 'Hide more options',
-			// ),
-	// ) );
+	//shadow v value
+	$wp_customize->add_setting( 'shadow-vvalue', array(
+		'default' => 20,
+	) );
 
-	// function choice_options_callback( $control ) {
-	//     if ( $control->manager->get_setting('slides-options')->value() == true ) {
-	//         return true;
-	//     } else {
-	//         return false;
-	//     }
-	// }
+	$wp_customize->add_control(
+	    new WP_Customize_Range_Control(
+	        $wp_customize,
+	        'shadow-vvalue',
+	        array(
+	            'label'       => __('Vertical Shadow'),
+	            'section'     => 'sp_br_fe_17_slides_section',
+	            'settings'    => 'shadow-vvalue',
+	            // 'description' => __('Measurement is in pixel.'),
+	            'input_attrs' => array(
+	                'min' => -50,
+	                'max' => 50,
+	            ),
+	        )
+	    )
+	);
+
+	$wp_customize->get_setting( 'shadow-vvalue' )->transport = 'postMessage';
+
+	//shadow v value
+	$wp_customize->add_setting( 'shadow-blur', array(
+		'default' => 20,
+	) );
+
+	$wp_customize->add_control(
+	    new WP_Customize_Range_Control(
+	        $wp_customize,
+	        'shadow-blur',
+	        array(
+	            'label'       => __('Shadow Blur'),
+	            'section'     => 'sp_br_fe_17_slides_section',
+	            'settings'    => 'shadow-blur',
+	            // 'description' => __('Measurement is in pixel.'),
+	            'input_attrs' => array(
+	                'min' => 0,
+	                'max' => 100,
+	            ),
+	        )
+	    )
+	);
+
+	$wp_customize->get_setting( 'shadow-blur' )->transport = 'postMessage';
+
+	//shadow v value
+	$wp_customize->add_setting( 'shadow-spread', array(
+		'default' => 20,
+	) );
+
+	$wp_customize->add_control(
+	    new WP_Customize_Range_Control(
+	        $wp_customize,
+	        'shadow-spread',
+	        array(
+	            'label'       => __('Shadow Spreading'),
+	            'section'     => 'sp_br_fe_17_slides_section',
+	            'settings'    => 'shadow-spread',
+	            // 'description' => __('Measurement is in pixel.'),
+	            'input_attrs' => array(
+	                'min' => 0,
+	                'max' => 100,
+	            ),
+	        )
+	    )
+	);
+
+	$wp_customize->get_setting( 'shadow-spread' )->transport = 'postMessage';
+
 	/**
 	*Separator
 	**/
@@ -414,32 +463,15 @@ add_action( 'customize_register', 'sp_br_fe_17_customizer' );
 
 
 /**
- * This function adds some styles to the WordPress Customizer
+ * Enqueue the stylesheet.
  */
-function my_customizer_styles() { ?>
-	<style>
-		#customize-theme-controls .accordion-section-title {
-			background: #333;
-			color: white;
-		}
-		input {
-			display: inline-block;
-		}
-		.slider{
-			position: relative;
-			width: 100%;
-		}
-		.customize-control h3 {
-			display: inline-block;
-			margin: 0;
-			top: 50%;
-    	transform: translateY(-50%);
-		}
-	</style>
-	<?php
+function my_enqueue_customizer_stylesheet() {
+
+	wp_register_style( 'my-customizer-css', get_template_directory_uri() . '/inc/customizer.css', NULL, NULL, 'all' );
+	wp_enqueue_style( 'my-customizer-css' );
 
 }
-add_action( 'customize_controls_print_styles', 'my_customizer_styles', 999 );
+add_action( 'customize_controls_print_styles', 'my_enqueue_customizer_stylesheet' );
 
 
 // 1. customizer-preview.js

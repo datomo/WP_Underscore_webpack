@@ -52,8 +52,10 @@ if (class_exists('WP_Customize_Control')){
                 <?php if ( ! empty( $this->label )) : ?>
                     <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
                 <?php endif; ?>
-                <div class="cs-range-value"><?php echo esc_attr($this->value()); ?></div>
-                <input data-input-type="range" type="range" <?php $this->input_attrs(); ?> value="<?php echo esc_attr($this->value()); ?>" <?php $this->link(); ?> />
+                <span class="slider">
+                  <div class="cs-range-value"><?php echo esc_attr($this->value()); ?></div>
+                  <input class="istyle" data-input-type="range" type="range" <?php $this->input_attrs(); ?> value="<?php echo esc_attr($this->value()); ?>" <?php $this->link(); ?> />
+                </span>
                 <?php if ( ! empty( $this->description )) : ?>
                     <span class="description customize-control-description"><?php echo $this->description; ?></span>
                 <?php endif; ?>

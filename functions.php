@@ -270,7 +270,7 @@ function mytheme_customize_css()
 							background-color: <?php echo get_theme_mod('widget-color', '#000000'); ?>;
 							border-radius: <?php echo get_theme_mod('slide-radius').'px'; ?>;
 							padding: <?php echo get_theme_mod('slide-padding').'px'; ?>;
-							box-shadow: <?php echo get_theme_mod('shadow-hvalue').'px'?> 10px 99px 12px <?php echo get_theme_mod('shadow-color'); ?>; }
+							box-shadow: <?php echo get_theme_mod('shadow-hvalue').'px '.get_theme_mod('shadow-vvalue').'px '.get_theme_mod('shadow-blur').'px '.get_theme_mod('shadow-spread').'px '.get_theme_mod('shadow-color'); ?>; }
 						p {
 							color: <?php echo get_theme_mod('text-color', '#888888'); ?>; }
 						h1, h2, h3, h4, h5, h6 {
@@ -281,52 +281,3 @@ function mytheme_customize_css()
 		<?php
 }
 add_action( 'wp_head', 'mytheme_customize_css');
-
-
-if( class_exists( 'WP_Customize_Control' ) ):
-	class SNT_List_Control extends WP_Customize_Control {
-		public $type = 'list';
-		public function render_content() {
-			// Get Value from this setting
-		 $values = $this->value();
-
-		 // if is reliazed, unserialize it so that we can use it as array
-		 if ( is_serialized( $values ) ) {
-			 $values = unserialize( $values );
-		 }
-
-		 ?>
-
-		 <label>
-			 <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
-		 </label>
-
-		 <div class="control-range" id="range-control-<?php echo $this->id; ?>">
-			 <input min="-50" max="50" step="2" value="<?php echo $value; ?>" type="range">
-			 <p class="result-range" id="range-result-<?php echo $value; ?>"></p>
-		 </div>
-		 <!-- <div class="control-list" id="list-control-<?php echo $this->id; ?>">
-								<div class="listinput">
-								 <span class="removeInput" >X</span>
-								 <input type="text"  value="<?php echo $value; ?>" placeholder="" />
-							 </div>
-		 </div> -->
-		 <!-- Button for adding new input -->
-		 <!-- <button type="button" data-id="<?php echo $this->id; ?>"  class="button list-control-add button-default">Add</button>
-		 <!-- Button to confirm the list -->
-		 <!-- <button type="button" data-id="<?php echo $this->id; ?>"  class="button list-control-confirm button-primary">Confirm List</button> -->
-
-		 <?php
-			 // If it's not serialized, serialize it to save in input
-			 if ( ! is_serialized( $values ) ) {
-				 $values = serialize( $values );
-			 }
-		 ?>
-
-		 <!-- Input that is the control setting data -->
-		 <input  <?php echo $this->link(); ?> type="hidden" id="list-input-<?php echo $this->id; ?>" name="<?php echo $this->id; ?>" value="<?php echo $values; ?>" placeholder="" />
-
-	 	<?php
-	 	}
-	}
-endif;
