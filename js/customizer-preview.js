@@ -100,4 +100,15 @@
 		} );
 	} );
 
+	//check if posts are showen
+	wp.customize( 'posts-show', function( value ) {
+		value.bind( function( newval ) {
+			if (newval) {
+				$('.posts').css('display', 'block');
+			}else {
+				$('.posts').css('display', 'none');
+			}
+		} );
+	} );
+
 } )( jQuery );

@@ -92,7 +92,35 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	$wp_customize->get_setting( 'text-color' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'heading-color' )->transport = 'postMessage';
 
+	//add Posts section
+	$wp_customize->add_section( 'sp_br_fe_17_posts_section' , array(
+		'title'      => __( 'Posts Option', 'sp_br_fe_17' ),
+		'panel'			 => 'sp_br_fe_17_panel',
+	) );
 
+	//add a titel
+	$wp_customize->add_setting('titel-posts', array(
+		'default'           => '',
+	));
+	$wp_customize->add_control(new Title_Custom_control($wp_customize, 'title_posts', array(
+		'label'    		=> esc_html__('Posts options', 'sp_br_fe_17'),
+		// 'description' 	=> esc_html__('There are times that you just need to say something.', 'mytheme'),
+		'settings'		=> 'titel-posts',
+		'section'  		=> 'sp_br_fe_17_posts_section',
+	)));
+
+	$wp_customize->add_setting( 'posts-show', array(
+		'default' => true,
+	) );
+
+	$wp_customize->add_control(new Toggle_Checkbox_Custom_control($wp_customize, 'posts_show', array(
+		'label'    		=> esc_html__('Show Posts?', 'sp_br_fe_17'),
+		'type'     		=> 'toggle_checkbox',
+		'settings'		=> 'posts-show',
+		'section'  		=> 'sp_br_fe_17_posts_section',
+	)));
+
+	$wp_customize->get_setting( 'posts-show' )->transport = 'postMessage';
 
 	// add Slides section
 	$wp_customize->add_section( 'sp_br_fe_17_slides_section' , array(
