@@ -8,7 +8,10 @@
  */
 
 ?>
-
+<?php
+$classpost = get_theme_mod('posts-background') ? 'posts-background': '';
+?>
+<div class="post-holder <?php echo $classpost ?>">
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
@@ -52,3 +55,4 @@
 		<?php sp_br_fe_17_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
+</div>

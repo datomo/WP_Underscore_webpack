@@ -111,4 +111,15 @@
 		} );
 	} );
 
+	//hide background-posts if needed
+	// wp.customize( 'posts-background', function( value ) {
+	// 	value.bind( function( newval ) {
+	// 		if (newval) {
+	// 			$('.posts-background').css('background-color', 'red');
+	// 		}else {
+	// 			$('.posts-background').css('background-color', 'transparent');
+	// 		}
+	// 	} );
+	// } );
+
 } )( jQuery );

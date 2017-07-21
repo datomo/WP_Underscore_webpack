@@ -115,12 +115,27 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 	$wp_customize->add_control(new Toggle_Checkbox_Custom_control($wp_customize, 'posts_show', array(
 		'label'    		=> esc_html__('Show Posts?', 'sp_br_fe_17'),
+		'description' => esc_html__('After reenabling the post section please reload.'),
 		'type'     		=> 'toggle_checkbox',
 		'settings'		=> 'posts-show',
 		'section'  		=> 'sp_br_fe_17_posts_section',
 	)));
 
 	$wp_customize->get_setting( 'posts-show' )->transport = 'postMessage';
+
+	//setting for the posts background
+	$wp_customize->add_setting( 'posts-background', array(
+		'default' => true,
+	) );
+
+	$wp_customize->add_control(new Toggle_Checkbox_Custom_control($wp_customize, 'posts_background', array(
+		'label'    		=> esc_html__('Should the post have a Background?', 'sp_br_fe_17'),
+		'type'     		=> 'toggle_checkbox',
+		'settings'		=> 'posts-background',
+		'section'  		=> 'sp_br_fe_17_posts_section',
+	)));
+
+	// $wp_customize->get_setting( 'posts-background' )->transport = 'postMessage';
 
 	// add Slides section
 	$wp_customize->add_section( 'sp_br_fe_17_slides_section' , array(
@@ -386,12 +401,12 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 			) );
 
 			// add control if background is shown
-			$wp_customize->add_control( 'slide-'.$i.'-background'.$string, array(
+			$wp_customize->add_control(new Toggle_Checkbox_Custom_control($wp_customize, 'slide-'.$i.'-background'.$string, array(
 				'label'     => __( 'Slide '.$i.$position.' Background', 'sp_br_fe_17' ),
 				'section'   => 'sp_br_fe_17_slides_section'.$i,
-				'type'      => 'checkbox',
+				'type'      => 'toggle_checkbox',
 				// 'active_callback' => 'choice_options_callback',
-			) );
+			) ) );
 
 			//section for slides??
 			$wp_customize->add_section( 'sp_br_fe_17_slides_section'.$i , array(
