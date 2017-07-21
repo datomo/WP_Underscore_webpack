@@ -35,16 +35,6 @@ if (class_exists('WP_Customize_Control')){
   class WP_Customize_Range_Control extends WP_Customize_Control
   {
       public $type = 'custom_range';
-      public function enqueue()
-      {
-          // wp_enqueue_script(
-          //     'cs-range-control',
-          //     '/js/customizer-control.js',
-          //     array('jquery'),
-          //     false,
-          //     true
-          // );
-      }
       public function render_content()
       {
           ?>
@@ -53,7 +43,8 @@ if (class_exists('WP_Customize_Control')){
                   <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
               <?php endif; ?>
               <span class="slider">
-                <div class="cs-range-value"><?php echo esc_attr($this->value()); ?></div>
+                <input class="cs-range-value" value="<?php echo esc_attr($this->value()); ?>" <?php $this->link(); ?>></input>
+                <p class="input-unit">px</p>
                 <input class="istyle" data-input-type="range" type="range" <?php $this->input_attrs(); ?> value="<?php echo esc_attr($this->value()); ?>" <?php $this->link(); ?> />
               </span>
               <?php if ( ! empty( $this->description )) : ?>

@@ -5,6 +5,14 @@
  * then make any necessary changes to the page using jQuery.
  */
 ( function( $ ) {
+	//bind content SIZES
+	wp.customize( 'main-content-size', function( value ) {
+		value.bind( function( newval ) {
+			$('.content-area').css("max-width", newval.toString() + "px");
+		} );
+	} );
+
+
 	//bind background-color to html
 	wp.customize( 'background-color', function( value ) {
 		value.bind( function( newval ) {
@@ -81,9 +89,8 @@
 	} );
 
 	//posts live options
-	wp.customize( 'posts-color', function( value ) {
+	wp.customize( 'posts-background-color', function( value ) {
 		value.bind( function( newval ) {
-			console.log(newval);
 			$('.posts-background').css("background-color", newval);
 		} );
 	} );

@@ -16,19 +16,23 @@ input {
 .cs-range-value {
   display: inline-block;
   margin: 0;
-  width: 4ch;
-  margin-right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+  width: 6ch;
+  /*margin-right: 20px;*/
+  /*top: 50%;
+  transform: translateY(-50%);*/
 }
+.input-unit {
+  display: inline-block;
+  width: 4ch;
 
+}
 
 /*custom range start*/
 
 input[type=range] {
   -webkit-appearance: none;
   margin: 10px 0;
-  width: 75%;
+  width: 70%;
 }
 input[type=range]:focus {
   outline: none;

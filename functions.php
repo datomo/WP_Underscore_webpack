@@ -264,6 +264,9 @@ function mytheme_customize_css()
 							background-color: <?php echo get_theme_mod('background-color', '#3cb3fc'); ?>;
 							<?php echo get_theme_mod('typo-style'); ?>;
 							text-align: <?php echo get_theme_mod('typo-align', 'left'); ?>; }
+						.content-area {
+							/*overright from sass*/
+							max-width: <?php echo get_theme_mod('main-content-size', '1080').'px !important'; ?>; }
 						.site-header {
 							background-color: <?php echo get_theme_mod('menu-color', '#000000'); ?>; }
 						.background {
@@ -272,7 +275,7 @@ function mytheme_customize_css()
 							padding: <?php echo get_theme_mod('slide-padding').'px'; ?>;
 							box-shadow: <?php echo get_theme_mod('shadow-hvalue').'px '.get_theme_mod('shadow-vvalue').'px '.get_theme_mod('shadow-blur').'px '.get_theme_mod('shadow-spread').'px '.get_theme_mod('shadow-color'); ?>; }
 						.posts-background {
-							background-color: <?php echo get_theme_mod('posts-color', '#000000'); ?>;
+							background-color: <?php echo get_theme_mod('posts-background-color', '#000000'); ?>;
 							border-radius: <?php echo get_theme_mod('posts-radius').'px'; ?>;
 							padding: <?php echo get_theme_mod('posts-padding').'px'; ?>;
 							box-shadow: <?php echo get_theme_mod('posts-shadow-hvalue').'px '.get_theme_mod('posts-shadow-vvalue').'px '.get_theme_mod('posts-shadow-blur').'px '.get_theme_mod('posts-shadow-spread').'px '.get_theme_mod('posts-shadow-color'); ?>; }

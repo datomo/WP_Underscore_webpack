@@ -16,8 +16,42 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'capability' => 'edit_theme_options',
 		'priority'   => 101,
 	) );
+	/*******************************************************************************
+	 *SIZES SECTION*
+	*******************************************************************************/
+	$wp_customize->add_section( 'sp_br_fe_17_sizes_section' , array(
+		'title'      => __( 'Sizes', 'sp_br_fe_17' ),
+		'priority'   => 100,
+		// 'panel'			 => 'sp_br_fe_17_panel',
+	) );
 
-	// add "Content Options" section
+	$wp_customize->add_setting( 'main-content-size' , array(
+    'default'   => 1080
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Range_Control(
+	        $wp_customize,
+	        'main_content_size',
+	        array(
+	            'label'       => __('Main Content Size'),
+	            'section'     => 'sp_br_fe_17_sizes_section',
+	            'settings'    => 'main-content-size',
+							'unit'        => 'px',
+	            // 'description' => __('Measurement is in pixel.'),
+	            'input_attrs' => array(
+	                'min' => 0,
+	                'max' => 1980,
+	            ),
+	        )
+	    )
+	);
+
+
+	$wp_customize->get_setting( 'main-content-size' )->transport = 'postMessage';
+
+	/*******************************************************************************
+	 *COLORS SECTION*
+	*******************************************************************************/
 	$wp_customize->add_section( 'sp_br_fe_17_colors_section' , array(
 		'title'      => __( 'Colors', 'sp_br_fe_17' ),
 		'priority'   => 100,
@@ -36,6 +70,8 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'settings'   => 'background-color',
 	) ) );
 
+	$wp_customize->get_setting( 'background-color' )->transport = 'postMessage';
+
 	// add setting for the menu_color
 	$wp_customize->add_setting( 'menu-color' , array(
     'default'   => '#000000'
@@ -48,17 +84,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'settings'   => 'menu-color',
 	) ) );
 
-	// add setting for the menu_color
-	$wp_customize->add_setting( 'widget-color' , array(
-    'default'   => '#000000'
-	) );
-
-	// added the colorpicker
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'widget_color', array(
-		'label'      => __( 'Widget Background Color', 'sp_br_fe_17' ),
-		'section'    => 'sp_br_fe_17_colors_section',
-		'settings'   => 'widget-color',
-	) ) );
+	$wp_customize->get_setting( 'menu-color' )->transport = 'postMessage';
 
 	// add setting for the menu_color
 	$wp_customize->add_setting( 'text-color' , array(
@@ -71,6 +97,8 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'section'    => 'sp_br_fe_17_colors_section',
 		'settings'   => 'text-color',
 	) ) );
+
+	$wp_customize->get_setting( 'text-color' )->transport = 'postMessage';
 
 	// add setting for the menu_color
 	$wp_customize->add_setting( 'heading-color' , array(
@@ -85,15 +113,12 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	) ) );
 
 	//enable live reload
-	$wp_customize->get_setting( 'background-color' )->transport = 'postMessage';
-	$wp_customize->get_setting( 'menu-color' )->transport = 'postMessage';
-
-	$wp_customize->get_setting( 'widget-color' )->transport = 'postMessage';
-	$wp_customize->get_setting( 'text-color' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'heading-color' )->transport = 'postMessage';
 
 
-	//add Posts section
+	/*******************************************************************************
+	 *POSTS SECTION*
+	*******************************************************************************/
 	$wp_customize->add_section( 'sp_br_fe_17_posts_section' , array(
 		'title'      => __( 'Posts Option', 'sp_br_fe_17' ),
 		'panel'			 => 'sp_br_fe_17_panel',
@@ -135,6 +160,20 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'settings'		=> 'posts-background',
 		'section'  		=> 'sp_br_fe_17_posts_section',
 	)));
+
+	// add setting for the menu_color
+	$wp_customize->add_setting( 'posts-background-color' , array(
+    'default'   => '#000000'
+	) );
+
+	// added the colorpicker
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'posts_background_color', array(
+		'label'      => __( 'Posts Background Color', 'sp_br_fe_17' ),
+		'section'    => 'sp_br_fe_17_posts_section',
+		'settings'   => 'posts-background-color',
+	) ) );
+
+	$wp_customize->get_setting( 'posts-background-color' )->transport = 'postMessage';
 
 	// add setting radius
 	$wp_customize->add_setting( 'posts-radius', array(
@@ -246,8 +285,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'default' => 20,
 	) );
 
-	$wp_customize->add_control(
-	    new WP_Customize_Range_Control(
+	$wp_customize->add_control( new WP_Customize_Range_Control(
 	        $wp_customize,
 	        'posts-shadow-blur',
 	        array(
@@ -290,11 +328,9 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	$wp_customize->get_setting( 'posts-shadow-spread' )->transport = 'postMessage';
 
 
-
-
-	// $wp_customize->get_setting( 'posts-background' )->transport = 'postMessage';
-
-	// add Slides section
+	/*******************************************************************************
+	 *SLIDES SECTION*
+	*******************************************************************************/
 	$wp_customize->add_section( 'sp_br_fe_17_slides_section' , array(
 		'title'      => __( 'General Slides', 'sp_br_fe_17' ),
 		'panel'			 => 'sp_br_fe_17_panel',
@@ -315,6 +351,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	// ) );
 
 
+
 	// add setting control amount of slides
 	$wp_customize->add_setting( 'slide_amount', array(
 		'default' => 4,
@@ -330,6 +367,19 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'type'      => 'number'
 	) );
 
+	// add setting for the menu_color
+	$wp_customize->add_setting( 'widget-color' , array(
+    'default'   => '#000000'
+	) );
+
+	// added the colorpicker
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'widget_color', array(
+		'label'      => __( 'Widget Background Color', 'sp_br_fe_17' ),
+		'section'    => 'sp_br_fe_17_slides_section',
+		'settings'   => 'widget-color',
+	) ) );
+
+	$wp_customize->get_setting( 'widget-color' )->transport = 'postMessage';
 
 	// add setting radius
 	$wp_customize->add_setting( 'slide-radius', array(
@@ -603,7 +653,9 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	//enable live reload
 	// $wp_customize->get_setting( 'highlight-widgets' )->transport = 'postMessage';
 
-	// add Typograph section
+	/*******************************************************************************
+	 *TYPOGRAPHY SECTION*
+	*******************************************************************************/
 	$wp_customize->add_section( 'sp_br_fe_17_typo_section' , array(
 		'title'      => __( 'Typography', 'sp_br_fe_17' ),
 		'priority'   => 102,
