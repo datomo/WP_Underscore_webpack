@@ -92,6 +92,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	$wp_customize->get_setting( 'text-color' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'heading-color' )->transport = 'postMessage';
 
+
 	//add Posts section
 	$wp_customize->add_section( 'sp_br_fe_17_posts_section' , array(
 		'title'      => __( 'Posts Option', 'sp_br_fe_17' ),
@@ -134,6 +135,162 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'settings'		=> 'posts-background',
 		'section'  		=> 'sp_br_fe_17_posts_section',
 	)));
+
+	// add setting radius
+	$wp_customize->add_setting( 'posts-radius', array(
+		'default' => 0,
+	) );
+
+	$wp_customize->add_control( 'posts-radius', array(
+		'label'     => __( 'Change the border radius here:', 'sp_br_fe_17' ),
+		'section'   => 'sp_br_fe_17_posts_section',
+		// 'panel'			 => 'sp_br_fe_17_panel',
+		'type'      => 'number'
+	) );
+
+	$wp_customize->get_setting( 'posts-radius' )->transport = 'postMessage';
+
+	// add setting padding
+	$wp_customize->add_setting( 'posts-padding', array(
+		'default' => 0,
+	) );
+
+	$wp_customize->add_control( 'posts-padding', array(
+		'label'     => __( 'Change the space between background and widget here:', 'sp_br_fe_17' ),
+		'section'   => 'sp_br_fe_17_posts_section',
+		// 'panel'			 => 'sp_br_fe_17_panel',
+		'type'      => 'number'
+	) );
+
+	$wp_customize->get_setting( 'posts-padding' )->transport = 'postMessage';
+
+	/**
+	*Info
+	**///add titel for shadow options
+	$wp_customize->add_setting('posts-shadow', array(
+		'default'           => '',
+	));
+	$wp_customize->add_control(new Title_Custom_control($wp_customize, 'posts-custom-shadow', array(
+		'label'    		=> esc_html__('Shadow Options', 'sp_br_fe_17'),
+		// 'description' 	=> esc_html__('There are times that you just need to say something.', 'mytheme'),
+		'settings'		=> 'posts-titel-shadow',
+		'section'  		=> 'sp_br_fe_17_posts_section',
+	)));
+
+	// add setting for box shadow
+	$wp_customize->add_setting( 'posts-shadow-color', array(
+		'default' => 'rgba(0,0,0,0.75)',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'posts-shadow-color', array(
+		'label'      => __( 'Add shadow color here:', 'sp_br_fe_17' ),
+		'section'    => 'sp_br_fe_17_posts_section',
+		'settings'   => 'posts-shadow-color',
+	) ) );
+
+	$wp_customize->get_setting( 'posts-shadow-color' )->transport = 'postMessage';
+
+/**
+	*Range
+	*/
+	//shadow h value
+	$wp_customize->add_setting( 'posts-shadow-hvalue', array(
+		'default' => 20,
+	) );
+
+	$wp_customize->add_control(
+	    new WP_Customize_Range_Control(
+	        $wp_customize,
+	        'posts-shadow-hvalue',
+	        array(
+	            'label'       => __('Horizontal Shadow'),
+	            'section'     => 'sp_br_fe_17_posts_section',
+	            'settings'    => 'posts-shadow-hvalue',
+	            // 'description' => __('Measurement is in pixel.'),
+	            'input_attrs' => array(
+	                'min' => -50,
+	                'max' => 50,
+	            ),
+	        )
+	    )
+	);
+
+	$wp_customize->get_setting( 'posts-shadow-hvalue' )->transport = 'postMessage';
+
+	//shadow v value
+	$wp_customize->add_setting( 'posts-shadow-vvalue', array(
+		'default' => 20,
+	) );
+
+	$wp_customize->add_control(
+	    new WP_Customize_Range_Control(
+	        $wp_customize,
+	        'posts-shadow-vvalue',
+	        array(
+	            'label'       => __('Vertical Shadow'),
+	            'section'     => 'sp_br_fe_17_posts_section',
+	            'settings'    => 'posts-shadow-vvalue',
+	            // 'description' => __('Measurement is in pixel.'),
+	            'input_attrs' => array(
+	                'min' => -50,
+	                'max' => 50,
+	            ),
+	        )
+	    )
+	);
+
+	$wp_customize->get_setting( 'posts-shadow-vvalue' )->transport = 'postMessage';
+
+	//shadow v value
+	$wp_customize->add_setting( 'posts-shadow-blur', array(
+		'default' => 20,
+	) );
+
+	$wp_customize->add_control(
+	    new WP_Customize_Range_Control(
+	        $wp_customize,
+	        'posts-shadow-blur',
+	        array(
+	            'label'       => __('Shadow Blur'),
+	            'section'     => 'sp_br_fe_17_posts_section',
+	            'settings'    => 'posts-shadow-blur',
+	            // 'description' => __('Measurement is in pixel.'),
+	            'input_attrs' => array(
+	                'min' => 0,
+	                'max' => 100,
+	            ),
+	        )
+	    )
+	);
+
+	$wp_customize->get_setting( 'posts-shadow-blur' )->transport = 'postMessage';
+
+	//shadow v value
+	$wp_customize->add_setting( 'posts-shadow-spread', array(
+		'default' => 20,
+	) );
+
+	$wp_customize->add_control(
+	    new WP_Customize_Range_Control(
+	        $wp_customize,
+	        'posts-shadow-spread',
+	        array(
+	            'label'       => __('Shadow Spreading'),
+	            'section'     => 'sp_br_fe_17_posts_section',
+	            'settings'    => 'posts-shadow-spread',
+	            // 'description' => __('Measurement is in pixel.'),
+	            'input_attrs' => array(
+	                'min' => 0,
+	                'max' => 100,
+	            ),
+	        )
+	    )
+	);
+
+	$wp_customize->get_setting( 'posts-shadow-spread' )->transport = 'postMessage';
+
+
+
 
 	// $wp_customize->get_setting( 'posts-background' )->transport = 'postMessage';
 

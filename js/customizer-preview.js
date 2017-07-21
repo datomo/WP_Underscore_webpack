@@ -80,6 +80,51 @@
 		})
 	} );
 
+	//posts live options
+	wp.customize( 'posts-color', function( value ) {
+		value.bind( function( newval ) {
+			console.log(newval);
+			$('.posts-background').css("background-color", newval);
+		} );
+	} );
+
+//not working but why...
+	wp.customize( 'posts-radius', function( value ) {
+		value.bind( function( newval ) {
+			$('.posts-background').css("border-radius", newval.toString() + "px");
+		} );
+	} );
+
+	wp.customize( 'posts-slide-padding', function( value ) {
+		value.bind( function( newval ) {
+			$('.posts-background').css("padding", newval.toString() + "px");
+		} );
+	} );
+
+
+	wp.customize('posts-shadow-hvalue', 'posts-shadow-vvalue', 'posts-shadow-blur', 'posts-shadow-spread', 'posts-shadow-color', function( hvalue, vvalue, blur, spread, color ) {
+		color.bind( function( newcolor ) {
+			var temp = $('.posts-background').css('box-shadow').match(/(-?\d+px)|(rgb\(.+\))/g);
+			$('.posts-background').css("box-shadow", newcolor + " " + temp[1] + " " + temp[2] + " " + temp[3] + " " + temp[4]);
+		} );
+		hvalue.bind( function ( newhvalue) {
+			var temp = $('.posts-background').css('box-shadow').match(/(-?\d+px)|(rgb\(.+\))/g);
+			$('.posts-background').css("box-shadow", temp[0] + " " + newhvalue + "px " + temp[2] + " " + temp[3] + " " + temp[4]);
+		})
+		vvalue.bind( function ( newvvalue) {
+			var temp = $('.posts-background').css('box-shadow').match(/(-?\d+px)|(rgb\(.+\))/g);
+			$('.posts-background').css("box-shadow", temp[0] + " " + temp[1]+ " " + newvvalue + "px " + temp[3] + " " + temp[4]);
+		})
+		blur.bind( function ( newblur) {
+			var temp = $('.posts-background').css('box-shadow').match(/(-?\d+px)|(rgb\(.+\))/g);
+			$('.posts-background').css("box-shadow", temp[0] + " " + temp[1] + " " + temp[2] + " " + newblur + "px " + temp[4]);
+		})
+		spread.bind( function ( newspread) {
+			var temp = $('.posts-background').css('box-shadow').match(/(-?\d+px)|(rgb\(.+\))/g);
+			$('.posts-background').css("box-shadow", temp[0] + " " + temp[1] + " " + temp[2] + " " + temp[3] + " " + newspread + "px");
+		})
+	} );
+
 	// wp.customize( 'shadow-hvalue', function( value ) {
 	// 	value.bind( function( newval ) {
 	// 		var temp = $('.background').css('box-shadow').split(" ");

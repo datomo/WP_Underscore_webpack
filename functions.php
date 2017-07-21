@@ -271,6 +271,11 @@ function mytheme_customize_css()
 							border-radius: <?php echo get_theme_mod('slide-radius').'px'; ?>;
 							padding: <?php echo get_theme_mod('slide-padding').'px'; ?>;
 							box-shadow: <?php echo get_theme_mod('shadow-hvalue').'px '.get_theme_mod('shadow-vvalue').'px '.get_theme_mod('shadow-blur').'px '.get_theme_mod('shadow-spread').'px '.get_theme_mod('shadow-color'); ?>; }
+						.posts-background {
+							background-color: <?php echo get_theme_mod('posts-color', '#000000'); ?>;
+							border-radius: <?php echo get_theme_mod('posts-radius').'px'; ?>;
+							padding: <?php echo get_theme_mod('posts-padding').'px'; ?>;
+							box-shadow: <?php echo get_theme_mod('posts-shadow-hvalue').'px '.get_theme_mod('posts-shadow-vvalue').'px '.get_theme_mod('posts-shadow-blur').'px '.get_theme_mod('posts-shadow-spread').'px '.get_theme_mod('posts-shadow-color'); ?>; }
 						p {
 							color: <?php echo get_theme_mod('text-color', '#888888'); ?>; }
 						h1, h2, h3, h4, h5, h6 {
