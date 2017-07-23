@@ -3,7 +3,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	//remove standart options
 	require_once 'custom_controls.php';
 
-	$wp_customize->remove_section( 'title_tagline' );
+	// $wp_customize->remove_section( 'title_tagline' );
 	$wp_customize->remove_section( 'static_front_page' );
 	$wp_customize->remove_section( 'colors' );
 	$wp_customize->remove_section( 'background_image' );

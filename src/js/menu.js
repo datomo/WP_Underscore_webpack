@@ -21,30 +21,31 @@ jQuery(document).ready(function(){
     TweenLite.to(window, 1,{scrollTo:{y:topY, offsetY: 50}, ease:Power2.easeOut})
   })
 
-  var $burger = jQuery('#burger')
-  var $menu1 = jQuery('.main-navigation')
 
-  var tl = new TimelineMax({paused: true})
-  .set($menu1, {className:"-=closed"})
-  .set($menu1, {className:"+=open"})
-  tl.set(".link", {yPercent: -200, autoAlpha: 0})
-  tl.staggerTo(".link", 0.1,{yPercent: 0, autoAlpha: 1}, 0.1, "start")
-  // tl.set(".cross-top",{rotation:45})
-  // tl.set(".cross-bottom",{rotation:-45})
-  tl.staggerTo($burger.children(".text"), 0.1, {scaleX: 0}, 0.1, "start")
-  tl.to(".cross", 0.2,{ display:"block"})
-  tl.add("end")
+  //hamburger animation
 
+  var $burger = jQuery('.toggle-container'),
+      $buttons = jQuery('.button'),
+      $before = jQuery('.button:nth-child(1)'),
+      $middle = jQuery('.button:nth-child(2)'),
+      $after = jQuery('.button:nth-child(3)')
 
-  $burger.click(function(){
-    if($menu1.hasClass("closed")){
-      tl.restart()
+  var tl = new TimelineLite({paused: true})
+  tl.to($before, 0.1, {y: 14}, 'start')
+  tl.to($after, 0.1, {y: -14}, 'start')
+  tl.set($middle, {autoAlpha: 0})
+  tl.to($before, 0.2, {rotation: 45, transformOrigin: "center center"}, 'rotate')
+  tl.to($after, 0.2, {rotation: -45, transformOrigin: "center center"}, 'rotate')
+  tl.set($burger, {className:"+=open"})
 
-    }else {
-      tl.play("end")
+  $burger.on('click', function() {
+    if ($burger.hasClass('open')) {
       tl.reverse()
-
+    }else {
+      tl.play()
     }
   })
+
+
 
 });

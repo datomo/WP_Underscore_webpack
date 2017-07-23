@@ -31,7 +31,17 @@
 			the_custom_logo(); ?>
 		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
+		<!-- <input id="toggle" type="checkbox"> -->
+
+		<div class="toggle-container" >
+			<span class="button button-toggle"></span>
+			<span class="button button-toggle"></span>
+			<span class="button button-toggle"></span>
+		</div>
+
+
+
+		<nav id="site-navigation" class="main-navigation nav">
 			<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary', 'sp_br_fe_17' ); ?></button> -->
 			<?php
 				wp_nav_menu( array(
