@@ -36,7 +36,6 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	            'label'       => __('Main Content Size'),
 	            'section'     => 'sp_br_fe_17_sizes_section',
 	            'settings'    => 'main-content-size',
-							'unit'        => 'px',
 	            // 'description' => __('Measurement is in pixel.'),
 	            'input_attrs' => array(
 	                'min' => 0,
@@ -574,7 +573,8 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 			'type'      => 'select',
 			'choices' => array(
 				'1' => __( 'Widget 100%' ),
-				'2' => __( 'Widget 50%' )
+				'2' => __( 'Widget 50%' ),
+				'3' => __( 'Post Section')
 			)
 		) );
 

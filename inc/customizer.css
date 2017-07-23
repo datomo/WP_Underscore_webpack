@@ -188,3 +188,19 @@ input[type=range]:focus::-ms-fill-upper {
 .onoffswitch-checkbox:checked + .onoffswitch-label:before {
 	right: 0;
 }
+
+/*START STYLING TEXTBOX*/
+
+.css-input {
+     padding: 5px;
+     font-size: 16px;
+     border-width: 1px;
+     border-color: #CCCCCC;
+     background-color: #FFFFFF;
+     color: #000000;
+     border-radius: 0px;
+     box-shadow: 0px 0px 3px rgba(66,66,66,.75);
+}
+ .css-input:focus {
+     outline:none;
+}

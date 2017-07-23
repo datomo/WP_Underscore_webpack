@@ -43,7 +43,7 @@ if (class_exists('WP_Customize_Control')){
                   <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
               <?php endif; ?>
               <span class="slider">
-                <input class="cs-range-value" value="<?php echo esc_attr($this->value()); ?>" <?php $this->link(); ?>></input>
+                <input class="cs-range-value css-input" value="<?php echo esc_attr($this->value()); ?>" <?php $this->link(); ?>></input>
                 <p class="input-unit">px</p>
                 <input class="istyle" data-input-type="range" type="range" <?php $this->input_attrs(); ?> value="<?php echo esc_attr($this->value()); ?>" <?php $this->link(); ?> />
               </span>
