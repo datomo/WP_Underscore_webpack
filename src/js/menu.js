@@ -26,16 +26,20 @@ jQuery(document).ready(function(){
 
   var $burger = jQuery('.toggle-container'),
       $buttons = jQuery('.button'),
-      $before = jQuery('.button:nth-child(1)'),
-      $middle = jQuery('.button:nth-child(2)'),
-      $after = jQuery('.button:nth-child(3)')
+      $first = jQuery('.button:nth-child(1)'),
+      $second = jQuery('.button:nth-child(2)'),
+      $third = jQuery('.button:nth-child(3)'),
+      $forth = jQuery('.button:nth-child(4)')
 
   var tl = new TimelineLite({paused: true})
-  tl.to($before, 0.1, {y: 14}, 'start')
-  tl.to($after, 0.1, {y: -14}, 'start')
-  tl.set($middle, {autoAlpha: 0})
-  tl.to($before, 0.2, {rotation: 45, transformOrigin: "center center"}, 'rotate')
-  tl.to($after, 0.2, {rotation: -45, transformOrigin: "center center"}, 'rotate')
+  // tl.set($second, {autoAlpha: 0})
+  tl.to($buttons, 0.2, {width: "20px", top: "20px", transformOrigin: "center center"})
+  tl.set($buttons, {transformOrigin: "right center"})
+  // tl.staggerTo($buttons, 0.2,{rotation: "+=45"})
+  tl.to($first, 0.2, {rotation: 45}, 'rotate')
+  tl.to($second, 0.2, {rotation: 135}, 'rotate')
+  tl.to($third, 0.2, {rotation: 225}, 'rotate')
+  tl.to($forth, 0.2, {rotation: 315}, 'rotate')
   tl.set($burger, {className:"+=open"})
 
   $burger.on('click', function() {

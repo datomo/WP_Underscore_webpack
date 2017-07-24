@@ -20,6 +20,7 @@
     margin: 0 auto
     display: inline-block
 
+
   .main-navigation
     max-width: 1080px
     margin: 0 auto
@@ -46,6 +47,7 @@
   height: 3px
   left: 5px
   display: block
+  border-radius: 3px
   background:
     color: black
 
@@ -54,7 +56,21 @@
     top: 10px
 
   &:nth-child(2)
-    top: 24px
+    top: 20px
+    width: 30px
 
   &:nth-child(3)
-    top: 37px
+    top: 30px
+
+  &:nth-child(4)
+    top: 40px
+    width: 25px
+
+
+@media (max-width: 700px)
+  .menu-main-menu-container
+    display: none
+
+  .toggle-container
+    &.open
+      display: inline-block
