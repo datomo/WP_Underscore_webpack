@@ -68,9 +68,23 @@
 
 
 @media (max-width: 700px)
-  .menu-main-menu-container
-    display: none
+  .site-header
+    background-color: transparent !important
 
-  .toggle-container
+  .menu
+    display: none
+    top: 0
+    left: 0
+    position: absolute
+    width: 100vw
+
+
+    .menu-item
+      display: none
+      width: 100%
+      padding: 20px
+      background:
+        color: grey
+
     &.open
-      display: inline-block
+      // display: block !important

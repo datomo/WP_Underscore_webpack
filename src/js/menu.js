@@ -29,27 +29,45 @@ jQuery(document).ready(function(){
       $first = jQuery('.button:nth-child(1)'),
       $second = jQuery('.button:nth-child(2)'),
       $third = jQuery('.button:nth-child(3)'),
-      $forth = jQuery('.button:nth-child(4)')
+      $forth = jQuery('.button:nth-child(4)'),
+      $menu = jQuery('.menu')
 
-  var tl = new TimelineLite({paused: true})
+  var tl = new TimelineLite({paused: true, onComplete: addClass, onReverseComplete: removeClass})
   // tl.set($second, {autoAlpha: 0})
-  tl.to($buttons, 0.2, {width: "20px", top: "20px", transformOrigin: "center center"})
+  tl.set(".menu", {className:"+=animating"})
+  tl.to($buttons, 0.2, {width: "20px", top: "25px", transformOrigin: "center center"})
   tl.set($buttons, {transformOrigin: "right center"})
   // tl.staggerTo($buttons, 0.2,{rotation: "+=45"})
   tl.to($first, 0.2, {rotation: 45}, 'rotate')
   tl.to($second, 0.2, {rotation: 135}, 'rotate')
   tl.to($third, 0.2, {rotation: 225}, 'rotate')
   tl.to($forth, 0.2, {rotation: 315}, 'rotate')
-  tl.set($burger, {className:"+=open"})
+  tl.set(".menu-item", {display: "inline-block"})
+  tl.set(".menu",{position: "absolute", top: "0px", left:"0px", width: "100vw", zIndex: -1})
+  tl.staggerFrom(".menu-item", 0.1, {top: "0", position: "absolute"},"0.1")
+  tl.set(".menu",{className:"-=animating"})
 
   $burger.on('click', function() {
-    if ($burger.hasClass('open')) {
-      tl.reverse()
+    if ($burger.hasClass('animating')) {
+      return false;
     }else {
-      tl.play()
+      if($menu.hasClass('open')){
+        tl.reverse()
+      }else {
+        tl.play()
+      }
     }
   })
 
 
-
 });
+
+function addClass() {
+  TweenMax.set('.menu',{className:'+=open'})
+
+}
+
+function removeClass() {
+  TweenMax.set('.menu',{className:'-=open'})
+
+}
