@@ -44,12 +44,23 @@
 
 		<nav id="site-navigation" class="main-navigation nav">
 			<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary', 'sp_br_fe_17' ); ?></button> -->
-			<?php
+			<div class="main-menu">
+				<?php
 				wp_nav_menu( array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
 				) );
-			?>
+				?>
+			</div>
+			<div class="mobile-menu">
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'menu-2',
+					'menu_id'        => 'mobile-menu',
+				) );
+				?>
+
+			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 

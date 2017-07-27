@@ -25,13 +25,13 @@ jQuery(document).ready(function(){
   //hamburger animation
 
   var $burger = jQuery('.toggle-container'),
-      $menuItems = jQuery('.menu-item'),
+      $menuItems = jQuery('.mobile-menu .menu-item'),
       $buttons = jQuery('.button'),
       $first = jQuery('.button:nth-child(1)'),
       $second = jQuery('.button:nth-child(2)'),
       $third = jQuery('.button:nth-child(3)'),
       $forth = jQuery('.button:nth-child(4)'),
-      $menu = jQuery('.menu')
+      $menu = jQuery('.mobile-menu .menu')
 
   var tl = new TimelineLite({paused: true, onComplete: addClass, onReverseComplete: removeClass})
   // tl.set($second, {autoAlpha: 0})
@@ -43,7 +43,6 @@ jQuery(document).ready(function(){
   tl.to($second, 0.2, {rotation: 135}, 'rotate')
   tl.to($third, 0.2, {rotation: 225}, 'rotate')
   tl.to($forth, 0.2, {rotation: 315}, 'rotate')
-  tl.set
   tl.to($menu, 0.3, {y: 0},'start')
   tl.set(".menu",{className:"-=animating"})
 

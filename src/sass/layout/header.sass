@@ -69,15 +69,23 @@
     top: 40px
     width: 25px
 
+.mobile-menu
+  display: none
+  .menu
+    transform: translateY(-100%)
+
 .toggle-container
   display: none
 
-.menu
-  transform: translateY(0)
+// .menu
+//   transform: translateY(0)
 
 
 
 @media (max-width: 700px)
+  .main-menu
+    display: none
+
   .site-header
     background-color: transparent !important
 
@@ -85,20 +93,23 @@
     display: inline-block
     z-index: 1
 
-  .menu
-    // display: none
-    top: 0
-    left: 0
-    position: absolute
-    width: 100vw
-    transform: translateY(-100%)
+  .mobile-menu
+    display: inline-block
+
+    .menu
+      // display: none
+      top: 0
+      left: 0
+      position: absolute
+      width: 100vw
+      // transform: translateY(-100%)
 
 
-    .menu-item
-      width: 100%
-      padding: 20px
-      background:
-        color: grey
+      .menu-item
+        width: 100%
+        padding: 20px
+        background:
+          color: grey
 
-    &.open
-      // display: block !important
+      &.open
+        // display: block !important

@@ -45,6 +45,7 @@ function sp_br_fe_17_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'sp_br_fe_17' ),
+		'menu-2' => esc_html__( 'Mobile', 'sp_br_fe_17' ),
 	) );
 
 	/*
@@ -285,7 +286,10 @@ function mytheme_customize_css()
 							color: <?php echo get_theme_mod('heading-color', '#888888'); ?>;
 							<?php echo get_theme_mod('typo-style'); ?>; }
 						}
-						
+						.mobile-menu .menu {
+							transform: <?php echo get_theme_mod('menu-direction'); ?>;
+						}
+
 						@media (max-width: 500px) {
 						  .container-50 {
 						    width: 100% !important;

@@ -47,6 +47,32 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 
 	$wp_customize->get_setting( 'main-content-size' )->transport = 'postMessage';
+	/*******************************************************************************
+	 *MENU SECTION*
+	*******************************************************************************/
+	$wp_customize->add_section( 'menu-options' , array(
+		'title'      => __( 'Theme Menu Options', 'sp_br_fe_17' ),
+		'priority'   => 100,
+		// 'panel'			 => 'panel-nav_menus',
+	) );
+
+	$wp_customize->add_setting( 'menu-direction' , array(
+		'default'   => 'translateY(-100%)'
+
+	) );
+
+	$wp_customize->add_control( 'menu-direction', array(
+		'label'     => __( 'Chose the mobile menu:', 'sp_br_fe_17' ),
+		'section'   => 'menu-options',
+		'type'      => 'select',
+		'choices' => array(
+			'translateY(-100%)' => __( 'Slide-in from Top' ),
+			'translateX(-100%)' => __( 'Slide-in from Left' ),
+			'translateX(100%)' => __( 'Slide-in from Right')
+		)
+	) );
+
+
 
 	/*******************************************************************************
 	 *COLORS SECTION*
