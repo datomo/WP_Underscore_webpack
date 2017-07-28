@@ -43,7 +43,7 @@ jQuery(document).ready(function(){
   tl.to($second, 0.2, {rotation: 135}, 'rotate')
   tl.to($third, 0.2, {rotation: 225}, 'rotate')
   tl.to($forth, 0.2, {rotation: 315}, 'rotate')
-  tl.to($menu, 0.3, {y: 0},'start')
+  tl.to($menu, 0.3, {y: 0, x: 0},'start')
   tl.set(".menu",{className:"-=animating"})
 
 

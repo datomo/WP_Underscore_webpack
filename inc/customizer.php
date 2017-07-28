@@ -47,6 +47,19 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 
 	$wp_customize->get_setting( 'main-content-size' )->transport = 'postMessage';
+
+	// add setting for 5050 breakpoint
+	$wp_customize->add_setting( 'widget-5050-break' , array(
+    'default'   => 700
+	) );
+
+	$wp_customize->add_control( 'widget-5050-break', array(
+		'label'     => __( 'At which width should the 50% 50% slide break to the new line?', 'sp_br_fe_17' ),
+		'section'   => 'sp_br_fe_17_sizes_section',
+		// 'panel'			 => 'sp_br_fe_17_panel',
+		'type'      => 'number'
+	) );
+
 	/*******************************************************************************
 	 *MENU SECTION*
 	*******************************************************************************/
@@ -57,7 +70,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'menu-direction' , array(
-		'default'   => 'translateY(-100%)'
+		'default'   => 'translate(-100%, 0)'
 
 	) );
 
@@ -66,9 +79,9 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'section'   => 'menu-options',
 		'type'      => 'select',
 		'choices' => array(
-			'translateY(-100%)' => __( 'Slide-in from Top' ),
-			'translateX(-100%)' => __( 'Slide-in from Left' ),
-			'translateX(100%)' => __( 'Slide-in from Right')
+			'translate(0, -100%)' => __( 'Slide-in from Top' ),
+			'translate(-100%, 0)' => __( 'Slide-in from Left' ),
+			'translate(100%, 0)' => __( 'Slide-in from Right')
 		)
 	) );
 
@@ -405,6 +418,14 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	) ) );
 
 	$wp_customize->get_setting( 'widget-color' )->transport = 'postMessage';
+
+	$wp_customize->add_control( 'slide_amount', array(
+		'label'     => __( 'How many slides are needed? At the moment there are: '.$amount, 'sp_br_fe_17' ),
+		'description' => __( 'If you add new slides you need to reload the window.'),
+		'section'   => 'sp_br_fe_17_slides_section',
+		// 'panel'			 => 'sp_br_fe_17_panel',
+		'type'      => 'number'
+	) );
 
 	// add setting radius
 	$wp_customize->add_setting( 'slide-radius', array(

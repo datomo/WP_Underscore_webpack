@@ -285,16 +285,17 @@ function mytheme_customize_css()
 						h1, h2, h3, h4, h5, h6 {
 							color: <?php echo get_theme_mod('heading-color', '#888888'); ?>;
 							<?php echo get_theme_mod('typo-style'); ?>; }
-						}
+
 						.mobile-menu .menu {
 							transform: <?php echo get_theme_mod('menu-direction'); ?>;
 						}
 
-						@media (max-width: 500px) {
+						@media (max-width: <?php echo get_theme_mod('widget-5050-break').'px' ?>) {
 						  .container-50 {
 						    width: 100% !important;
 						  }
 						}
+					}
 				 </style>
 		<?php
 }
