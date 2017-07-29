@@ -23,7 +23,7 @@ $classpost = get_theme_mod('posts-background') ? 'posts-background': '';
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php sp_br_fe_17_posted_on(); ?>
+			<?php onePagr_theme_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
@@ -34,7 +34,7 @@ $classpost = get_theme_mod('posts-background') ? 'posts-background': '';
 			the_content( sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'sp_br_fe_17' ),
+					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'onePagr_theme' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -45,14 +45,14 @@ $classpost = get_theme_mod('posts-background') ? 'posts-background': '';
 			) );
 
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'sp_br_fe_17' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'onePagr_theme' ),
 				'after'  => '</div>',
 			) );
 		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php sp_br_fe_17_entry_footer(); ?>
+		<?php onePagr_theme_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
 </div>

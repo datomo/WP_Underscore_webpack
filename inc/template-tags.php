@@ -7,11 +7,11 @@
  * @package Sprungbrätt_Festival_17
  */
 
-if ( ! function_exists( 'sp_br_fe_17_posted_on' ) ) :
+if ( ! function_exists( 'onePagr_theme_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function sp_br_fe_17_posted_on() {
+function onePagr_theme_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -26,13 +26,13 @@ function sp_br_fe_17_posted_on() {
 
 	$posted_on = sprintf(
 		/* translators: %s: post date. */
-		esc_html_x( 'Posted on %s', 'post date', 'sp_br_fe_17' ),
+		esc_html_x( 'Posted on %s', 'post date', 'onePagr_theme' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
 	$byline = sprintf(
 		/* translators: %s: post author. */
-		esc_html_x( 'by %s', 'post author', 'sp_br_fe_17' ),
+		esc_html_x( 'by %s', 'post author', 'onePagr_theme' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -41,25 +41,25 @@ function sp_br_fe_17_posted_on() {
 }
 endif;
 
-if ( ! function_exists( 'sp_br_fe_17_entry_footer' ) ) :
+if ( ! function_exists( 'onePagr_theme_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function sp_br_fe_17_entry_footer() {
+function onePagr_theme_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'sp_br_fe_17' ) );
+		$categories_list = get_the_category_list( esc_html__( ', ', 'onePagr_theme' ) );
 		if ( $categories_list ) {
 			/* translators: 1: list of categories. */
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'sp_br_fe_17' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'onePagr_theme' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'sp_br_fe_17' ) );
+		$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'onePagr_theme' ) );
 		if ( $tags_list ) {
 			/* translators: 1: list of tags. */
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'sp_br_fe_17' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'onePagr_theme' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
 
@@ -69,7 +69,7 @@ function sp_br_fe_17_entry_footer() {
 			sprintf(
 				wp_kses(
 					/* translators: %s: post title */
-					__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'sp_br_fe_17' ),
+					__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'onePagr_theme' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -86,7 +86,7 @@ function sp_br_fe_17_entry_footer() {
 		sprintf(
 			wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Edit <span class="screen-reader-text">%s</span>', 'sp_br_fe_17' ),
+				__( 'Edit <span class="screen-reader-text">%s</span>', 'onePagr_theme' ),
 				array(
 					'span' => array(
 						'class' => array(),

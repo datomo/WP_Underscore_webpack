@@ -7,7 +7,7 @@
  * @package Sprungbrätt_Festival_17
  */
 
-if ( ! function_exists( 'sp_br_fe_17_setup' ) ) :
+if ( ! function_exists( 'onePagr_theme_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -15,14 +15,14 @@ if ( ! function_exists( 'sp_br_fe_17_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function sp_br_fe_17_setup() {
+function onePagr_theme_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 * If you're building a theme based on Sprungbrätt Festival 17, use a find and replace
-	 * to change 'sp_br_fe_17' to the name of your theme in all the template files.
+	 * to change 'onePagr_theme' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'sp_br_fe_17', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'onePagr_theme', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -44,8 +44,8 @@ function sp_br_fe_17_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'sp_br_fe_17' ),
-		'menu-2' => esc_html__( 'Mobile', 'sp_br_fe_17' ),
+		'menu-1' => esc_html__( 'Primary', 'onePagr_theme' ),
+		'menu-2' => esc_html__( 'Mobile', 'onePagr_theme' ),
 	) );
 
 	/*
@@ -61,7 +61,7 @@ function sp_br_fe_17_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'sp_br_fe_17_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'onePagr_theme_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
@@ -82,7 +82,7 @@ function sp_br_fe_17_setup() {
 	) );
 }
 endif;
-add_action( 'after_setup_theme', 'sp_br_fe_17_setup' );
+add_action( 'after_setup_theme', 'onePagr_theme_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -91,21 +91,21 @@ add_action( 'after_setup_theme', 'sp_br_fe_17_setup' );
  *
  * @global int $content_width
  */
-function sp_br_fe_17_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'sp_br_fe_17_content_width', 640 );
+function onePagr_theme_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'onePagr_theme_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'sp_br_fe_17_content_width', 0 );
+add_action( 'after_setup_theme', 'onePagr_theme_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function sp_br_fe_17_widgets_init() {
+function onePagr_theme_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'sp_br_fe_17' ),
+		'name'          => esc_html__( 'Sidebar', 'onePagr_theme' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
+		'description'   => esc_html__( 'Add widgets here.', 'onePagr_theme' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -118,9 +118,9 @@ function sp_br_fe_17_widgets_init() {
 		if ($temp == 2) {
 			// echo 'slide5050';
 			register_sidebar( array(
-				'name'          => esc_html__( 'Slide '.$i.' Left', 'sp_br_fe_17' ),
+				'name'          => esc_html__( 'Slide '.$i.' Left', 'onePagr_theme' ),
 				'id'            => 'slide-'.$i,
-				'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
+				'description'   => esc_html__( 'Add widgets here.', 'onePagr_theme' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',
 				'before_title'  => '<h3 class="widget-title">',
@@ -128,9 +128,9 @@ function sp_br_fe_17_widgets_init() {
 			) );
 
 			register_sidebar( array(
-				'name'          => esc_html__( 'Slide '.$i.' Right', 'sp_br_fe_17' ),
+				'name'          => esc_html__( 'Slide '.$i.' Right', 'onePagr_theme' ),
 				'id'            => 'slide-'.$i.'-right',
-				'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
+				'description'   => esc_html__( 'Add widgets here.', 'onePagr_theme' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',
 				'before_title'  => '<h3 class="widget-title">',
@@ -140,9 +140,9 @@ function sp_br_fe_17_widgets_init() {
 			// echo "<h1>slide_amount ".get_theme_mod('slide_amount')."</h1>";
 			//standart sidebar is 100% so it needs to be else => new slide solution
 			register_sidebar( array(
-				'name'          => esc_html__( 'Slide '.$i, 'sp_br_fe_17' ),
+				'name'          => esc_html__( 'Slide '.$i, 'onePagr_theme' ),
 				'id'            => 'slide-'.$i,
-				'description'   => esc_html__( 'Add widgets here.', 'sp_br_fe_17' ),
+				'description'   => esc_html__( 'Add widgets here.', 'onePagr_theme' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',
 				'before_title'  => '<h3 class="widget-title">',
@@ -151,24 +151,24 @@ function sp_br_fe_17_widgets_init() {
 		}
 	};
 }
-add_action( 'widgets_init', 'sp_br_fe_17_widgets_init' );
+add_action( 'widgets_init', 'onePagr_theme_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function sp_br_fe_17_scripts() {
+function onePagr_theme_scripts() {
 	//no style atm, just my bundle
-	// wp_enqueue_style( 'sp_br_fe_17-style', get_stylesheet_uri() );
+	// wp_enqueue_style( 'onePagr_theme-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'sp_br_fe_17-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'onePagr_theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'sp_br_fe_17-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'onePagr_theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'sp_br_fe_17_scripts' );
+add_action( 'wp_enqueue_scripts', 'onePagr_theme_scripts' );
 
 /**
 	*Custom menu link for theme settings

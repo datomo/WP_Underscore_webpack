@@ -15,14 +15,14 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			<!-- <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'sp_br_fe_17' ) ); ?>"><?php
+			<!-- <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'onePagr_theme' ) ); ?>"><?php
 				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'sp_br_fe_17' ), 'WordPress' );
+				printf( esc_html__( 'Proudly powered by %s', 'onePagr_theme' ), 'WordPress' );
 			?></a>
 			<span class="sep"> | </span> -->
 			<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( '%1$s by %2$s %3$s', 'sp_br_fe_17' ), 'Project OnePage', '<a href="http://davidlengweiler.com/">David Lengweiler</a>', date("Y") );
+				printf( esc_html__( '%1$s by %2$s %3$s', 'onePagr_theme' ), 'Project OnePage', '<a href="http://davidlengweiler.com/">David Lengweiler</a>', date("Y") );
 			?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

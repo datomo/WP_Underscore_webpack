@@ -1,5 +1,5 @@
 <?php
-function sp_br_fe_17_customizer( $wp_customize ) {
+function onePagr_theme_customizer( $wp_customize ) {
 	//remove standart options
 	require_once 'custom_controls.php';
 
@@ -11,18 +11,18 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	$wp_customize->remove_panel( 'nav_menus');
 
 	// add Theme panel
-	$wp_customize->add_panel( 'sp_br_fe_17_panel' , array(
-		'title'      => __( 'Theme Options', 'sp_br_fe_17' ),
+	$wp_customize->add_panel( 'onePagr_theme_panel' , array(
+		'title'      => __( 'Slides', 'onePagr_theme' ),
 		'capability' => 'edit_theme_options',
 		'priority'   => 101,
 	) );
 	/*******************************************************************************
 	 *SIZES SECTION*
 	*******************************************************************************/
-	$wp_customize->add_section( 'sp_br_fe_17_sizes_section' , array(
-		'title'      => __( 'Sizes', 'sp_br_fe_17' ),
+	$wp_customize->add_section( 'onePagr_theme_sizes_section' , array(
+		'title'      => __( 'Sizes', 'onePagr_theme' ),
 		'priority'   => 100,
-		// 'panel'			 => 'sp_br_fe_17_panel',
+		// 'panel'			 => 'onePagr_theme_panel',
 	) );
 
 	$wp_customize->add_setting( 'main-content-size' , array(
@@ -34,7 +34,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	        'main_content_size',
 	        array(
 	            'label'       => __('Main Content Size'),
-	            'section'     => 'sp_br_fe_17_sizes_section',
+	            'section'     => 'onePagr_theme_sizes_section',
 	            'settings'    => 'main-content-size',
 	            // 'description' => __('Measurement is in pixel.'),
 	            'input_attrs' => array(
@@ -54,9 +54,9 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'widget-5050-break', array(
-		'label'     => __( 'At which width should the 50% 50% slide break to the new line?', 'sp_br_fe_17' ),
-		'section'   => 'sp_br_fe_17_sizes_section',
-		// 'panel'			 => 'sp_br_fe_17_panel',
+		'label'     => __( 'At which width should the 50% 50% slide break to the new line?', 'onePagr_theme' ),
+		'section'   => 'onePagr_theme_sizes_section',
+		// 'panel'			 => 'onePagr_theme_panel',
 		'type'      => 'number'
 	) );
 
@@ -64,18 +64,17 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	 *MENU SECTION*
 	*******************************************************************************/
 	$wp_customize->add_section( 'menu-options' , array(
-		'title'      => __( 'Theme Menu Options', 'sp_br_fe_17' ),
+		'title'      => __( 'Mobile Menu', 'onePagr_theme' ),
 		'priority'   => 100,
 		// 'panel'			 => 'panel-nav_menus',
 	) );
 
 	$wp_customize->add_setting( 'menu-direction' , array(
 		'default'   => 'translate(-100%, 0)'
-
 	) );
 
 	$wp_customize->add_control( 'menu-direction', array(
-		'label'     => __( 'Chose the mobile menu:', 'sp_br_fe_17' ),
+		'label'     => __( 'Chose the mobile menu:', 'onePagr_theme' ),
 		'section'   => 'menu-options',
 		'type'      => 'select',
 		'choices' => array(
@@ -90,10 +89,10 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	/*******************************************************************************
 	 *COLORS SECTION*
 	*******************************************************************************/
-	$wp_customize->add_section( 'sp_br_fe_17_colors_section' , array(
-		'title'      => __( 'Colors', 'sp_br_fe_17' ),
+	$wp_customize->add_section( 'onePagr_theme_colors_section' , array(
+		'title'      => __( 'Colors', 'onePagr_theme' ),
 		'priority'   => 100,
-		// 'panel'			 => 'sp_br_fe_17_panel',
+		// 'panel'			 => 'onePagr_theme_panel',
 	) );
 
 	// add setting for the background_color
@@ -103,8 +102,8 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 	// added the colorpicker
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'background_color', array(
-		'label'      => __( 'Background Color', 'sp_br_fe_17' ),
-		'section'    => 'sp_br_fe_17_colors_section',
+		'label'      => __( 'Background Color', 'onePagr_theme' ),
+		'section'    => 'onePagr_theme_colors_section',
 		'settings'   => 'background-color',
 	) ) );
 
@@ -117,8 +116,8 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 	// added the colorpicker
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'menu_color', array(
-		'label'      => __( 'Menu Color', 'sp_br_fe_17' ),
-		'section'    => 'sp_br_fe_17_colors_section',
+		'label'      => __( 'Menu Color', 'onePagr_theme' ),
+		'section'    => 'onePagr_theme_colors_section',
 		'settings'   => 'menu-color',
 	) ) );
 
@@ -131,8 +130,8 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 	// added the colorpicker
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'text_color', array(
-		'label'      => __( 'Text Color', 'sp_br_fe_17' ),
-		'section'    => 'sp_br_fe_17_colors_section',
+		'label'      => __( 'Text Color', 'onePagr_theme' ),
+		'section'    => 'onePagr_theme_colors_section',
 		'settings'   => 'text-color',
 	) ) );
 
@@ -145,8 +144,8 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 	// added the colorpicker
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'heading_color', array(
-		'label'      => __( 'Heading Color', 'sp_br_fe_17' ),
-		'section'    => 'sp_br_fe_17_colors_section',
+		'label'      => __( 'Heading Color', 'onePagr_theme' ),
+		'section'    => 'onePagr_theme_colors_section',
 		'settings'   => 'heading-color',
 	) ) );
 
@@ -157,9 +156,9 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	/*******************************************************************************
 	 *POSTS SECTION*
 	*******************************************************************************/
-	$wp_customize->add_section( 'sp_br_fe_17_posts_section' , array(
-		'title'      => __( 'Posts Option', 'sp_br_fe_17' ),
-		'panel'			 => 'sp_br_fe_17_panel',
+	$wp_customize->add_section( 'onePagr_theme_posts_section' , array(
+		'title'      => __( 'Posts Option', 'onePagr_theme' ),
+		'panel'			 => 'onePagr_theme_panel',
 	) );
 
 	//add a titel
@@ -167,10 +166,10 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'default'           => '',
 	));
 	$wp_customize->add_control(new Title_Custom_control($wp_customize, 'title_posts', array(
-		'label'    		=> esc_html__('Posts options', 'sp_br_fe_17'),
+		'label'    		=> esc_html__('Posts options', 'onePagr_theme'),
 		// 'description' 	=> esc_html__('There are times that you just need to say something.', 'mytheme'),
 		'settings'		=> 'titel-posts',
-		'section'  		=> 'sp_br_fe_17_posts_section',
+		'section'  		=> 'onePagr_theme_posts_section',
 	)));
 
 	$wp_customize->add_setting( 'posts-show', array(
@@ -178,11 +177,11 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control(new Toggle_Checkbox_Custom_control($wp_customize, 'posts_show', array(
-		'label'    		=> esc_html__('Show Posts?', 'sp_br_fe_17'),
+		'label'    		=> esc_html__('Show Posts?', 'onePagr_theme'),
 		'description' => esc_html__('After reenabling the post section please reload.'),
 		'type'     		=> 'toggle_checkbox',
 		'settings'		=> 'posts-show',
-		'section'  		=> 'sp_br_fe_17_posts_section',
+		'section'  		=> 'onePagr_theme_posts_section',
 	)));
 
 	$wp_customize->get_setting( 'posts-show' )->transport = 'postMessage';
@@ -193,10 +192,10 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control(new Toggle_Checkbox_Custom_control($wp_customize, 'posts_background', array(
-		'label'    		=> esc_html__('Should the post have a Background?', 'sp_br_fe_17'),
+		'label'    		=> esc_html__('Should the post have a Background?', 'onePagr_theme'),
 		'type'     		=> 'toggle_checkbox',
 		'settings'		=> 'posts-background',
-		'section'  		=> 'sp_br_fe_17_posts_section',
+		'section'  		=> 'onePagr_theme_posts_section',
 	)));
 
 	// add setting for the menu_color
@@ -206,8 +205,8 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 	// added the colorpicker
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'posts_background_color', array(
-		'label'      => __( 'Posts Background Color', 'sp_br_fe_17' ),
-		'section'    => 'sp_br_fe_17_posts_section',
+		'label'      => __( 'Posts Background Color', 'onePagr_theme' ),
+		'section'    => 'onePagr_theme_posts_section',
 		'settings'   => 'posts-background-color',
 	) ) );
 
@@ -219,9 +218,9 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'posts-radius', array(
-		'label'     => __( 'Change the border radius here:', 'sp_br_fe_17' ),
-		'section'   => 'sp_br_fe_17_posts_section',
-		// 'panel'			 => 'sp_br_fe_17_panel',
+		'label'     => __( 'Change the border radius here:', 'onePagr_theme' ),
+		'section'   => 'onePagr_theme_posts_section',
+		// 'panel'			 => 'onePagr_theme_panel',
 		'type'      => 'number'
 	) );
 
@@ -233,9 +232,9 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'posts-padding', array(
-		'label'     => __( 'Change the space between background and widget here:', 'sp_br_fe_17' ),
-		'section'   => 'sp_br_fe_17_posts_section',
-		// 'panel'			 => 'sp_br_fe_17_panel',
+		'label'     => __( 'Change the space between background and widget here:', 'onePagr_theme' ),
+		'section'   => 'onePagr_theme_posts_section',
+		// 'panel'			 => 'onePagr_theme_panel',
 		'type'      => 'number'
 	) );
 
@@ -248,10 +247,10 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'default'           => '',
 	));
 	$wp_customize->add_control(new Title_Custom_control($wp_customize, 'posts-custom-shadow', array(
-		'label'    		=> esc_html__('Shadow Options', 'sp_br_fe_17'),
+		'label'    		=> esc_html__('Shadow Options', 'onePagr_theme'),
 		// 'description' 	=> esc_html__('There are times that you just need to say something.', 'mytheme'),
 		'settings'		=> 'posts-titel-shadow',
-		'section'  		=> 'sp_br_fe_17_posts_section',
+		'section'  		=> 'onePagr_theme_posts_section',
 	)));
 
 	// add setting for box shadow
@@ -260,8 +259,8 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'posts-shadow-color', array(
-		'label'      => __( 'Add shadow color here:', 'sp_br_fe_17' ),
-		'section'    => 'sp_br_fe_17_posts_section',
+		'label'      => __( 'Add shadow color here:', 'onePagr_theme' ),
+		'section'    => 'onePagr_theme_posts_section',
 		'settings'   => 'posts-shadow-color',
 	) ) );
 
@@ -281,7 +280,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	        'posts-shadow-hvalue',
 	        array(
 	            'label'       => __('Horizontal Shadow'),
-	            'section'     => 'sp_br_fe_17_posts_section',
+	            'section'     => 'onePagr_theme_posts_section',
 	            'settings'    => 'posts-shadow-hvalue',
 	            // 'description' => __('Measurement is in pixel.'),
 	            'input_attrs' => array(
@@ -305,7 +304,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	        'posts-shadow-vvalue',
 	        array(
 	            'label'       => __('Vertical Shadow'),
-	            'section'     => 'sp_br_fe_17_posts_section',
+	            'section'     => 'onePagr_theme_posts_section',
 	            'settings'    => 'posts-shadow-vvalue',
 	            // 'description' => __('Measurement is in pixel.'),
 	            'input_attrs' => array(
@@ -328,7 +327,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	        'posts-shadow-blur',
 	        array(
 	            'label'       => __('Shadow Blur'),
-	            'section'     => 'sp_br_fe_17_posts_section',
+	            'section'     => 'onePagr_theme_posts_section',
 	            'settings'    => 'posts-shadow-blur',
 	            // 'description' => __('Measurement is in pixel.'),
 	            'input_attrs' => array(
@@ -352,7 +351,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	        'posts-shadow-spread',
 	        array(
 	            'label'       => __('Shadow Spreading'),
-	            'section'     => 'sp_br_fe_17_posts_section',
+	            'section'     => 'onePagr_theme_posts_section',
 	            'settings'    => 'posts-shadow-spread',
 	            // 'description' => __('Measurement is in pixel.'),
 	            'input_attrs' => array(
@@ -369,9 +368,9 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	/*******************************************************************************
 	 *SLIDES SECTION*
 	*******************************************************************************/
-	$wp_customize->add_section( 'sp_br_fe_17_slides_section' , array(
-		'title'      => __( 'General Slides', 'sp_br_fe_17' ),
-		'panel'			 => 'sp_br_fe_17_panel',
+	$wp_customize->add_section( 'onePagr_theme_slides_section' , array(
+		'title'      => __( 'General Slides', 'onePagr_theme' ),
+		'panel'			 => 'onePagr_theme_panel',
 		'priority'   => 101,
 	) );
 
@@ -382,8 +381,8 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	//
 	// //add controll to hightlight widgets
 	// $wp_customize->add_control( 'highlight-widgets', array(
-	// 	'label'     => __( 'Highlight all widget areas? ', 'sp_br_fe_17' ),
-	// 	'section'   => 'sp_br_fe_17_slides_section',
+	// 	'label'     => __( 'Highlight all widget areas? ', 'onePagr_theme' ),
+	// 	'section'   => 'onePagr_theme_slides_section',
 	// 	'priority'  => 11,
 	// 	'type'      => 'checkbox'
 	// ) );
@@ -398,10 +397,10 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	$amount = get_theme_mod('slide_amount');
 	// add control for amount of slides
 	$wp_customize->add_control( 'slide_amount', array(
-		'label'     => __( 'How many slides are needed? At the moment there are: '.$amount, 'sp_br_fe_17' ),
+		'label'     => __( 'How many slides are needed? At the moment there are: '.$amount, 'onePagr_theme' ),
 		'description' => __( 'If you add new slides you need to reload the window.'),
-		'section'   => 'sp_br_fe_17_slides_section',
-		// 'panel'			 => 'sp_br_fe_17_panel',
+		'section'   => 'onePagr_theme_slides_section',
+		// 'panel'			 => 'onePagr_theme_panel',
 		'type'      => 'number'
 	) );
 
@@ -412,18 +411,18 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 	// added the colorpicker
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'widget_color', array(
-		'label'      => __( 'Widget Background Color', 'sp_br_fe_17' ),
-		'section'    => 'sp_br_fe_17_slides_section',
+		'label'      => __( 'Widget Background Color', 'onePagr_theme' ),
+		'section'    => 'onePagr_theme_slides_section',
 		'settings'   => 'widget-color',
 	) ) );
 
 	$wp_customize->get_setting( 'widget-color' )->transport = 'postMessage';
 
 	$wp_customize->add_control( 'slide_amount', array(
-		'label'     => __( 'How many slides are needed? At the moment there are: '.$amount, 'sp_br_fe_17' ),
+		'label'     => __( 'How many slides are needed? At the moment there are: '.$amount, 'onePagr_theme' ),
 		'description' => __( 'If you add new slides you need to reload the window.'),
-		'section'   => 'sp_br_fe_17_slides_section',
-		// 'panel'			 => 'sp_br_fe_17_panel',
+		'section'   => 'onePagr_theme_slides_section',
+		// 'panel'			 => 'onePagr_theme_panel',
 		'type'      => 'number'
 	) );
 
@@ -433,9 +432,9 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'slide-radius', array(
-		'label'     => __( 'Change the border radius here:', 'sp_br_fe_17' ),
-		'section'   => 'sp_br_fe_17_slides_section',
-		// 'panel'			 => 'sp_br_fe_17_panel',
+		'label'     => __( 'Change the border radius here:', 'onePagr_theme' ),
+		'section'   => 'onePagr_theme_slides_section',
+		// 'panel'			 => 'onePagr_theme_panel',
 		'type'      => 'number'
 	) );
 
@@ -447,9 +446,9 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'slide-padding', array(
-		'label'     => __( 'Change the space between background and widget here:', 'sp_br_fe_17' ),
-		'section'   => 'sp_br_fe_17_slides_section',
-		// 'panel'			 => 'sp_br_fe_17_panel',
+		'label'     => __( 'Change the space between background and widget here:', 'onePagr_theme' ),
+		'section'   => 'onePagr_theme_slides_section',
+		// 'panel'			 => 'onePagr_theme_panel',
 		'type'      => 'number'
 	) );
 
@@ -462,10 +461,10 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		'default'           => '',
 	));
 	$wp_customize->add_control(new Title_Custom_control($wp_customize, 'custom-shadow', array(
-		'label'    		=> esc_html__('Shadow Options', 'sp_br_fe_17'),
+		'label'    		=> esc_html__('Shadow Options', 'onePagr_theme'),
 		// 'description' 	=> esc_html__('There are times that you just need to say something.', 'mytheme'),
 		'settings'		=> 'titel-shadow',
-		'section'  		=> 'sp_br_fe_17_slides_section'.$i,
+		'section'  		=> 'onePagr_theme_slides_section'.$i,
 	)));
 
 	// add setting for box shadow
@@ -474,8 +473,8 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'shadow-color', array(
-		'label'      => __( 'Add shadow color here:', 'sp_br_fe_17' ),
-		'section'    => 'sp_br_fe_17_slides_section',
+		'label'      => __( 'Add shadow color here:', 'onePagr_theme' ),
+		'section'    => 'onePagr_theme_slides_section',
 		'settings'   => 'shadow-color',
 	) ) );
 
@@ -495,7 +494,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	        'shadow-hvalue',
 	        array(
 	            'label'       => __('Horizontal Shadow'),
-	            'section'     => 'sp_br_fe_17_slides_section',
+	            'section'     => 'onePagr_theme_slides_section',
 	            'settings'    => 'shadow-hvalue',
 	            // 'description' => __('Measurement is in pixel.'),
 	            'input_attrs' => array(
@@ -519,7 +518,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	        'shadow-vvalue',
 	        array(
 	            'label'       => __('Vertical Shadow'),
-	            'section'     => 'sp_br_fe_17_slides_section',
+	            'section'     => 'onePagr_theme_slides_section',
 	            'settings'    => 'shadow-vvalue',
 	            // 'description' => __('Measurement is in pixel.'),
 	            'input_attrs' => array(
@@ -543,7 +542,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	        'shadow-blur',
 	        array(
 	            'label'       => __('Shadow Blur'),
-	            'section'     => 'sp_br_fe_17_slides_section',
+	            'section'     => 'onePagr_theme_slides_section',
 	            'settings'    => 'shadow-blur',
 	            // 'description' => __('Measurement is in pixel.'),
 	            'input_attrs' => array(
@@ -567,7 +566,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	        'shadow-spread',
 	        array(
 	            'label'       => __('Shadow Spreading'),
-	            'section'     => 'sp_br_fe_17_slides_section',
+	            'section'     => 'onePagr_theme_slides_section',
 	            'settings'    => 'shadow-spread',
 	            // 'description' => __('Measurement is in pixel.'),
 	            'input_attrs' => array(
@@ -589,7 +588,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	));
 	$wp_customize->add_control(new Separator_Custom_control($wp_customize, 'separator', array(
 		'settings'		=> 'separator',
-		'section'  		=> 'sp_br_fe_17_slides_section',
+		'section'  		=> 'onePagr_theme_slides_section',
 	)));
 
 	for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
@@ -604,10 +603,10 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 			'default'           => '',
 		));
 		$wp_customize->add_control(new Title_Custom_control($wp_customize, 'custom_info'.$i, array(
-			'label'    		=> esc_html__('Slide '.$i, 'sp_br_fe_17'),
+			'label'    		=> esc_html__('Slide '.$i, 'onePagr_theme'),
 			// 'description' 	=> esc_html__('There are times that you just need to say something.', 'mytheme'),
 			'settings'		=> 'custom-info'.$i,
-			'section'  		=> 'sp_br_fe_17_slides_section'.$i,
+			'section'  		=> 'onePagr_theme_slides_section'.$i,
 		)));
 
 		$wp_customize->add_setting( 'slide-type-'.$i, array(
@@ -615,16 +614,19 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( 'slide-type-'.$i, array(
-			'label'     => __( 'Type of Slide '.$i, 'sp_br_fe_17' ),
-			'section'   => 'sp_br_fe_17_slides_section'.$i,
+			'label'     => __( 'Type of Slide '.$i, 'onePagr_theme' ),
+			'section'   => 'onePagr_theme_slides_section'.$i,
 			'type'      => 'select',
 			'choices' => array(
 				'1' => __( 'Widget 100%' ),
 				'2' => __( 'Widget 50%' ),
-				'3' => __( 'Post Section')
+				'3' => __( 'Post Section'),
+				'4' => __( 'Image 100%')
 			)
 		) );
 
+
+		//start background for individual //////////////////////////////////////////
 
 		if (get_theme_mod('slide-type-'.$i) == 1) {
 			$repeat = 1;
@@ -635,7 +637,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 		}
 
 		for ($jj = 1; $jj <= $repeat; $jj++) {
-			if (get_theme_mod('slide-type-'.$i) == 1) {
+			if (get_theme_mod('slide-type-'.$i) == 1 or 4) {
 				//one 100 panel same
 				$string = '';
 				$position = '';
@@ -656,16 +658,16 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 			// add control if background is shown
 			$wp_customize->add_control(new Toggle_Checkbox_Custom_control($wp_customize, 'slide-'.$i.'-background'.$string, array(
-				'label'     => __( 'Slide '.$i.$position.' Background', 'sp_br_fe_17' ),
-				'section'   => 'sp_br_fe_17_slides_section'.$i,
+				'label'     => __( 'Slide '.$i.$position.' Background', 'onePagr_theme' ),
+				'section'   => 'onePagr_theme_slides_section'.$i,
 				'type'      => 'toggle_checkbox',
 				// 'active_callback' => 'choice_options_callback',
 			) ) );
 
 			//section for slides??
-			$wp_customize->add_section( 'sp_br_fe_17_slides_section'.$i , array(
-				'title'      => __( 'Slide '.$i, 'sp_br_fe_17' ),
-				'panel'			 => 'sp_br_fe_17_panel',
+			$wp_customize->add_section( 'onePagr_theme_slides_section'.$i , array(
+				'title'      => __( 'Slide '.$i, 'onePagr_theme' ),
+				'panel'			 => 'onePagr_theme_panel',
 			) );
 
 			// add setting for slide id
@@ -675,8 +677,8 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 			// add control for slide id
 			$wp_customize->add_control( 'slide-'.$i.'-class'.$string, array(
-				'label'     => __( 'Add Styling Classes to Slide'.$position.' :', 'sp_br_fe_17' ),
-				'section'   => 'sp_br_fe_17_slides_section'.$i,
+				'label'     => __( 'Add Styling Classes to Slide'.$position.' :', 'onePagr_theme' ),
+				'section'   => 'onePagr_theme_slides_section'.$i,
 				'type'      => 'text',
 				// 'active_callback' => 'choice_options_callback',
 			) );
@@ -691,11 +693,26 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 			));
 			$wp_customize->add_control(new Separator_Custom_control($wp_customize, 'separator'.$string, array(
 				'settings'		=> 'separator'.$i.$string,
-				'section'  		=> 'sp_br_fe_17_slides_section'.$i,
+				'section'  		=> 'onePagr_theme_slides_section'.$i,
 				// 'active_callback' => 'choice_options_callback',
 			)));
+
+			//check if slide is image/////////////////////////////////////////////////////
+
+			$wp_customize->add_setting('image-100-'.$i, array(
+				'default'           => 'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg', //need to replace that
+			));
+
+			$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'image_100_'.$i, array(
+				 'label'             => __('Select your Image:', 'onePagr_theme'),
+				 'section'  		=> 'onePagr_theme_slides_section'.$i,
+				 'settings'          => 'image-100-'.$i,
+		 	)));
+
 		}
 	}
+
+
 
 	//enable live reload
 	// $wp_customize->get_setting( 'highlight-widgets' )->transport = 'postMessage';
@@ -703,10 +720,10 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 	/*******************************************************************************
 	 *TYPOGRAPHY SECTION*
 	*******************************************************************************/
-	$wp_customize->add_section( 'sp_br_fe_17_typo_section' , array(
-		'title'      => __( 'Typography', 'sp_br_fe_17' ),
+	$wp_customize->add_section( 'onePagr_theme_typo_section' , array(
+		'title'      => __( 'Typography', 'onePagr_theme' ),
 		'priority'   => 102,
-		// 'panel'			 => 'sp_br_fe_17_panel',
+		// 'panel'			 => 'onePagr_theme_panel',
 	) );
 
 	// add setting for typo link
@@ -716,8 +733,8 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 	// add control for typo link
 	$wp_customize->add_control( 'typo-link', array(
-		'label'     => __( 'Place Link from Google Fonts here:', 'sp_br_fe_17' ),
-		'section'   => 'sp_br_fe_17_typo_section',
+		'label'     => __( 'Place Link from Google Fonts here:', 'onePagr_theme' ),
+		'section'   => 'onePagr_theme_typo_section',
 		'priority'  => 11,
 		'type'      => 'textarea'
 	) );
@@ -729,8 +746,8 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 	// add control for typo style
 	$wp_customize->add_control( 'typo-style', array(
-		'label'     => __( 'Place Styletag from Google Fonts here:', 'sp_br_fe_17' ),
-		'section'   => 'sp_br_fe_17_typo_section',
+		'label'     => __( 'Place Styletag from Google Fonts here:', 'onePagr_theme' ),
+		'section'   => 'onePagr_theme_typo_section',
 		'priority'  => 12,
 		'type'      => 'textarea'
 	) );
@@ -742,8 +759,8 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 	//add controll for type align
 	$wp_customize->add_control( 'typo-align', array(
-		'label'     => __( 'How should the text be aligned?', 'sp_br_fe_17' ),
-		'section'   => 'sp_br_fe_17_typo_section',
+		'label'     => __( 'How should the text be aligned?', 'onePagr_theme' ),
+		'section'   => 'onePagr_theme_typo_section',
 		'priority'  => 13,
 		'type'      => 'select',
 		'default' => 1,
@@ -757,7 +774,7 @@ function sp_br_fe_17_customizer( $wp_customize ) {
 
 
 }
-add_action( 'customize_register', 'sp_br_fe_17_customizer' );
+add_action( 'customize_register', 'onePagr_theme_customizer' );
 
 
 

@@ -43,7 +43,7 @@
 
 
 		<nav id="site-navigation" class="main-navigation nav">
-			<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary', 'sp_br_fe_17' ); ?></button> -->
+			<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary', 'onePagr_theme' ); ?></button> -->
 			<div class="main-menu">
 				<?php
 				wp_nav_menu( array(

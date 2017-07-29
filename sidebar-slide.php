@@ -83,6 +83,16 @@ for ($i = 1; $i <= get_theme_mod('slide_amount'); $i++) {
 			endif; ?>
 			<?php
 
+		case 4:
+			$classimg100 = get_theme_mod('slide-'.$i.'-background') ? 'background': '';
+			?>
+				<div class="container-simple image-100-holder <?php echo $classimg100;?>">
+					<img class="image-100" src="<?php echo get_theme_mod('image-100-'.$i)?>" alt="<?php get_theme_mod('image-100-desc-'.$i)?>">
+				</div>
+			</aside><!-- #secondary -->
+			<?php
+			break;
+
 		default:
 			# code...
 			echo "ups something went wrong...";
