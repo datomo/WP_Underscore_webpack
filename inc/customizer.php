@@ -705,7 +705,7 @@ function onePagr_theme_customizer( $wp_customize ) {
 
 			$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'image_100_'.$i, array(
 				 'label'             => __('Select your Image:', 'onePagr_theme'),
-				 'section'  		=> 'onePagr_theme_slides_section'.$i,
+				 'section'  				 => 'onePagr_theme_slides_section'.$i,
 				 'settings'          => 'image-100-'.$i,
 		 	)));
 
