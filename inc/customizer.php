@@ -709,6 +709,7 @@ function onePagr_theme_customizer( $wp_customize ) {
 				 'settings'          => 'image-100-'.$i,
 		 	)));
 
+			$wp_customize->get_setting( 'image-100-'.$i )->transport = 'postMessage';
 		}
 	}
 
