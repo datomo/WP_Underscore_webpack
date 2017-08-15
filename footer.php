@@ -20,7 +20,13 @@
 				printf( esc_html__( 'Proudly powered by %s', 'sp_br_fe_17' ), 'WordPress' );
 			?></a>
 			<span class="sep"> | </span> -->
-			<?php
+
+				<div class="sponser-baner">
+					<?php
+					dynamic_sidebar( 'footer' );
+					?>
+				</div>
+				<?php
 				/* translators: 1: Theme name, 2: Theme author. */
 				printf( esc_html__( '%1$s von %2$s %3$s', 'sp_br_fe_17' ), 'Sprungbrätt Festival Allschwil', '<a href="http://davidlengweiler.com/">David Lengweiler</a>', date("Y") );
 			?>
