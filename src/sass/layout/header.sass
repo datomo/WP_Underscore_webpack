@@ -9,7 +9,6 @@
   background:
     color: $darkblue
 
-
   @media screen and (max-width: 715px)
     background:
       color: transparent
@@ -113,3 +112,22 @@ a
 
 .main-navigation
   display: inline-block
+
+.social-logos
+  height: 20px
+  float: right
+
+  @media screen and (max-width: 715px)
+    padding: 40px !important
+
+  a
+    color: white
+
+    &:hover
+      svg
+        fill: $yellow
+
+  svg
+    height: 1.414rem
+    width: auto
+    vertical-align: sub
