@@ -13,7 +13,7 @@ jQuery(document).ready(function(){
   }
 
   open_button.on("click", function() {
-    TweenMax.from(overlay_container, 0.2, { autoAlpha: 0})
+    TweenMax.to(overlay_container, 0.2, { autoAlpha: 1})
     overlay_container.removeClass('hidden')
   })
 
