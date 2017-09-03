@@ -13,13 +13,11 @@ jQuery(document).ready(function(){
   }
 
   open_button.on("click", function() {
-    console.log("clicked")
     TweenMax.from(overlay_container, 0.2, { autoAlpha: 0})
     overlay_container.removeClass('hidden')
   })
 
   close_button.on("click", function() {
-    console.log("clicked")
     TweenMax.to(overlay_container, 0.2, { autoAlpha: 0})
     overlay_container.addClass('hidden')
   })

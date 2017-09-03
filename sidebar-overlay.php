@@ -18,9 +18,11 @@ if ( ! is_active_sidebar( 'overlay' ) ) {
 		<?php dynamic_sidebar( 'overlay' ); ?>
 		<div class="closebar">
 			<a href="">
-				<h3 class="close">Schliessen</h3>
+				<h3 class="closetools close">Schliessen</h3>
 			</a>
-
+			<a href="">
+				<h3 class="closetools download">Plan herunterladen</h3>
+			</a>
 		</div>
 	</div>
 </aside><!-- #secondary -->
