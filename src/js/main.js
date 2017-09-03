@@ -18,3 +18,6 @@ require('./menu')
 
 //require menu
 require('./acts')
+
+
+require('./overlay')

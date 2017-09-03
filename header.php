@@ -43,18 +43,19 @@
 
 
 		<nav id="site-navigation" class="main-navigation closed">
-			<div class="link" id="link-slide-hero" rel="#slide-1"><h3>Start</h3></div>
-			<div class="link" id="link-slide-acts" rel="#slide-2"><h3>Programm</h3></div>
+			<div class="link  slide-link" id="link-slide-hero" rel="#slide-1"><h3>Start</h3></div>
+			<div class="link  slide-link" id="link-slide-acts" rel="#slide-2"><h3>Programm</h3></div>
 
 			<?php
 			if (  is_active_sidebar( 'slide-gallery' ) ) {
 				?>
-				<div class="link" id="link-slide-gallery" rel="#slide-3"><h3>Impressionen</h3></div>
+				<div class="link slide-link" id="link-slide-gallery" rel="#slide-3"><h3>Impressionen</h3></div>
 				<?php
 			}
 			?>
 
-			<div class="link" id="link-slide-contact" rel="#slide-4"><h3>Kontakt</h3></div>
+			<div class="link slide-link" id="link-slide-contact" rel="#slide-4"><h3>Kontakt</h3></div>
+			<div class="link" id="link-plan" rel=""><h3>Plan</h3></div>
 			<div class="link social-logos">
 				<a href="https://www.facebook.com/sprungbraett/" target="_blank">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 60.734 60.733" xml:space="preserve">

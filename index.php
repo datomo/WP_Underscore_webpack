@@ -24,6 +24,8 @@ get_header(); ?>
 			};
 			get_sidebar('slide-hero');
 
+			get_sidebar('overlay');
+
 			get_sidebar('slide-acts');
 
 			get_sidebar('slide-gallery');

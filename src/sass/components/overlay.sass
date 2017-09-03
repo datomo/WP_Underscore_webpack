@@ -1,0 +1,29 @@
+.overlay
+  position: fixed
+  height: 100vh
+  width: 100vw
+  top: 0
+  left: 0
+  background: rgba(0, 0, 0, 0.65)
+  z-index: 100
+
+  &.hidden
+    display: none
+
+  .container-simple
+    display: block
+    text-align: center
+
+    .widget
+      img
+        height: 90vh !important
+        top: 5vh
+        position: relative
+        width: auto
+
+    .closebar
+      bottom: 0
+      position: absolute
+      width: 100vw
+
+      .close

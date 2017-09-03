@@ -4,6 +4,9 @@ require('script-loader!./vendor/ScrollToPlugin.min.js')
 
 jQuery(document).ready(function(){
 
+  // jQuery("#link-plan").on("click", function() {
+  //   console.log("test")
+  // })
   // console.log("test0")
   // TweenLite.to(jQuery(".img-frame"), 10, {rotation: 360})
   // console.log(jQuery(".img-frame"))
@@ -11,7 +14,7 @@ jQuery(document).ready(function(){
   var $menu = jQuery('#site-navigation')
   var $window = jQuery(window)
 
-  $menu.on("click", "div", function() {
+  $menu.on("click", "div.slide-link", function() {
     var $this = jQuery(this),
         href = $this.attr("rel"),
         topY = jQuery(href).offset().top;
