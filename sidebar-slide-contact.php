@@ -11,7 +11,7 @@
 // 	return;
 // }
 ?>
-<div class="contact-holder clearfix slide-contact" id="slide-4">
+<div class="contact-holder clearfix slide slide-contact" id="slide-4">
 	<h2 class="widget-title">Kontakt</h2>
 	<div class="contact-back">
 		<div class="contact-left contact-widget">

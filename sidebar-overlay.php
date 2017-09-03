@@ -20,7 +20,10 @@ if ( ! is_active_sidebar( 'overlay' ) ) {
 
 			<h3 class="closetools close">Schliessen</h3>
 
-			<h3 class="closetools download">Plan herunterladen</h3>
+			<button type="submit" onclick="window.open('http://www.sprungbraett-festival.ch/wp-content/uploads/2017/09/Ablauf_Acts_2017.pdf')">
+				<h3 class="closetools download">Plan herunterladen</h3>
+			</button>
+
 
 		</div>
 	</div>

@@ -30,6 +30,8 @@ get_header(); ?>
 
 			get_sidebar('slide-gallery');
 
+			get_sidebar('slide-map');
+
 			get_sidebar('slide-contact');
 			?>
 
