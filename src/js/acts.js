@@ -18,13 +18,13 @@ function openTab(evt, tabName) {
 }
 
 jQuery(document).ready(function() {
-  jQuery("#link-acts").on("click", function() {
+  jQuery("#link-acts").on("click", function(event) {
     openTab(event, "acts")
   })
-  jQuery("#link-tanz").on("click", function() {
+  jQuery("#link-tanz").on("click", function(event) {
     openTab(event, "tanz")
   })
-  jQuery("#link-slam").on("click", function() {
+  jQuery("#link-slam").on("click", function(event) {
     openTab(event, "slam")
   })
 })
