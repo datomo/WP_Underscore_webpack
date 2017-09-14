@@ -13,6 +13,11 @@ if ( ! is_active_sidebar( 'slide-acts-bands' ) ) {
 ?>
 <div class="slide-acts" id="slide-2">
 	<h2 class="widget-title">Programm</h2>
+
+	<?php
+	get_sidebar('programmpdf');
+	?>
+
 	<div class="tab">
 	  <button  class="tablinks active" id="link-acts">
 			<img src="<?php bloginfo('stylesheet_directory'); ?>/src/img/Speaker.svg" alt="">
